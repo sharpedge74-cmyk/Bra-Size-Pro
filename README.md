@@ -10,7 +10,7 @@
 
 This site uses a standard Jekyll architecture with a **flat root for tools and guides**:
 - **Tools (14):** Directly in project root as `.html` files (e.g., `bra-size-calculator.html`, `sister-size-calculator.html`).
-- **Guides (9):** Directly in project root as `.html` files (e.g., `how-to-measure-bra-size-at-home.html`).
+- **Guides (10):** Directly in project root as `.html` files (e.g., `how-to-measure-bra-size-at-home.html`).
 - **Pages (8):** Stored in `_pages/` with explicit slashless permalinks (e.g., `permalink: /about`).
 - **Layouts (`_layouts/`):** `default.html`, `tool.html`, `guide.html`, `page.html`, `home.html`.
 - **Includes (`_includes/`):**
