@@ -23,7 +23,7 @@ layout: default
 
   <header class="tool-header">
     <div class="tool-meta-kicker">
-      <span class="tool-category">Precision Interactive Tool</span>
+      <span class="tool-category">Interactive Sizing Tool</span>
       {% if page.last_reviewed %}
       <span class="tool-kicker-sep" aria-hidden="true">&middot;</span>
       <span class="tool-reviewed">Reviewed {{ page.last_reviewed }}</span>
@@ -46,8 +46,8 @@ layout: default
   {% include components/faq.html %}
 
   {% if page.sources %}
-  <section class="sources-section" aria-label="Methodology and Clinical Sources">
-    <h3 class="sources-heading">Scientific & Sizing References</h3>
+  <section class="sources-section" aria-label="Sizing References">
+    <h3 class="sources-heading">Sizing References</h3>
     <ul class="sources-list">
       {% for source in page.sources %}
       <li class="source-item">{{ source }}</li>
