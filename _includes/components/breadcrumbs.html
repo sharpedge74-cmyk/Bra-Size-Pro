@@ -2,13 +2,16 @@
 {% if page_slug != '/' and page_slug != '' %}
 <nav class="breadcrumbs" aria-label="Breadcrumb">
   <ol class="breadcrumb-list">
-    <li class="breadcrumb-item">
-      <a href="/" class="breadcrumb-link">Home</a>
-    </li>
+    <li class="breadcrumb-item"><a href="/" class="breadcrumb-link">Home</a></li>
     <li class="breadcrumb-separator" aria-hidden="true">/</li>
-    <li class="breadcrumb-item breadcrumb-current" aria-current="page">
-      {% if page.breadcrumb_label %}{{ page.breadcrumb_label }}{% else %}{{ page.title }}{% endif %}
-    </li>
+    {% if page.layout == 'tool' %}
+    <li class="breadcrumb-item"><a href="/bra-size-calculator" class="breadcrumb-link">Sizing Tools</a></li>
+    <li class="breadcrumb-separator" aria-hidden="true">/</li>
+    {% elsif page.layout == 'guide' %}
+    <li class="breadcrumb-item"><a href="/bra-sizing-methodology" class="breadcrumb-link">Sizing Guides</a></li>
+    <li class="breadcrumb-separator" aria-hidden="true">/</li>
+    {% endif %}
+    <li class="breadcrumb-item breadcrumb-current" aria-current="page">{% if page.breadcrumb_label %}{{ page.breadcrumb_label }}{% else %}{{ page.title }}{% endif %}</li>
   </ol>
 </nav>
 {% endif %}
