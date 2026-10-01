@@ -163,7 +163,7 @@ window.IMRango = (function() {
           if (convertValues && input.value !== '') {
             const value = parseFloat(input.value);
             if (Number.isFinite(value)) {
-              input.value = (toCm ? value * 2.54 : value / 2.54).toFixed(1).replace(/\\.0$/, '');
+              input.value = (toCm ? value * 2.54 : value / 2.54).toFixed(1).replace(/\.0$/, '');
             }
           }
           input.step = toCm ? '0.5' : '0.25';
