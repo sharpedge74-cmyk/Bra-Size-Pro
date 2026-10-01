@@ -9,6 +9,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const systemSelect = document.getElementById('calc-system');
   const resultBox = document.getElementById('calc-result-box');
 
+  const measurementInputs = [
+    document.getElementById('underbust-input'),
+    document.getElementById('tight-underbust'),
+    document.getElementById('bust-input'),
+    document.getElementById('leaning-bust')
+  ].filter(Boolean);
+
+  const updateMeasurementUnits = (unit, convertValues = false) => {
+    const isCm = unit === 'cm';
+    measurementInputs.forEach((input) => {
+      if (convertValues && input.value !== '') {
+        const value = parseFloat(input.value);
+        if (Number.isFinite(value)) {
+          input.value = (isCm ? value * 2.54 : value / 2.54).toFixed(1).replace(/\\.0$/, '');
+        }
+      }
+      input.step = isCm ? '0.5' : '0.25';
+    });
+
+    form.querySelectorAll('.calc-input-unit').forEach((label) => {
+      label.textContent = isCm ? 'cm' : 'in';
+    });
+  };
+
+  updateMeasurementUnits(unitSelect?.value || 'inches');
+  unitSelect?.addEventListener('change', () => {
+    updateMeasurementUnits(unitSelect.value, true);
+  });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const unit = unitSelect ? unitSelect.value : 'inches';
