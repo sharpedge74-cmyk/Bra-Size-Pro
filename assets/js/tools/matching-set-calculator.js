@@ -23,14 +23,18 @@ document.addEventListener('DOMContentLoaded', () => {
       alert('Please check your bust and underbust measurements.');
       return;
     }
-    const cup = IMRango.getCupForSystem(cupIdx, 'us') || 'AA';
+    const cup = IMRango.getCupForSystem(cupIdx, 'us');
+    if (cup === null) {
+      alert('We could not calculate a cup starting point from these measurements.');
+      return;
+    }
     const rows = IMRango.getData('sizes')?.panty_sizes || [];
     const row = rows.find(r => {
       const parts = String(r.hips_in).split('-').map(Number);
       return parts.length === 2 && parts.every(Number.isFinite) && hips >= parts[0] && hips <= parts[1];
     });
     const bottomAlpha = row ? row.label : 'Outside reference range';
-    document.getElementById('set-res-bra').textContent = `${band}${cup}`;
+    document.getElementById('set-res-bra').textContent = `${band}${cup} (starting point)`;
     document.getElementById('set-res-bottom').textContent = bottomAlpha;
     document.getElementById('set-res-tip').textContent = 'The bottom size is based on the supplied hip measurement; bra and bottom pieces can use different sizes.';
     const box = document.getElementById('set-result-box');
