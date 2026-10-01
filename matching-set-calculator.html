@@ -24,26 +24,35 @@ faq:
 ---
 
 <div class="calculator-card">
-  <form id="matching-set-form" class="calc-form">
+  <form id="matching-set-form" class="calc-form" data-measurement-unit-form>
+    <div class="calc-control-group measurement-unit-control">
+      <label for="matching-set-form-unit">Measurement Unit</label>
+      <div class="calc-input-wrapper">
+        <select id="matching-set-form-unit" class="measurement-unit-select" name="unit">
+          <option value="inches" selected>Inches (in)</option>
+          <option value="cm">Centimeters (cm)</option>
+        </select>
+      </div>
+    </div>
     <div class="calc-card-grid">
       <div class="calc-control-group">
-        <label for="set-underbust">Underbust (in)</label>
+        <label for="set-underbust">Underbust <span class="measurement-unit-label">in</span></label>
         <div class="calc-input-wrapper">
-          <input type="number" step="0.5" id="set-underbust" value="32" required>
+          <input type="number" step="0.5" id="set-underbust" class="measurement-input" value="32" required>
         </div>
       </div>
 
       <div class="calc-control-group">
-        <label for="set-bust">Full Bust (in)</label>
+        <label for="set-bust">Full Bust <span class="measurement-unit-label">in</span></label>
         <div class="calc-input-wrapper">
-          <input type="number" step="0.5" id="set-bust" value="36" required>
+          <input type="number" step="0.5" id="set-bust" class="measurement-input" value="36" required>
         </div>
       </div>
 
       <div class="calc-control-group">
-        <label for="set-hips">Full Hips (in)</label>
+        <label for="set-hips">Full Hips <span class="measurement-unit-label">in</span></label>
         <div class="calc-input-wrapper">
-          <input type="number" step="0.5" id="set-hips" value="39" required>
+          <input type="number" step="0.5" id="set-hips" class="measurement-input" value="39" required>
         </div>
       </div>
     </div>
