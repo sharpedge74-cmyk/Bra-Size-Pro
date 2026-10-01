@@ -24,19 +24,28 @@ faq:
 ---
 
 <div class="calculator-card">
-  <form id="maternity-calc-form" class="calc-form">
+  <form id="maternity-calc-form" class="calc-form" data-measurement-unit-form>
+    <div class="calc-control-group measurement-unit-control">
+      <label for="maternity-calc-form-unit">Measurement Unit</label>
+      <div class="calc-input-wrapper">
+        <select id="maternity-calc-form-unit" class="measurement-unit-select" name="unit">
+          <option value="inches" selected>Inches (in)</option>
+          <option value="cm">Centimeters (cm)</option>
+        </select>
+      </div>
+    </div>
     <div class="calc-card-grid">
       <div class="calc-control-group">
-        <label for="mat-underbust">Current Ribcage Underbust (in)</label>
+        <label for="mat-underbust">Current Ribcage Underbust <span class="measurement-unit-label">in</span></label>
         <div class="calc-input-wrapper">
-          <input type="number" step="0.5" id="mat-underbust" value="34" required>
+          <input type="number" step="0.5" id="mat-underbust" class="measurement-input" value="34" required>
         </div>
       </div>
 
       <div class="calc-control-group">
-        <label for="mat-bust">Current Bust (in)</label>
+        <label for="mat-bust">Current Bust <span class="measurement-unit-label">in</span></label>
         <div class="calc-input-wrapper">
-          <input type="number" step="0.5" id="mat-bust" value="39" required>
+          <input type="number" step="0.5" id="mat-bust" class="measurement-input" value="39" required>
         </div>
       </div>
 
