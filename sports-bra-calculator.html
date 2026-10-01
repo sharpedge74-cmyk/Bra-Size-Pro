@@ -24,19 +24,28 @@ faq:
 ---
 
 <div class="calculator-card">
-  <form id="sports-bra-form" class="calc-form">
+  <form id="sports-bra-form" class="calc-form" data-measurement-unit-form>
+    <div class="calc-control-group measurement-unit-control">
+      <label for="sports-bra-form-unit">Measurement Unit</label>
+      <div class="calc-input-wrapper">
+        <select id="sports-bra-form-unit" class="measurement-unit-select" name="unit">
+          <option value="inches" selected>Inches (in)</option>
+          <option value="cm">Centimeters (cm)</option>
+        </select>
+      </div>
+    </div>
     <div class="calc-card-grid">
       <div class="calc-control-group">
-        <label for="sb-underbust">Ribcage Underbust (in)</label>
+        <label for="sb-underbust">Ribcage Underbust <span class="measurement-unit-label">in</span></label>
         <div class="calc-input-wrapper">
-          <input type="number" step="0.5" id="sb-underbust" value="32" required>
+          <input type="number" step="0.5" id="sb-underbust" class="measurement-input" value="32" required>
         </div>
       </div>
 
       <div class="calc-control-group">
-        <label for="sb-bust">Full Bust (in)</label>
+        <label for="sb-bust">Full Bust <span class="measurement-unit-label">in</span></label>
         <div class="calc-input-wrapper">
-          <input type="number" step="0.5" id="sb-bust" value="37" required>
+          <input type="number" step="0.5" id="sb-bust" class="measurement-input" value="37" required>
         </div>
       </div>
 
