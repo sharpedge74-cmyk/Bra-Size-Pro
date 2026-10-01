@@ -23,7 +23,12 @@ exclude:
   - .env.example
 
 plugins:
-  - jekyll-seo-tag
+  - jekyll-sitemap
+  - jekyll-paginate
+  - jemoji
+  - jekyll-toc
+  - jekyll-livereload
+  - jekyll-redirect-from
 
 sass:
   sass_dir: _sass
