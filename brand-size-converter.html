@@ -1,7 +1,7 @@
 ---
 layout: tool
 title: "Brand Size Converter"
-description: "Translate your universal bra size across major lingerie brands like Victoria's Secret, Panache, Freya, Wacoal, Natori, Skims, and ThirdLove."
+description: "Compare a baseline bra size with the stated sizing system used by selected lingerie brands."
 permalink: /brand-size-converter
 breadcrumb_label: "Brand Size Converter"
 intent: "Compare and convert bra sizes between different commercial lingerie brands"
@@ -12,7 +12,7 @@ sources:
   - "Comparative Technical Evaluation of Commercial Bra Patterns"
 related_tool:
   title: "Universal Bra Size Calculator"
-  desc: "Get your calibrated true bra size."
+  desc: "Get a measurement-based starting point for comparison."
   url: "/bra-size-calculator"
 related_guide:
   title: "Universal Bra Measurement Chart"
@@ -20,7 +20,7 @@ related_guide:
   url: "/bra-measurement-chart"
 faq:
   - q: "Why do I wear different sizes in different brands?"
-    a: "Every brand drafts on their own fit models with unique wire widths, cup depths, and band elastic resistance. For example, Wacoal bands are very firm with little stretch, while Victoria's Secret bands are stretchy and often run loose."
+    a: "Bra cup volume and fit can vary between manufacturers, even when the labeled size is the same. Use the converted label only as a reference and check the current product chart for the specific style."
 ---
 
 <div class="calculator-card">
@@ -68,17 +68,17 @@ faq:
     </div>
 
     <div class="calc-action-bar">
-      <button type="button" id="convert-brand-btn" class="btn-primary">Convert Brand Fit</button>
+      <button type="button" id="convert-brand-btn" class="btn-primary">Compare Brand Size</button>
     </div>
   </div>
 
   <div id="brand-result-card" class="sizing-result-box" style="display: none; margin-top: 2rem;">
-    <div class="result-badge">Brand Fit Assessment</div>
+    <div class="result-badge">Brand Size Reference</div>
     <div class="result-hero-size" id="brand-res-size">34D</div>
     <div style="font-size: 1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.5rem;" id="brand-res-name"></div>
     <p id="brand-res-notes" style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 0.75rem;"></p>
     <div style="background: var(--color-bg-surface); padding: 0.85rem; border-radius: 8px; border: 1px solid var(--color-border);">
-      <strong>Fitting Recommendation:</strong>
+      <strong>Fit note:</strong>
       <p id="brand-res-advice" style="font-size: 0.9rem; color: var(--color-text-main); margin-top: 0.25rem;"></p>
     </div>
   </div>
