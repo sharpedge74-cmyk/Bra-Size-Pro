@@ -15,12 +15,23 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     const band = IMRango.calculateBand(snug);
-    const avgBust = (standing + leaning) / 2;
-    const cupIdx = IMRango.calculateCupIndex(avgBust, snug);
-    const usCup = IMRango.getCupForSystem(cupIdx, 'us') || 'AA';
-    const ukCup = IMRango.getCupForSystem(cupIdx, 'uk') || 'AA';
-    document.getElementById('ps-res-us').textContent = `${band}${usCup}`;
-    document.getElementById('ps-res-uk').textContent = `${band}${ukCup}`;
+    if (band === null) {
+      alert('Please enter a snug underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      return;
+    }
+
+    // Use the standing bust as the primary calculation measurement, matching
+    // the site's general calculator. The leaning measurement remains a useful
+    // fit reference but is not blended into an unsupported formula.
+    const cupIdx = IMRango.calculateCupIndex(standing, snug, 'us');
+    const usCup = IMRango.getCupForSystem(cupIdx, 'us');
+    const ukCup = IMRango.getCupForSystem(cupIdx, 'uk');
+    if (usCup === null || ukCup === null) {
+      alert('We could not calculate a cup starting point from these measurements.');
+      return;
+    }
+    document.getElementById('ps-res-us').textContent = `${band}${usCup} (starting point)`;
+    document.getElementById('ps-res-uk').textContent = `${band}${ukCup} (starting point)`;
     document.getElementById('ps-res-notes').textContent = 'Use the resulting size as a starting point and compare the manufacturer’s size chart and garment shape.';
     const box = document.getElementById('plus-result-box');
     if (box) { box.style.display = 'block'; box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
