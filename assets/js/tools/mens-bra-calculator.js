@@ -15,9 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     const band = IMRango.calculateBand(underbust);
-    const cupIdx = IMRango.calculateCupIndex(bust, underbust);
-    const cup = IMRango.getCupForSystem(cupIdx, 'us') || 'AA';
-    document.getElementById('mb-res-size').textContent = `${band}${cup}`;
+    if (band === null) {
+      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      return;
+    }
+    const cupIdx = IMRango.calculateCupIndex(bust, underbust, 'us');
+    const cup = IMRango.getCupForSystem(cupIdx, 'us');
+    if (cup === null) {
+      alert('We could not calculate a cup starting point from these measurements.');
+      return;
+    }
+    document.getElementById('mb-res-size').textContent = `${band}${cup} (starting point)`;
     document.getElementById('mb-res-style').textContent = torsoType === 'broad'
       ? 'A wide-band or wire-free style may be worth comparing; fit depends on garment construction.'
       : 'Compare wire-free, supportive, or compression styles according to comfort and garment construction.';
