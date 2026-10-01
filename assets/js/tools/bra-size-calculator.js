@@ -57,6 +57,11 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const band = IMRango.calculateBand(underbust);
+    if (band === null) {
+      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      return;
+    }
+
     const cupIdx = IMRango.calculateCupIndex(bust, underbust);
     const cupLetter = IMRango.getCupForSystem(cupIdx, system) || 'D';
 
