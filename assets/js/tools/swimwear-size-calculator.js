@@ -20,20 +20,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const cupIdx = IMRango.calculateCupIndex(bust, underbust);
     const cup = IMRango.CUP_ORDER_US[cupIdx] || 'C';
 
-    let onePieceSize = 'Size 8 (M)';
-    if (band <= 32) onePieceSize = 'Size 4-6 (S)';
-    else if (band <= 34) onePieceSize = 'Size 8 (M)';
-    else if (band <= 36) onePieceSize = 'Size 10-12 (L)';
-    else if (band <= 40) onePieceSize = 'Size 14-16 (XL)';
-    else onePieceSize = 'Size 18-20 (2XL)';
-
+    let onePieceSize = 'Brand-dependent';
     if (torso > 63) {
-      onePieceSize += ' [Long Torso Fit Recommended]';
+      onePieceSize = 'Brand-dependent — check long-torso options';
     }
 
     document.getElementById('sw-res-bikini').textContent = `${band}${cup} (Bra-Sized Top)`;
     document.getElementById('sw-res-onepiece').textContent = onePieceSize;
-    document.getElementById('sw-res-tip').textContent = 'Swim fabrics expand approximately 10-15% when submerged in water. Always opt for a snug dry fit.';
+    document.getElementById('sw-res-tip').textContent = 'Use the bra-sized result as a starting point. For one-pieces, compare your bust, waist, hip, and torso measurements with the manufacturer’s current chart.';
 
     const box = document.getElementById('swimwear-result-box');
     if (box) {
