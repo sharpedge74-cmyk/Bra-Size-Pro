@@ -94,7 +94,7 @@ all_guides:
     desc: "Compare cup-letter sequences across common US, UK, and EU sizing conventions."
   - title: "How to Measure Band Size Correctly"
     url: "/how-to-measure-band-size"
-    desc: "Learn consistent band measurement technique and how IMRango uses the result as a sizing starting point."
+    desc: "Learn consistent band measurement technique and how BraSizePRO uses the result as a sizing starting point."
   - title: "Universal Bra Measurement Chart"
     url: "/bra-measurement-chart"
     desc: "Searchable cross-reference table matching inches and centimeters to global bra sizes."
