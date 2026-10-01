@@ -5,8 +5,22 @@
   <div class="ad-label">{{ ad_config.label | default: "Advertisement" }}</div>
   <div class="ad-content-box">
     {% if ad_config.script_key %}
-      <div class="ad-network-slot ad-network-{{ ad_config.dimensions | replace: 'x', '-' | replace: ' ', '' }}">
-        <script async type="text/javascript" src="https://www.profitableratecpmnetwork.com/{{ ad_config.script_key }}/invoke.js"></script>
+      <div class="ad-network-slot ad-network-{{ ad_config.dimensions | replace: 'x', '-' | replace: ' ', '' }}"
+           style="width: {{ ad_config.dimensions | split: 'x' | first }}px; min-height: {{ ad_config.dimensions | split: 'x' | last }}px;">
+        {% if ad_config.network == "highrevenue" %}
+          <script type="text/javascript">
+            atOptions = {
+              'key' : '{{ ad_config.script_key }}',
+              'format' : 'iframe',
+              'height' : {{ ad_config.dimensions | split: 'x' | last }},
+              'width' : {{ ad_config.dimensions | split: 'x' | first }},
+              'params' : {}
+            };
+          </script>
+          <script type="text/javascript" src="https://www.highrevenueformat.com/{{ ad_config.script_key }}/invoke.js"></script>
+        {% else %}
+          <script async type="text/javascript" src="https://www.profitableratecpmnetwork.com/{{ ad_config.script_key }}/invoke.js"></script>
+        {% endif %}
       </div>
     {% else %}
       <div class="ad-placeholder-art">
