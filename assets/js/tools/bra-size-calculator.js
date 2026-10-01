@@ -46,7 +46,11 @@ document.addEventListener('DOMContentLoaded', () => {
     let underbust = parseFloat(document.getElementById('underbust-input').value) || 0;
     let bust = parseFloat(document.getElementById('bust-input').value) || 0;
 
-    // Snug underbust and standing bust are the primary calculation measurements.\n    // Tight-underbust and leaning-bust remain optional fit-reference measurements;\n    // they are not blended into the size calculation without a validated formula.\n\n    if (unit === 'cm') {
+    // Snug underbust and standing bust are the primary calculation measurements.
+    // Tight-underbust and leaning-bust remain optional fit-reference measurements;
+    // they are not blended into the size calculation without a validated formula.
+
+    if (unit === 'cm') {
       underbust = underbust / 2.54;
       bust = bust / 2.54;
     }
