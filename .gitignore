@@ -1,8 +1,40 @@
+# Dependencies / local tooling
 node_modules/
+vendor/
+.bundle/
+
+# Jekyll / generated site output
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata/
+.jekyll-live/
+
+# Build output
 build/
 dist/
 coverage/
+
+# Local OS / editor files
 .DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo
+
+# Logs
 *.log
-.env*
+
+# Local environment / secrets
+.env
+.env.*
 !.env.example
+
+# Ruby / bundler local files
+Gemfile.lock
+
+# Temporary files
+*.tmp
+*.temp
+*.bak
