@@ -62,7 +62,12 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const cupIdx = IMRango.calculateCupIndex(bust, underbust);
+    const cupIdx = IMRango.calculateCupIndex(bust, underbust, system);
+    if (cupIdx === null) {
+      alert('Please check your measurements and try again.');
+      return;
+    }
+
     const cupLetter = IMRango.getCupForSystem(cupIdx, system) || 'D';
 
     // Display primary result
