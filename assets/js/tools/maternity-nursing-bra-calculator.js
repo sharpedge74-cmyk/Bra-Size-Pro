@@ -15,15 +15,23 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     const band = IMRango.calculateBand(underbust);
-    const cupIdx = IMRango.calculateCupIndex(bust, underbust);
-    const cup = IMRango.getCupForSystem(cupIdx, 'us') || 'AA';
+    if (band === null) {
+      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      return;
+    }
+    const cupIdx = IMRango.calculateCupIndex(bust, underbust, 'us');
+    const cup = IMRango.getCupForSystem(cupIdx, 'us');
+    if (cup === null) {
+      alert('We could not calculate a cup starting point from these measurements.');
+      return;
+    }
     const stageAdvice = {
       t1: 'Use your current measurements as the starting size and choose an adjustable band or nursing-friendly style if you expect measurements to change.',
       t2: 'Use your current measurements as the starting size; leave room for normal measurement changes by choosing adjustable construction.',
       t3: 'Use your current measurements as the starting size and prioritize adjustable fit rather than adding an assumed cup or band increase.',
       postpartum: 'Use your current measurements and prioritize adjustable cups/bands; sizing can change after delivery, so remeasure when needed.'
     };
-    document.getElementById('mat-res-size').textContent = `${band}${cup}`;
+    document.getElementById('mat-res-size').textContent = `${band}${cup} (starting point)`;
     document.getElementById('mat-res-advice').textContent = stageAdvice[stage] || stageAdvice.postpartum;
     const box = document.getElementById('maternity-result-box');
     if (box) { box.style.display = 'block'; box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
