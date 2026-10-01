@@ -2,12 +2,14 @@ tool:
   top_banner:
     enabled: true
     format: "leaderboard"
-    dimensions: "728x90 / responsive"
+    dimensions: "728x90"
+    script_key: "bed52797bfdfe0042d4e4dfb3cec902c"
     label: "Advertisement"
   in_calculator:
     enabled: true
     format: "inline_rectangle"
-    dimensions: "336x280 / responsive"
+    dimensions: "300x250"
+    script_key: "f8f2dba257de250e9798529f3a25a9f0"
     label: "Advertisement"
   sidebar:
     enabled: true
@@ -19,16 +21,20 @@ guide:
   top_banner:
     enabled: true
     format: "leaderboard"
-    dimensions: "728x90 / responsive"
+    dimensions: "728x90"
+    script_key: "bed52797bfdfe0042d4e4dfb3cec902c"
     label: "Advertisement"
   in_article:
     enabled: true
     format: "inline_rectangle"
-    dimensions: "336x280 / responsive"
+    dimensions: "300x250"
+    script_key: "f8f2dba257de250e9798529f3a25a9f0"
     label: "Sponsored Content"
   bottom:
     enabled: true
     format: "responsive_strip"
+    dimensions: "320x50"
+    script_key: "943ee87c3b973b157887078278b64f16"
     label: "Advertisement"
 
 page:
