@@ -38,7 +38,7 @@ This site uses a standard Jekyll architecture with a **flat root for tools and g
 
 Each page generates compliant Schema.org JSON-LD via `_includes/jsonld/`:
 - `Organization` & `WebSite` on all pages.
-- `WebApplication` on all 14 calculator tool pages.
+- `SoftwareApplication` on all 14 calculator tool pages.
 - `FAQPage` wherever front matter defines `faq` arrays.
 - `BreadcrumbList` based on front matter hierarchy (`Home > Page Name`).
 - `Article` on all educational guide pages.
