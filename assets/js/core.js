@@ -109,10 +109,18 @@ window.IMRango = (function() {
   const CUP_ORDER_EU = ['AA', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
   const CUP_ORDER_AU = ['AA', 'A', 'B', 'C', 'D', 'DD', 'E', 'F', 'FF', 'G', 'GG', 'H'];
 
-  function calculateCupIndex(bustInches, underbustInches) {
-    const diff = Math.max(0, bustInches - underbustInches);
+  function calculateCupIndex(bustInches, underbustInches, system = 'us') {
+    const bust = Number(bustInches);
+    const underbust = Number(underbustInches);
+    if (!Number.isFinite(bust) || !Number.isFinite(underbust)) return null;
+
+    const diff = Math.max(0, bust - underbust);
     const index = Math.round(diff);
-    return Math.min(index, Math.min(CUP_ORDER_US.length, CUP_ORDER_UK.length, CUP_ORDER_EU.length) - 1);
+    const cupList = system === 'uk'
+      ? CUP_ORDER_UK
+      : (system === 'eu' ? CUP_ORDER_EU : (system === 'au' ? CUP_ORDER_AU : CUP_ORDER_US));
+
+    return Math.min(index, cupList.length - 1);
   }
 
   function getCupForSystem(cupIndex, system = 'us') {
