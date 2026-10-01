@@ -17,8 +17,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const symptomsData = IMRango.getData('symptoms') || [];
     const symptom = symptomsData.find(s => s.id === symId);
 
-    if (!symptom || !Number.isFinite(band) || band < 28 || band > 52 || band % 2 !== 0) {
-      alert('Please select a fit symptom and enter an even band size from 28 to 52.');
+    if (!symptom || !Number.isFinite(band) || band < 28 || band > 50 || band % 2 !== 0) {
+      alert('Please select a fit symptom and enter an even band size from 28 to 50.');
       return;
     }
 
