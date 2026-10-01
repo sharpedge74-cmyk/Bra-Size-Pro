@@ -1,0 +1,37 @@
+tool:
+  top_banner:
+    enabled: true
+    format: "leaderboard"
+    dimensions: "728x90 / responsive"
+    label: "Advertisement"
+  in_calculator:
+    enabled: true
+    format: "native_inline"
+    label: "Sponsored Fitting Partner"
+  sidebar:
+    enabled: true
+    format: "half_page"
+    dimensions: "300x600"
+    label: "Advertisement"
+
+guide:
+  top_banner:
+    enabled: true
+    format: "leaderboard"
+    dimensions: "728x90 / responsive"
+    label: "Advertisement"
+  in_article:
+    enabled: true
+    format: "inline_rectangle"
+    dimensions: "336x280"
+    label: "Sponsored Content"
+  bottom:
+    enabled: true
+    format: "responsive_strip"
+    label: "Advertisement"
+
+page:
+  top_banner:
+    enabled: false
+  sidebar:
+    enabled: false

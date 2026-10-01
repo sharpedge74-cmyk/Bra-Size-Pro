@@ -1,0 +1,85 @@
+---
+layout: tool
+title: "Brand Size Converter"
+description: "Translate your universal bra size across major lingerie brands like Victoria's Secret, Panache, Freya, Wacoal, Natori, Skims, and ThirdLove."
+permalink: /brand-size-converter
+breadcrumb_label: "Brand Size Converter"
+intent: "Compare and convert bra sizes between different commercial lingerie brands"
+last_reviewed: "2026-03-08"
+tool_js: "brand-size-converter.js"
+ads: "tool"
+sources:
+  - "Comparative Technical Evaluation of Commercial Bra Patterns"
+related_tool:
+  title: "Universal Bra Size Calculator"
+  desc: "Get your calibrated true bra size."
+  url: "/bra-size-calculator"
+related_guide:
+  title: "Universal Bra Measurement Chart"
+  desc: "Examine international band and cup conversion tables."
+  url: "/bra-measurement-chart"
+faq:
+  - q: "Why do I wear different sizes in different brands?"
+    a: "Every brand drafts on their own fit models with unique wire widths, cup depths, and band elastic resistance. For example, Wacoal bands are very firm with little stretch, while Victoria's Secret bands are stretchy and often run loose."
+---
+
+<div class="calculator-card">
+  <div class="calc-form">
+    <div class="calc-card-grid">
+      <div class="calc-control-group">
+        <label for="base-band">Your Baseline Band</label>
+        <div class="calc-input-wrapper">
+          <input type="number" id="base-band" value="34" min="28" max="50" step="2">
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="base-cup">Your Baseline Cup</label>
+        <div class="calc-input-wrapper">
+          <select id="base-cup">
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D" selected>D</option>
+            <option value="DD">DD</option>
+            <option value="DDD/F">DDD / F</option>
+            <option value="G">G</option>
+            <option value="H">H</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="target-brand">Target Brand to Shop</label>
+        <div class="calc-input-wrapper">
+          <select id="target-brand">
+            <option value="panache">Panache (UK)</option>
+            <option value="freya">Freya (UK)</option>
+            <option value="wacoal">Wacoal (US)</option>
+            <option value="victorias-secret">Victoria's Secret (US)</option>
+            <option value="natori">Natori (US)</option>
+            <option value="thirdlove">ThirdLove (US)</option>
+            <option value="aerie">Aerie (US)</option>
+            <option value="skims">Skims (US)</option>
+            <option value="elomi">Elomi (UK / Plus)</option>
+            <option value="curvy-kate">Curvy Kate (UK)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-action-bar">
+      <button type="button" id="convert-brand-btn" class="btn-primary">Convert Brand Fit</button>
+    </div>
+  </div>
+
+  <div id="brand-result-card" class="sizing-result-box" style="display: none; margin-top: 2rem;">
+    <div class="result-badge">Brand Fit Assessment</div>
+    <div class="result-hero-size" id="brand-res-size">34D</div>
+    <div style="font-size: 1rem; font-weight: 600; color: var(--color-primary); margin-bottom: 0.5rem;" id="brand-res-name"></div>
+    <p id="brand-res-notes" style="font-size: 0.92rem; color: var(--color-text-muted); margin-bottom: 0.75rem;"></p>
+    <div style="background: var(--color-bg-surface); padding: 0.85rem; border-radius: 8px; border: 1px solid var(--color-border);">
+      <strong>Fitting Recommendation:</strong>
+      <p id="brand-res-advice" style="font-size: 0.9rem; color: var(--color-text-main); margin-top: 0.25rem;"></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,94 @@
+---
+layout: tool
+title: "Bra Fit Checker & Problem Solver"
+description: "Diagnose gaping cups, slipping straps, riding bands, or digging wires. Get immediate anatomical troubleshooting and adjusted size recommendations."
+permalink: /bra-fit-checker
+breadcrumb_label: "Bra Fit Checker"
+intent: "Troubleshoot bra fit issues and find corrective sizing solutions"
+last_reviewed: "2026-03-12"
+tool_js: "bra-fit-checker.js"
+ads: "tool"
+sources:
+  - "Textile Institute: Ergonomics of Intimate Apparel & Skin Pressure Points"
+  - "Association of Professional Bra Fitters Fit Matrix Guidelines"
+related_tool:
+  title: "Universal Bra Size Calculator"
+  desc: "Measure yourself with our verified modern standard."
+  url: "/bra-size-calculator"
+related_guide:
+  title: "9 Signs Your Bra Doesn't Fit"
+  desc: "Comprehensive photographic checklist of improper fit indicators."
+  url: "/signs-your-bra-doesnt-fit"
+faq:
+  - q: "Why do my straps keep slipping off my shoulders?"
+    a: "Straps sliding down is almost always caused by a band that is too large. When your band rides up your back, it releases tension on the straps, making them fall down. Tightening the band fixes this issue in 90% of cases."
+  - q: "What should I do if the gore doesn't lay flat against my chest?"
+    a: "If the center gore floats or perches away from your sternum, your cup volume is too small or the cup profile is too shallow for your natural projection. Move up 1 to 2 cup sizes."
+---
+
+<div class="calculator-card">
+  <div class="calc-form">
+    <div class="calc-card-grid">
+      <div class="calc-control-group">
+        <label for="current-band">Current Band Size</label>
+        <div class="calc-input-wrapper">
+          <input type="number" id="current-band" value="36" min="28" max="52" step="2">
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="current-cup">Current Cup Size</label>
+        <div class="calc-input-wrapper">
+          <select id="current-cup">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C" selected>C</option>
+            <option value="D">D</option>
+            <option value="DD">DD / E</option>
+            <option value="DDD/F">DDD / F</option>
+            <option value="G">G</option>
+            <option value="H">H</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-control-group" style="margin-top: 1.25rem;">
+      <label for="fit-symptom-select">What fit discomfort are you experiencing?</label>
+      <div class="calc-input-wrapper">
+        <select id="fit-symptom-select">
+          <option value="band_rides_up">Band rides up towards shoulder blades</option>
+          <option value="band_digs_painfully">Band feels painfully tight or leaves deep red welts</option>
+          <option value="straps_slipping">Shoulder straps repeatedly slide down</option>
+          <option value="straps_digging">Straps dig painfully into shoulders / leave red grooves</option>
+          <option value="quad_boob_spillage">Breast tissue spills over top or sides of cups (double-boob)</option>
+          <option value="cup_gaping_wrinkling">Cups gap, wrinkle, or have empty space at the top</option>
+          <option value="wires_poking_breast">Underwire pokes breast tissue under armpits or on side</option>
+          <option value="gore_floating">Center gore (bridge between cups) does not touch sternum</option>
+          <option value="wires_slide_down">Underwires slide down onto stomach below inframammary fold</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="calc-action-bar">
+      <button type="button" id="diagnose-btn" class="btn-primary">Diagnose Fit & Get Solution</button>
+    </div>
+  </div>
+
+  <div id="diagnosis-result" class="sizing-result-box" style="display: none; margin-top: 2rem;">
+    <div class="result-badge">Fit Diagnosis & Immediate Fix</div>
+    <h3 id="diag-title" style="font-size: 1.4rem; font-family: var(--font-serif); margin-bottom: 0.5rem;"></h3>
+    <div style="margin-bottom: 1rem;">
+      <strong>Root Anatomical Cause:</strong>
+      <p id="diag-cause" style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 0.25rem;"></p>
+    </div>
+    <div style="margin-bottom: 1rem;">
+      <strong>Recommended Action:</strong>
+      <p id="diag-fix" style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 0.25rem;"></p>
+    </div>
+    <div style="padding: 1rem; background: var(--color-bg-surface); border-radius: 8px; border: 1px solid var(--color-border);">
+      <strong style="color: var(--color-primary);">Recommended Size Shift:</strong>
+      <p id="diag-recommendation" style="font-size: 1rem; font-weight: 600; margin-top: 0.25rem;"></p>
+    </div>
+  </div>
+</div>

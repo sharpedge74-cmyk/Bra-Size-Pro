@@ -1,0 +1,276 @@
+# IMRango Universal Size Conversion Data
+# Covers US, UK, EU, AU/NZ, FR/ES, IT, and JP standards
+
+bands:
+  - us_uk: 28
+    eu_jp: 60
+    au: 6
+    fr: 75
+    it: 0
+    underbust_inches_min: 27.0
+    underbust_inches_max: 29.0
+    underbust_cm_min: 68
+    underbust_cm_max: 72
+  - us_uk: 30
+    eu_jp: 65
+    au: 8
+    fr: 80
+    it: 1
+    underbust_inches_min: 29.0
+    underbust_inches_max: 31.0
+    underbust_cm_min: 73
+    underbust_cm_max: 77
+  - us_uk: 32
+    eu_jp: 70
+    au: 10
+    fr: 85
+    it: 2
+    underbust_inches_min: 31.0
+    underbust_inches_max: 33.0
+    underbust_cm_min: 78
+    underbust_cm_max: 82
+  - us_uk: 34
+    eu_jp: 75
+    au: 12
+    fr: 90
+    it: 3
+    underbust_inches_min: 33.0
+    underbust_inches_max: 35.0
+    underbust_cm_min: 83
+    underbust_cm_max: 87
+  - us_uk: 36
+    eu_jp: 80
+    au: 14
+    fr: 95
+    it: 4
+    underbust_inches_min: 35.0
+    underbust_inches_max: 37.0
+    underbust_cm_min: 88
+    underbust_cm_max: 92
+  - us_uk: 38
+    eu_jp: 85
+    au: 16
+    fr: 100
+    it: 5
+    underbust_inches_min: 37.0
+    underbust_inches_max: 39.0
+    underbust_cm_min: 93
+    underbust_cm_max: 97
+  - us_uk: 40
+    eu_jp: 90
+    au: 18
+    fr: 105
+    it: 6
+    underbust_inches_min: 39.0
+    underbust_inches_max: 41.0
+    underbust_cm_min: 98
+    underbust_cm_max: 102
+  - us_uk: 42
+    eu_jp: 95
+    au: 20
+    fr: 110
+    it: 7
+    underbust_inches_min: 41.0
+    underbust_inches_max: 43.0
+    underbust_cm_min: 103
+    underbust_cm_max: 107
+  - us_uk: 44
+    eu_jp: 100
+    au: 22
+    fr: 115
+    it: 8
+    underbust_inches_min: 43.0
+    underbust_inches_max: 45.0
+    underbust_cm_min: 108
+    underbust_cm_max: 112
+  - us_uk: 46
+    eu_jp: 105
+    au: 24
+    fr: 120
+    it: 9
+    underbust_inches_min: 45.0
+    underbust_inches_max: 47.0
+    underbust_cm_min: 113
+    underbust_cm_max: 117
+  - us_uk: 48
+    eu_jp: 110
+    au: 26
+    fr: 125
+    it: 10
+    underbust_inches_min: 47.0
+    underbust_inches_max: 49.0
+    underbust_cm_min: 118
+    underbust_cm_max: 122
+  - us_uk: 50
+    eu_jp: 115
+    au: 28
+    fr: 130
+    it: 11
+    underbust_inches_min: 49.0
+    underbust_inches_max: 51.0
+    underbust_cm_min: 123
+    underbust_cm_max: 127
+
+cups:
+  - difference_inches: 0
+    difference_cm: 0
+    us: "AA"
+    uk: "AA"
+    eu: "AA"
+    au: "AA"
+    fr: "AA"
+    jp: "AA"
+  - difference_inches: 1
+    difference_cm: 2.5
+    us: "A"
+    uk: "A"
+    eu: "A"
+    au: "A"
+    fr: "A"
+    jp: "A"
+  - difference_inches: 2
+    difference_cm: 5.0
+    us: "B"
+    uk: "B"
+    eu: "B"
+    au: "B"
+    fr: "B"
+    jp: "B"
+  - difference_inches: 3
+    difference_cm: 7.5
+    us: "C"
+    uk: "C"
+    eu: "C"
+    au: "C"
+    fr: "C"
+    jp: "C"
+  - difference_inches: 4
+    difference_cm: 10.0
+    us: "D"
+    uk: "D"
+    eu: "D"
+    au: "D"
+    fr: "D"
+    jp: "D"
+  - difference_inches: 5
+    difference_cm: 12.5
+    us: "DD"
+    uk: "DD"
+    eu: "E"
+    au: "DD"
+    fr: "E"
+    jp: "E"
+  - difference_inches: 6
+    difference_cm: 15.0
+    us: "DDD/F"
+    uk: "E"
+    eu: "F"
+    au: "E"
+    fr: "F"
+    jp: "F"
+  - difference_inches: 7
+    difference_cm: 17.5
+    us: "G"
+    uk: "F"
+    eu: "G"
+    au: "F"
+    fr: "G"
+    jp: "G"
+  - difference_inches: 8
+    difference_cm: 20.0
+    us: "H"
+    uk: "FF"
+    eu: "H"
+    au: "FF"
+    fr: "H"
+    jp: "H"
+  - difference_inches: 9
+    difference_cm: 22.5
+    us: "I"
+    uk: "G"
+    eu: "I"
+    au: "G"
+    fr: "I"
+    jp: "I"
+  - difference_inches: 10
+    difference_cm: 25.0
+    us: "J"
+    uk: "GG"
+    eu: "J"
+    au: "GG"
+    fr: "J"
+    jp: "J"
+  - difference_inches: 11
+    difference_cm: 27.5
+    us: "K"
+    uk: "H"
+    eu: "K"
+    au: "H"
+    fr: "K"
+    jp: "K"
+  - difference_inches: 12
+    difference_cm: 30.0
+    us: "L"
+    uk: "HH"
+    eu: "L"
+    au: "HH"
+    fr: "L"
+    jp: "L"
+
+panty_sizes:
+  - label: "XS"
+    waist_in: "24-25"
+    hips_in: "34-35"
+    waist_cm: "61-64"
+    hips_cm: "86-89"
+    us: "0-2"
+    uk: "4-6"
+    eu: "32-34"
+  - label: "S"
+    waist_in: "26-27"
+    hips_in: "36-37"
+    waist_cm: "66-69"
+    hips_cm: "91-94"
+    us: "4-6"
+    uk: "8-10"
+    eu: "36-38"
+  - label: "M"
+    waist_in: "28-29"
+    hips_in: "38-39"
+    waist_cm: "71-74"
+    hips_cm: "97-99"
+    us: "8-10"
+    uk: "12-14"
+    eu: "40-42"
+  - label: "L"
+    waist_in: "30-32"
+    hips_in: "40-42"
+    waist_cm: "76-81"
+    hips_cm: "102-107"
+    us: "12-14"
+    uk: "16-18"
+    eu: "44-46"
+  - label: "XL"
+    waist_in: "33-35"
+    hips_in: "43-45"
+    waist_cm: "84-89"
+    hips_cm: "109-114"
+    us: "16-18"
+    uk: "20-22"
+    eu: "48-50"
+  - label: "2XL"
+    waist_in: "36-39"
+    hips_in: "46-49"
+    waist_cm: "91-99"
+    hips_cm: "117-124"
+    us: "20-22"
+    uk: "24-26"
+    eu: "52-54"
+  - label: "3XL"
+    waist_in: "40-43"
+    hips_in: "50-53"
+    waist_cm: "102-109"
+    hips_cm: "127-135"
+    us: "24-26"
+    uk: "28-30"
+    eu: "56-58"

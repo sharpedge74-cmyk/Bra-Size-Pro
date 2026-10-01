@@ -1,0 +1,36 @@
+title: "IMRango - Bra Size Calculators & Fit Guides"
+email: "support@iamrango.com"
+description: "Professional, accurate bra size calculators, sister size conversions, fit checker, and comprehensive sizing guides for US, UK, EU, AU and Asian sizing."
+baseurl: ""
+url: "https://iamrango.com"
+permalink: /:basename
+
+include:
+  - "_pages"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - package.json
+  - package-lock.json
+  - bun.lock
+  - tsconfig.json
+  - vite.config.ts
+  - src
+  - .gitignore
+  - .env.example
+
+plugins:
+  - jekyll-seo-tag
+
+sass:
+  sass_dir: _sass
+  style: compressed
+
+brand:
+  name: "IMRango"
+  domain: "https://iamrango.com"
+  tagline: "Precision Intimates Sizing & Fit Intelligence"
+  founding_year: 2024

@@ -1,0 +1,60 @@
+---
+layout: default
+---
+{% include jsonld/webapplication.html %}
+{% include jsonld/faqpage.html %}
+
+<!-- Inlined Data from _data for client-side tool calculations -->
+<script type="application/json" id="imrango-data-sizes">
+  {{ site.data.sizes | jsonify }}
+</script>
+<script type="application/json" id="imrango-data-regions">
+  {{ site.data.regions | jsonify }}
+</script>
+<script type="application/json" id="imrango-data-brands">
+  {{ site.data.brands | jsonify }}
+</script>
+<script type="application/json" id="imrango-data-symptoms">
+  {{ site.data.symptoms | jsonify }}
+</script>
+
+<article class="tool-page-container">
+  {% include ads/ad_slot.html slot="top_banner" %}
+
+  <header class="tool-header">
+    <div class="tool-meta-kicker">
+      <span class="tool-category">Precision Interactive Tool</span>
+      {% if page.last_reviewed %}
+      <span class="tool-kicker-sep" aria-hidden="true">&middot;</span>
+      <span class="tool-reviewed">Reviewed {{ page.last_reviewed }}</span>
+      {% endif %}
+    </div>
+    <h1 class="tool-title">{{ page.title }}</h1>
+    <p class="tool-description">{{ page.description }}</p>
+  </header>
+
+  <div class="tool-layout-split">
+    <div class="tool-main-stage">
+      {{ content }}
+    </div>
+
+    <aside class="tool-sidebar-slot">
+      {% include ads/ad_slot.html slot="sidebar" %}
+    </aside>
+  </div>
+
+  {% include components/faq.html %}
+
+  {% if page.sources %}
+  <section class="sources-section" aria-label="Methodology and Clinical Sources">
+    <h3 class="sources-heading">Scientific & Sizing References</h3>
+    <ul class="sources-list">
+      {% for source in page.sources %}
+      <li class="source-item">{{ source }}</li>
+      {% endfor %}
+    </ul>
+  </section>
+  {% endif %}
+
+  {% include components/related.html %}
+</article>

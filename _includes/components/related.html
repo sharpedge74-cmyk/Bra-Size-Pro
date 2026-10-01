@@ -1,0 +1,24 @@
+{% if page.related_tool or page.related_guide %}
+<section class="related-section" aria-label="Related Tools & Guides">
+  <h2 class="related-heading">Explore Related Fit Tools & Guides</h2>
+  <div class="related-grid">
+    {% if page.related_tool %}
+    <div class="related-card tool-card">
+      <div class="related-card-badge">Featured Tool</div>
+      <h3 class="related-card-title">{{ page.related_tool.title }}</h3>
+      <p class="related-card-desc">{{ page.related_tool.desc }}</p>
+      <a href="{{ page.related_tool.url }}" class="related-card-link">Open Calculator &rarr;</a>
+    </div>
+    {% endif %}
+
+    {% if page.related_guide %}
+    <div class="related-card guide-card">
+      <div class="related-card-badge">In-Depth Guide</div>
+      <h3 class="related-card-title">{{ page.related_guide.title }}</h3>
+      <p class="related-card-desc">{{ page.related_guide.desc }}</p>
+      <a href="{{ page.related_guide.url }}" class="related-card-link">Read Full Guide &rarr;</a>
+    </div>
+    {% endif %}
+  </div>
+</section>
+{% endif %}

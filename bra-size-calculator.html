@@ -1,0 +1,161 @@
+---
+layout: tool
+title: "Universal Bra Size Calculator"
+description: "Calculate your true bra size, cup size, and bust dimensions using precise modern measuring math for US, UK, EU, and AU sizing systems without outdated +4 inch errors."
+permalink: /bra-size-calculator
+breadcrumb_label: "Bra Size Calculator"
+intent: "Find accurate bra size and international cup conversions"
+last_reviewed: "2026-03-15"
+tool_js: "bra-size-calculator.js"
+ads: "tool"
+sources:
+  - "International Standard ISO 8559-1: Size designation of clothes — Part 1: Anthropometric definitions"
+  - "British Standards Institution BS 6183: Bra Sizing and Fit Specifications"
+  - "Journal of Science and Medicine in Sport: Breast biomechanics and support garment mechanics"
+related_tool:
+  title: "Sister Size Calculator"
+  desc: "Find identical cup volumes with looser or firmer bands for customized comfort."
+  url: "/sister-size-calculator"
+related_guide:
+  title: "How to Measure Bra Size at Home"
+  desc: "Illustrated guide on measuring tape positioning, posture, and avoiding +4 sizing traps."
+  url: "/how-to-measure-bra-size-at-home"
+faq:
+  - q: "Why is my calculated bra size so different from the size I usually buy?"
+    a: "Over 80% of individuals wear a band that is 1 to 2 sizes too large and cups that are 2 to 4 sizes too small. Traditional retail stores often add 4 inches to your underbust (+4 method) to squeeze you into their limited matrix (32A-38DD). IMRango uses direct snug underbust measurement to give you real support from the band."
+  - q: "What is the difference between US and UK cup sizes?"
+    a: "Both US and UK systems start with A, B, C, D, DD. Above DD, the UK system progresses as E, F, FF, G, GG, H, HH, J, whereas the US system uses DDD/F, G, H, I, J, K. UK sizing is prized worldwide for greater consistency in D+ cups."
+  - q: "Should I wear a bra when measuring my bust?"
+    a: "Measure without a bra or in an unpadded, non-push-up bra. For the most accurate result, taking leaning bust measurements accounts for tissue projection and prevents under-estimating cup volume."
+---
+
+<div class="calculator-card">
+  <form id="bra-calculator-form" class="calc-form">
+    <div class="calc-card-grid">
+      <div class="calc-control-group">
+        <label for="calc-unit">Measurement Unit</label>
+        <div class="calc-input-wrapper">
+          <select id="calc-unit" name="unit">
+            <option value="inches" selected>Inches (in)</option>
+            <option value="cm">Centimeters (cm)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="calc-system">Target Sizing System</label>
+        <div class="calc-input-wrapper">
+          <select id="calc-system" name="system">
+            <option value="us" selected>US / Canada</option>
+            <option value="uk">United Kingdom (UK)</option>
+            <option value="eu">European Union (EU)</option>
+            <option value="au">Australia / New Zealand (AU)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <!-- Quick or Detailed Measurements -->
+    <div style="margin-top: 1.5rem;">
+      <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; font-weight: 700;">1. Underbust Measurements</h3>
+      <div class="calc-card-grid">
+        <div class="calc-control-group">
+          <label for="underbust-input">
+            Snug Underbust (Primary)
+            <span class="field-help">Firm against ribcage</span>
+          </label>
+          <div class="calc-input-wrapper">
+            <input type="number" step="0.25" id="underbust-input" required placeholder="e.g. 32" value="32">
+            <span class="calc-input-unit">in</span>
+          </div>
+        </div>
+
+        <div class="calc-control-group">
+          <label for="tight-underbust">
+            Tight Underbust (Break-the-tape)
+            <span class="field-help">Exhaled as tight as possible</span>
+          </label>
+          <div class="calc-input-wrapper">
+            <input type="number" step="0.25" id="tight-underbust" placeholder="e.g. 30.5" value="30.5">
+            <span class="calc-input-unit">in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top: 1.5rem;">
+      <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; font-weight: 700;">2. Bust Circumference</h3>
+      <div class="calc-card-grid">
+        <div class="calc-control-group">
+          <label for="bust-input">
+            Standing Bust
+            <span class="field-help">Across fullest point standing</span>
+          </label>
+          <div class="calc-input-wrapper">
+            <input type="number" step="0.25" id="bust-input" required placeholder="e.g. 36" value="36">
+            <span class="calc-input-unit">in</span>
+          </div>
+        </div>
+
+        <div class="calc-control-group">
+          <label for="leaning-bust">
+            Leaning Bust (90&deg;)
+            <span class="field-help">Bent 90 degrees forward</span>
+          </label>
+          <div class="calc-input-wrapper">
+            <input type="number" step="0.25" id="leaning-bust" placeholder="e.g. 37.5" value="37.5">
+            <span class="calc-input-unit">in</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-action-bar">
+      <button type="submit" class="btn-primary">Calculate My Exact Size</button>
+      <button type="reset" class="btn-secondary">Reset</button>
+    </div>
+  </form>
+
+  <div id="calc-result-box" class="sizing-result-box" style="display: none;">
+    <div class="result-badge">Recommended Starting Bra Size</div>
+    <div class="result-hero-size">
+      <span id="result-primary-size">32D</span>
+      <span style="font-size: 1.1rem; font-weight: 500; color: var(--color-text-muted); margin-left: 0.5rem;" id="result-system-name">US</span>
+    </div>
+    <p style="font-size: 0.92rem; color: var(--color-text-muted);">
+      This size anchors 85% of your breast support in the band, preventing painful shoulder strap gouges and back fatigue.
+    </p>
+
+    <div class="result-equivalents-grid">
+      <div class="equivalent-pill">
+        <span class="country-code">US / CA</span>
+        <span class="country-size" id="equiv-us">32D</span>
+      </div>
+      <div class="equivalent-pill">
+        <span class="country-code">UK</span>
+        <span class="country-size" id="equiv-uk">32D</span>
+      </div>
+      <div class="equivalent-pill">
+        <span class="country-code">EU / JP</span>
+        <span class="country-size" id="equiv-eu">70D</span>
+      </div>
+      <div class="equivalent-pill">
+        <span class="country-code">AU / NZ</span>
+        <span class="country-size" id="equiv-au">10D</span>
+      </div>
+    </div>
+
+    <div class="sister-size-strip">
+      <div class="sister-card">
+        <div class="sister-label">Sister Size (Snugger Band)</div>
+        <div class="sister-val" id="sister-tighter">30DD</div>
+        <div class="sister-tip">If the band feels stretchy or rides up.</div>
+      </div>
+      <div class="sister-card">
+        <div class="sister-label">Sister Size (Looser Band)</div>
+        <div class="sister-val" id="sister-looser">34C</div>
+        <div class="sister-tip">If the band feels too tight on ribs.</div>
+      </div>
+    </div>
+  </div>
+</div>

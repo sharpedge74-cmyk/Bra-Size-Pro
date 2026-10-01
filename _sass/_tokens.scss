@@ -1,0 +1,78 @@
+/* Design tokens for IMRango: Pinkish Rose vs Emerald Forest themes */
+
+:root, [data-theme="pinkish"] {
+  --theme-id: "pinkish";
+  --color-primary: #be185d; /* rose-700 */
+  --color-primary-hover: #9d174d;
+  --color-primary-light: #fdf2f8; /* pink-50 */
+  --color-primary-border: #fbcfe8;
+  --color-accent: #e11d48; /* rose-600 */
+  --color-accent-soft: #ffe4e6;
+  
+  --color-bg-canvas: #faf5f6;
+  --color-bg-surface: #ffffff;
+  --color-bg-subtle: #f8ecef;
+  --color-bg-input: #ffffff;
+  
+  --color-text-main: #1e1b1d;
+  --color-text-muted: #5e5256;
+  --color-text-subtle: #8a7a80;
+  
+  --color-border: #ebd5dc;
+  --color-border-subtle: #f4e5ea;
+  
+  --color-success: #059669;
+  --color-success-bg: #ecfdf5;
+  --color-warning: #d97706;
+  --color-warning-bg: #fffbeb;
+  --color-error: #e11d48;
+  --color-error-bg: #fff1f2;
+
+  --badge-glow: rgba(190, 24, 93, 0.12);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(190, 24, 93, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(190, 24, 93, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+}
+
+[data-theme="emerald"] {
+  --theme-id: "emerald";
+  --color-primary: #047857; /* emerald-700 */
+  --color-primary-hover: #065f46;
+  --color-primary-light: #ecfdf5; /* emerald-50 */
+  --color-primary-border: #a7f3d0;
+  --color-accent: #059669; /* emerald-600 */
+  --color-accent-soft: #d1fae5;
+  
+  --color-bg-canvas: #f2f7f4;
+  --color-bg-surface: #ffffff;
+  --color-bg-subtle: #e6f0eb;
+  --color-bg-input: #ffffff;
+  
+  --color-text-main: #13241d;
+  --color-text-muted: #41594e;
+  --color-text-subtle: #6c8479;
+  
+  --color-border: #c8dfd4;
+  --color-border-subtle: #dcece3;
+  
+  --color-success: #059669;
+  --color-success-bg: #ecfdf5;
+  --color-warning: #b45309;
+  --color-warning-bg: #fffbeb;
+  --color-error: #dc2626;
+  --color-error-bg: #fef2f2;
+
+  --badge-glow: rgba(4, 120, 87, 0.12);
+  --shadow-sm: 0 1px 2px 0 rgba(0, 0, 0, 0.04);
+  --shadow-md: 0 4px 6px -1px rgba(4, 120, 87, 0.06), 0 2px 4px -2px rgba(0, 0, 0, 0.04);
+  --shadow-lg: 0 10px 15px -3px rgba(4, 120, 87, 0.08), 0 4px 6px -4px rgba(0, 0, 0, 0.03);
+}
+
+$font-sans: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+$font-serif: 'Playfair Display', Georgia, serif;
+$font-mono: 'JetBrains Mono', monospace;
+
+$radius-sm: 6px;
+$radius-md: 10px;
+$radius-lg: 16px;
+$radius-xl: 24px;

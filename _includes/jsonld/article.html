@@ -1,0 +1,27 @@
+{% assign page_slug = page.url | replace: '.html', '' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "headline": "{{ page.title }}",
+  "description": "{{ page.description }}",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "https://iamrango.com{{ page_slug }}"
+  },
+  "author": {
+    "@type": "Organization",
+    "name": "IMRango Fitting Editorial Board"
+  },
+  "publisher": {
+    "@type": "Organization",
+    "name": "IMRango",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "https://iamrango.com/assets/img/logo.png"
+    }
+  },
+  "datePublished": "{% if page.last_reviewed %}{{ page.last_reviewed }}{% else %}2025-01-01{% endif %}",
+  "dateModified": "{% if page.last_reviewed %}{{ page.last_reviewed }}{% else %}2026-03-30{% endif %}"
+}
+</script>

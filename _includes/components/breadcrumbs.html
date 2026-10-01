@@ -1,0 +1,14 @@
+{% assign page_slug = page.url | replace: '.html', '' %}
+{% if page_slug != '/' and page_slug != '' %}
+<nav class="breadcrumbs" aria-label="Breadcrumb">
+  <ol class="breadcrumb-list">
+    <li class="breadcrumb-item">
+      <a href="/" class="breadcrumb-link">Home</a>
+    </li>
+    <li class="breadcrumb-separator" aria-hidden="true">/</li>
+    <li class="breadcrumb-item breadcrumb-current" aria-current="page">
+      {% if page.breadcrumb_label %}{{ page.breadcrumb_label }}{% else %}{{ page.title }}{% endif %}
+    </li>
+  </ol>
+</nav>
+{% endif %}

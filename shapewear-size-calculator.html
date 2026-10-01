@@ -1,0 +1,68 @@
+---
+layout: tool
+title: "Shapewear Size Calculator"
+description: "Calculate waist-cincher, sculpting bodysuit, and smoothing short sizes based on waist, hip, and underbust dimensions without roll-down or pinching."
+permalink: /shapewear-size-calculator
+breadcrumb_label: "Shapewear Calculator"
+intent: "Find true shapewear sizes and prevent painful roll-down"
+last_reviewed: "2026-02-10"
+tool_js: "shapewear-size-calculator.js"
+ads: "tool"
+sources:
+  - "International Journal of Clothing Science: Elastic compression gradient pressures in body-sculpting textiles"
+related_tool:
+  title: "Panty Size Calculator"
+  desc: "Compare regular underwear dimensions."
+  url: "/panty-size-calculator"
+related_guide:
+  title: "Universal Bra Measurement Chart"
+  desc: "Complete anatomical dimensions."
+  url: "/bra-measurement-chart"
+faq:
+  - q: "Should I buy a smaller size shapewear for extra slimming?"
+    a: "Never size down in shapewear! Sizing down pushes flesh out at the edges, creates double bulges, pinches circulation, and causes the garment to roll down immediately. True-to-size shapewear provides maximum sculpting with all-day comfort."
+---
+
+<div class="calculator-card">
+  <form id="shapewear-form" class="calc-form">
+    <div class="calc-card-grid">
+      <div class="calc-control-group">
+        <label for="sh-waist">Natural Waist (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="sh-waist" value="29" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="sh-hips">Fullest Hips (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="sh-hips" value="39" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="sh-level">Target Compression</label>
+        <div class="calc-input-wrapper">
+          <select id="sh-level">
+            <option value="light">Level 1: Smooth (Everyday Seamless)</option>
+            <option value="medium" selected>Level 2: Shape (Moderate Contouring)</option>
+            <option value="firm">Level 3: Sculpt (High Compression Formal)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-action-bar">
+      <button type="submit" class="btn-primary">Find Sculpting Size</button>
+    </div>
+  </form>
+
+  <div id="shapewear-result-box" class="sizing-result-box" style="display: none; margin-top: 2rem;">
+    <div class="result-badge" id="sh-res-level">MEDIUM COMPRESSION</div>
+    <div class="result-hero-size" id="sh-res-size">M</div>
+    <div style="background: var(--color-bg-surface); padding: 1rem; border-radius: 8px; border: 1px solid var(--color-border); margin-top: 0.75rem;">
+      <strong>Fitter's Golden Rule:</strong>
+      <p id="sh-res-rule" style="font-size: 0.92rem; color: var(--color-text-main); margin-top: 0.25rem;"></p>
+    </div>
+  </div>
+</div>

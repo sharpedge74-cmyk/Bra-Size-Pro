@@ -1,0 +1,13 @@
+{% assign slot_name = include.slot | default: "banner" %}
+{% assign ad_config = site.data.ads[page.layout][slot_name] %}
+{% if ad_config.enabled %}
+<aside class="ad-container ad-slot-{{ slot_name }}" aria-label="{{ ad_config.label | default: 'Sponsored Content' }}">
+  <div class="ad-label">{{ ad_config.label | default: "Advertisement" }}</div>
+  <div class="ad-content-box">
+    <div class="ad-placeholder-art">
+      <span class="ad-placeholder-text">IMRango Ethical Fit Sponsor</span>
+      <span class="ad-placeholder-dimensions">{{ ad_config.dimensions | default: "Responsive Display" }}</span>
+    </div>
+  </div>
+</aside>
+{% endif %}

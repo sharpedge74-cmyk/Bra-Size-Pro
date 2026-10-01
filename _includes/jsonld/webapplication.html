@@ -1,0 +1,23 @@
+{% assign page_slug = page.url | replace: '.html', '' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "{{ page.title }}",
+  "url": "https://iamrango.com{{ page_slug }}",
+  "applicationCategory": "LifestyleApplication",
+  "operatingSystem": "All",
+  "browserRequirements": "Requires JavaScript. Requires HTML5.",
+  "description": "{{ page.description }}",
+  "offers": {
+    "@type": "Offer",
+    "price": "0",
+    "priceCurrency": "USD"
+  },
+  "creator": {
+    "@type": "Organization",
+    "name": "IMRango",
+    "url": "https://iamrango.com"
+  }
+}
+</script>

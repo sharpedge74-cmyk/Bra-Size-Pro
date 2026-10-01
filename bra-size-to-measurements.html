@@ -1,0 +1,88 @@
+---
+layout: tool
+title: "Bra Size to Measurements Converter"
+description: "Reverse engineer any bra size to see exactly what underbust and bust measurements in inches and centimeters fit that size."
+permalink: /bra-size-to-measurements
+breadcrumb_label: "Size to Measurements"
+intent: "Reverse calculate bust and ribcage measurements from bra size"
+last_reviewed: "2026-03-10"
+tool_js: "bra-size-to-measurements.js"
+ads: "tool"
+sources:
+  - "ASTM D5586: Standard Tables of Body Measurements for Apparel Sizing"
+related_tool:
+  title: "Universal Bra Size Calculator"
+  desc: "Calculate size directly from your body measurements."
+  url: "/bra-size-calculator"
+related_guide:
+  title: "Universal Bra Measurement Chart"
+  desc: "Complete lookup table for all global band and cup numbers."
+  url: "/bra-measurement-chart"
+faq:
+  - q: "Can two people with the same bra size have different body dimensions?"
+    a: "Yes. For example, a 34D fits someone with a 33-35 inch underbust and a 37-39 inch bust. Ribcage shape, posture, and breast projection vary across people with identical circumference numbers."
+---
+
+<div class="calculator-card">
+  <form id="reverse-lookup-form" class="calc-form">
+    <div class="calc-card-grid">
+      <div class="calc-control-group">
+        <label for="input-band">Band Size</label>
+        <div class="calc-input-wrapper">
+          <input type="number" id="input-band" value="34" min="28" max="52" step="2" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="input-cup">Cup Letter</label>
+        <div class="calc-input-wrapper">
+          <select id="input-cup">
+            <option value="AA">AA (0" diff)</option>
+            <option value="A">A (1" diff)</option>
+            <option value="B">B (2" diff)</option>
+            <option value="C">C (3" diff)</option>
+            <option value="D" selected>D (4" diff)</option>
+            <option value="DD">DD / E (5" diff)</option>
+            <option value="DDD/F">DDD / F (6" diff)</option>
+            <option value="G">G (7" diff)</option>
+            <option value="H">H (8" diff)</option>
+            <option value="I">I (9" diff)</option>
+            <option value="J">J (10" diff)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="input-unit">Display Unit</label>
+        <div class="calc-input-wrapper">
+          <select id="input-unit">
+            <option value="inches" selected>Inches (in)</option>
+            <option value="cm">Centimeters (cm)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-action-bar">
+      <button type="submit" class="btn-primary">Lookup Target Body Measurements</button>
+    </div>
+  </form>
+
+  <div id="reverse-result-box" class="sizing-result-box" style="display: none; margin-top: 2rem;">
+    <div class="result-badge">Target Body Dimensions</div>
+    <div class="result-equivalents-grid">
+      <div class="equivalent-pill">
+        <span class="country-code">Underbust Range</span>
+        <span class="country-size" id="res-underbust-range">33 - 35 in</span>
+      </div>
+      <div class="equivalent-pill">
+        <span class="country-code">Full Bust Range</span>
+        <span class="country-size" id="res-bust-range">37.5 - 38.5 in</span>
+      </div>
+      <div class="equivalent-pill">
+        <span class="country-code">Bust Differential</span>
+        <span class="country-size" id="res-difference">4 inches</span>
+      </div>
+    </div>
+  </div>
+</div>

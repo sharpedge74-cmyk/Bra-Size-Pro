@@ -1,0 +1,84 @@
+---
+layout: tool
+title: "Plus-Size Bra Calculator"
+description: "Tailored sizing calculations for bands 38 and above and cups DD through O, accounting for torso compressibility, wire width, and breast projection."
+permalink: /plus-size-bra-calculator
+breadcrumb_label: "Plus-Size Bra Calculator"
+intent: "Calculate accurate plus-size bra dimensions with firm band support"
+last_reviewed: "2026-03-01"
+tool_js: "plus-size-bra-calculator.js"
+ads: "tool"
+sources:
+  - "International Plus-Size Garment Grading Protocols"
+related_tool:
+  title: "Universal Bra Size Calculator"
+  desc: "Compare against universal measurement standards."
+  url: "/bra-size-calculator"
+related_guide:
+  title: "Bra Cup Size Guide"
+  desc: "Visual depth chart and volume equivalents across US and UK lettering."
+  url: "/bra-cup-size-guide"
+faq:
+  - q: "Why should plus size individuals often size down in the band?"
+    a: "Plus size ribcages have more soft subcutaneous tissue that compresses easily. If you choose a loose band, the bra slides around and forces the shoulder straps to carry all the weight. A firm, snug band anchors the bra and relieves back pain."
+---
+
+<div class="calculator-card">
+  <form id="plus-size-form" class="calc-form">
+    <div class="calc-card-grid">
+      <div class="calc-control-group">
+        <label for="ps-loose">Loose Underbust (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="ps-loose" value="42" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="ps-snug">Snug Underbust (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="ps-snug" value="40" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="ps-tight">Tight / Fully Exhaled (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="ps-tight" value="38" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="ps-standing">Standing Bust (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="ps-standing" value="48" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="ps-leaning">Leaning Bust (90&deg;) (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="ps-leaning" value="51" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-action-bar">
+      <button type="submit" class="btn-primary">Calculate Full-Bust Size</button>
+    </div>
+  </form>
+
+  <div id="plus-result-box" class="sizing-result-box" style="display: none; margin-top: 2rem;">
+    <div class="result-badge">Curvy & Plus Support Recommendation</div>
+    <div class="result-equivalents-grid">
+      <div class="equivalent-pill">
+        <span class="country-code">US Sizing</span>
+        <span class="country-size" id="ps-res-us">40I</span>
+      </div>
+      <div class="equivalent-pill">
+        <span class="country-code">UK Sizing (Recommended)</span>
+        <span class="country-size" id="ps-res-uk">40G</span>
+      </div>
+    </div>
+    <p id="ps-res-notes" style="font-size: 0.9rem; color: var(--color-text-muted); margin-top: 0.75rem;"></p>
+  </div>
+</div>

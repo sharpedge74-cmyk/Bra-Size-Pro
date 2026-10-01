@@ -1,0 +1,86 @@
+---
+layout: tool
+title: "Sister Size Calculator"
+description: "Discover equivalent bra cup volumes across different band sizes. If your band is too tight or riding up, find your exact sister size alternative instantly."
+permalink: /sister-size-calculator
+breadcrumb_label: "Sister Size Calculator"
+intent: "Find sister bra sizes with identical cup volume"
+last_reviewed: "2026-03-14"
+tool_js: "sister-size-calculator.js"
+ads: "tool"
+sources:
+  - "Lingerie Design and Pattern Making: Cup Grading Dynamics"
+related_tool:
+  title: "Universal Bra Size Calculator"
+  desc: "Establish your starting benchmark measurements."
+  url: "/bra-size-calculator"
+related_guide:
+  title: "Sister Sizing Explained"
+  desc: "The geometry of why cup volume scales inversely with band length."
+  url: "/sister-sizing-explained"
+faq:
+  - q: "What is a sister size?"
+    a: "Sister sizes are pairs of bra sizes that share the exact same cup volume, but have different band lengths. For example, 32D, 34C, and 36B hold the exact same volume of breast tissue in their cups."
+  - q: "When should I sister size down?"
+    a: "Sister size down (smaller band, larger cup letter) when your bra band is riding up your back, your shoulder straps are bearing all the weight, or you have to clasp the bra on the tightest hooks right after buying it."
+---
+
+<div class="calculator-card">
+  <form id="sister-size-form" class="calc-form">
+    <div class="calc-card-grid">
+      <div class="calc-control-group">
+        <label for="sister-band">Current Band</label>
+        <div class="calc-input-wrapper">
+          <input type="number" id="sister-band" value="34" min="28" max="50" step="2" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="sister-cup">Current Cup</label>
+        <div class="calc-input-wrapper">
+          <select id="sister-cup">
+            <option value="A">A</option>
+            <option value="B">B</option>
+            <option value="C">C</option>
+            <option value="D" selected>D</option>
+            <option value="DD">DD</option>
+            <option value="DDD/F">DDD / F</option>
+            <option value="G">G</option>
+            <option value="H">H</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="sister-system">Sizing System</label>
+        <div class="calc-input-wrapper">
+          <select id="sister-system">
+            <option value="us" selected>US / Canada</option>
+            <option value="uk">United Kingdom</option>
+            <option value="eu">European Union</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-action-bar">
+      <button type="submit" class="btn-primary">Generate Sister Size Matrix</button>
+    </div>
+  </form>
+
+  <div id="sister-result-box" class="sizing-result-box" style="display: none; margin-top: 2rem;">
+    <div class="result-badge">Equivalent Cup Volume Matrix</div>
+    <table class="guide-content" style="width: 100%; margin-top: 1rem;">
+      <thead>
+        <tr>
+          <th>Sister Size</th>
+          <th>Band</th>
+          <th>Cup</th>
+          <th>Fit Purpose</th>
+        </tr>
+      </thead>
+      <tbody id="sister-matrix-body">
+      </tbody>
+    </table>
+  </div>
+</div>

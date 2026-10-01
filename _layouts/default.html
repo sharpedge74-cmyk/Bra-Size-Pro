@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="pinkish">
+<head>
+  {% include seo/head.html %}
+  {% include jsonld/organization.html %}
+  {% include jsonld/website.html %}
+  {% include jsonld/breadcrumblist.html %}
+</head>
+<body class="site-body">
+  {% include components/header.html %}
+
+  <div class="site-layout-wrapper">
+    <!-- Desktop Left 25% Persistent Ad -->
+    <aside class="desktop-left-ad-column" aria-label="Sponsored Content">
+      <div class="desktop-ad-sticky-wrapper">
+        <span class="ad-label">Advertisement</span>
+        <div class="ad-placeholder-art">
+          <span class="ad-placeholder-text">IMRango Ethical Fit Sponsor</span>
+          <span class="ad-placeholder-dimensions">300x600 Half-Page Display</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Main Content 75% on Desktop -->
+    <main id="main-content" class="site-main site-main-column">
+      <div class="content-wrapper">
+        {% include components/breadcrumbs.html %}
+        {{ content }}
+      </div>
+    </main>
+  </div>
+
+  {% include components/footer.html %}
+
+  <!-- Mobile Closable Bottom Ad Bar -->
+  <aside id="mobile-bottom-ad" class="mobile-bottom-ad-bar" aria-label="Sponsored Mobile Content">
+    <div class="mobile-ad-header">
+      <span class="mobile-ad-label">Advertisement</span>
+      <button id="close-mobile-ad" class="mobile-ad-close-btn" aria-label="Close Advertisement">✕</button>
+    </div>
+    <div class="mobile-ad-box">
+      <span>IMRango Ethical Sponsor &middot; Mobile Display</span>
+    </div>
+  </aside>
+
+  <!-- Core scripts -->
+  <script src="/assets/js/core.js"></script>
+  <script src="/assets/js/ads.js"></script>
+  {% if page.tool_js %}
+  <script src="/assets/js/tools/{{ page.tool_js }}"></script>
+  {% endif %}
+</body>
+</html>

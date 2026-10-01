@@ -1,0 +1,71 @@
+---
+layout: tool
+title: "Sports Bra Calculator"
+description: "Calculate your sports bra size and determine whether compression, encapsulation, or hybrid support is best for your cup volume and workout impact level."
+permalink: /sports-bra-calculator
+breadcrumb_label: "Sports Bra Calculator"
+intent: "Find sports bra sizes and encapsulation vs compression styles"
+last_reviewed: "2026-03-05"
+tool_js: "sports-bra-calculator.js"
+ads: "tool"
+sources:
+  - "University of Portsmouth Research Group in Breast Health: Biomechanics of breast motion during exercise"
+related_tool:
+  title: "Universal Bra Size Calculator"
+  desc: "Establish your everyday bra foundation."
+  url: "/bra-size-calculator"
+related_guide:
+  title: "How to Measure for a Sports Bra"
+  desc: "Detailed guide on breast bounce reduction and strap stability."
+  url: "/how-to-measure-sports-bra"
+faq:
+  - q: "What is the difference between compression and encapsulation sports bras?"
+    a: "Compression bras press breasts against the chest wall as a single unit, best for smaller cup sizes (A-C) and low-impact workouts. Encapsulation bras surround and support each breast individually with molded cups or underwire, reducing up to 83% of movement across all directions, essential for D+ busts."
+---
+
+<div class="calculator-card">
+  <form id="sports-bra-form" class="calc-form">
+    <div class="calc-card-grid">
+      <div class="calc-control-group">
+        <label for="sb-underbust">Ribcage Underbust (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="sb-underbust" value="32" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="sb-bust">Full Bust (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="sb-bust" value="37" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="sb-impact">Activity Level</label>
+        <div class="calc-input-wrapper">
+          <select id="sb-impact">
+            <option value="high" selected>High Impact (Running, HIIT, Horse Riding)</option>
+            <option value="medium">Medium Impact (Spin, Hiking, Weightlifting)</option>
+            <option value="low">Low Impact (Yoga, Pilates, Walking)</option>
+          </select>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-action-bar">
+      <button type="submit" class="btn-primary">Find My Sports Bra Match</button>
+    </div>
+  </form>
+
+  <div id="sports-result-box" class="sizing-result-box" style="display: none; margin-top: 2rem;">
+    <div class="result-badge" id="sb-res-impact">HIGH IMPACT FIT</div>
+    <div class="result-hero-size" id="sb-res-bra-size">32DD</div>
+    <div style="font-size: 0.95rem; font-weight: 600; margin-bottom: 0.5rem;">
+      Alpha Sizing Equivalent: <span id="sb-res-alpha-size" style="color: var(--color-primary);">M-D+</span>
+    </div>
+    <div style="background: var(--color-bg-surface); padding: 1rem; border-radius: 8px; border: 1px solid var(--color-border);">
+      <strong>Recommended Engineering Style:</strong>
+      <p id="sb-res-style" style="font-size: 0.92rem; color: var(--color-text-main); margin-top: 0.25rem;"></p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,67 @@
+---
+layout: tool
+title: "Panty Size Calculator"
+description: "Convert waist and hip dimensions into US, UK, and European panty, underwear, thong, and brief sizes without painful digging or riding up."
+permalink: /panty-size-calculator
+breadcrumb_label: "Panty Size Calculator"
+intent: "Calculate accurate underwear and panty sizes from hips and waist"
+last_reviewed: "2026-02-20"
+tool_js: "panty-size-calculator.js"
+ads: "tool"
+sources:
+  - "ISO 8559-2: Garment construction and specifications — Part 2: Undergarments"
+related_tool:
+  title: "Matching Set Calculator"
+  desc: "Coordinate complementary bra and bottom sets."
+  url: "/matching-set-calculator"
+related_guide:
+  title: "Universal Bra Measurement Chart"
+  desc: "Full international body sizing tables."
+  url: "/bra-measurement-chart"
+faq:
+  - q: "Which measurement is more important for panty sizing: waist or hips?"
+    a: "Hips are the primary anchor for mid-rise and low-rise underwear. For high-waisted briefs and sculpting styles, check both waist and hips, and size to the larger of the two if between sizes."
+---
+
+<div class="calculator-card">
+  <form id="panty-calc-form" class="calc-form">
+    <div class="calc-card-grid">
+      <div class="calc-control-group">
+        <label for="panty-waist">Natural Waist (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="panty-waist" value="28" required>
+        </div>
+      </div>
+
+      <div class="calc-control-group">
+        <label for="panty-hips">Full Hips (in)</label>
+        <div class="calc-input-wrapper">
+          <input type="number" step="0.5" id="panty-hips" value="38" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="calc-action-bar">
+      <button type="submit" class="btn-primary">Calculate Panty Size</button>
+    </div>
+  </form>
+
+  <div id="panty-result-box" class="sizing-result-box" style="display: none; margin-top: 2rem;">
+    <div class="result-badge">Calculated Panty Size</div>
+    <div class="result-hero-size" id="panty-res-alpha">M</div>
+    <div class="result-equivalents-grid">
+      <div class="equivalent-pill">
+        <span class="country-code">US Dress / Pant</span>
+        <span class="country-size" id="panty-res-us">8-10</span>
+      </div>
+      <div class="equivalent-pill">
+        <span class="country-code">UK Size</span>
+        <span class="country-size" id="panty-res-uk">12-14</span>
+      </div>
+      <div class="equivalent-pill">
+        <span class="country-code">EU Size</span>
+        <span class="country-size" id="panty-res-eu">40-42</span>
+      </div>
+    </div>
+  </div>
+</div>

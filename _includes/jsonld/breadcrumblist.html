@@ -1,0 +1,21 @@
+{% assign page_slug = page.url | replace: '.html', '' %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Home",
+      "item": "https://iamrango.com/"
+    }{% if page_slug != '/' and page_slug != '' %},
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "{% if page.breadcrumb_label %}{{ page.breadcrumb_label }}{% else %}{{ page.title }}{% endif %}",
+      "item": "https://iamrango.com{{ page_slug }}"
+    }{% endif %}
+  ]
+}
+</script>
