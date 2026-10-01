@@ -95,12 +95,13 @@ window.IMRango = (function() {
   // Universal Sizing Physics
   // Band calculation: Standard modern method (direct snug underbust rounded to closest even number)
   function calculateBand(underbustInches) {
-    let rounded = Math.round(underbustInches);
+    const value = Number(underbustInches);
+    if (!Number.isFinite(value) || value < 27 || value > 51) return null;
+    let rounded = Math.round(value);
     if (rounded % 2 !== 0) {
-      // If odd, typically closest even based on tight measurement
       rounded += 1;
     }
-    return Math.max(28, Math.min(52, rounded));
+    return rounded;
   }
 
   const CUP_ORDER_US = ['AA', 'A', 'B', 'C', 'D', 'DD', 'DDD/F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
