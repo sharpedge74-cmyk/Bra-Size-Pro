@@ -1,26 +1,171 @@
-<!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bra Size Calculator & Fit Guides | IMRango</title>
-    <meta name="description" content="Accurate bra size calculators, sister size conversions, fit checker, and professional sizing guides for US, UK, EU, AU and Asian sizing." />
-    <link rel="canonical" href="https://iamrango.com/" />
-    <meta property="og:title" content="Bra Size Calculator & Fit Guides | IMRango" />
-    <meta property="og:description" content="Accurate bra size calculators, sister size conversions, fit checker, and professional sizing guides for US, UK, EU, AU and Asian sizing." />
-    <meta property="og:type" content="website" />
-    <meta property="og:url" content="https://iamrango.com/" />
-    <meta property="og:site_name" content="IMRango" />
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Bra Size Calculator & Fit Guides | IMRango" />
-    <meta name="twitter:description" content="Accurate bra size calculators, sister size conversions, fit checker, and professional sizing guides for US, UK, EU, AU and Asian sizing." />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
-  </head>
-  <body class="bg-slate-50 text-slate-900 font-sans antialiased min-h-screen">
-    <div id="root"></div>
-    <script type="module" src="/src/main.jsx"></script>
-  </body>
-</html>
+---
+layout: home
+title: "Bra Size Calculator & Fit Guides | IMRango"
+description: "Accurate bra size calculators, sister size conversions, fit checker, and professional sizing guides for US, UK, EU, AU and Asian sizing."
+permalink: /
+---
+<section class="home-hero">
+  <div class="home-hero-copy">
+    <div class="home-badge">✦ Independent Precision Sizing Intelligence</div>
+    <h1>Stop wearing a bra that <em>hurts.</em></h1>
+    <p>Replace retail guesswork with direct underbust measurements, anatomical fit checks, and international size conversions.</p>
+    <div class="home-actions">
+      <a class="button button-primary" href="/bra-size-calculator">Launch Universal Calculator <span>→</span></a>
+      <a class="button button-secondary" href="/bra-fit-checker">Diagnose Fit Discomfort</a>
+    </div>
+    <div class="home-trust">
+      <span>✓ Zero +4 Inch Distortion</span>
+      <span>✓ Client-Side Privacy</span>
+      <span>✓ US, UK, EU, AU Standards</span>
+    </div>
+  </div>
 
+  <div class="quick-estimate-card">
+    <div class="quick-estimate-heading">
+      <div>
+        <span class="eyebrow">Quick Estimate</span>
+        <h2>Instant Size Benchmark</h2>
+      </div>
+      <span class="quick-mode">2-Point Mode</span>
+    </div>
+
+    <div class="quick-field">
+      <label for="quick-underbust">Snug Underbust: <output id="quick-underbust-value">32</output> in</label>
+      <span>Ribcage anchor</span>
+      <input id="quick-underbust" type="range" min="26" max="46" step="1" value="32">
+    </div>
+
+    <div class="quick-field">
+      <label for="quick-bust">Full Bust: <output id="quick-bust-value">36</output> in</label>
+      <span>Apex circumference</span>
+      <input id="quick-bust" type="range" min="32" max="46" step="1" value="36">
+    </div>
+
+    <div class="quick-result">
+      <span>Estimated US Starting Size</span>
+      <strong id="quick-size-result">32D</strong>
+      <small id="quick-size-regions">UK: 32D · EU: 70D</small>
+    </div>
+
+    <a class="button button-primary button-full" href="/bra-size-calculator">Refine With 6-Point Measurements →</a>
+  </div>
+</section>
+
+<section class="home-section problem-section">
+  <div class="section-intro">
+    <span class="eyebrow">Anatomical Reality</span>
+    <h2>Why Your Current Bra May Not Fit</h2>
+    <p>Bra fit depends on the relationship between your ribcage, bust volume, cup depth, wire width, and band tension—not simply a letter and number.</p>
+  </div>
+  <div class="comparison-grid">
+    <div class="comparison-card comparison-card-problem">
+      <h3>× Common Retail Error</h3>
+      <ul>
+        <li>Band can be too loose and ride up the back.</li>
+        <li>Straps may compensate for an unsupported band.</li>
+        <li>Shallow or undersized cups can create spillage and pressure.</li>
+      </ul>
+    </div>
+    <div class="comparison-card comparison-card-method">
+      <h3>✓ IMRango Precision Method</h3>
+      <ul>
+        <li>Uses the snug underbust as the primary band anchor.</li>
+        <li>Checks bust-to-band difference for cup sizing.</li>
+        <li>Considers fit symptoms and international sizing systems.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="home-section" aria-labelledby="all-tools-heading">
+  <div class="section-heading-row">
+    <div>
+      <span class="eyebrow">Sizing Suite</span>
+      <h2 id="all-tools-heading">Precision Calculators</h2>
+    </div>
+    <p>Interactive calculations run directly in your browser.</p>
+  </div>
+  <div class="home-card-grid home-tool-grid">
+    {% for tool in site.data.tools %}
+    <article class="home-card">
+      <div class="home-card-icon" aria-hidden="true">◆</div>
+      {% if tool.badge %}<span class="home-card-badge">{{ tool.badge }}</span>{% endif %}
+      <h3>{{ tool.title }}</h3>
+      <p>{{ tool.description }}</p>
+      <a href="/{{ tool.slug }}">Open Calculator →</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="home-section home-guides-section" aria-labelledby="all-guides-heading">
+  <div class="section-heading-row">
+    <div>
+      <span class="eyebrow">Educational Authority</span>
+      <h2 id="all-guides-heading">Fitting Guides & Charts</h2>
+    </div>
+    <a class="text-link" href="/bra-measurement-chart">View Universal Charts →</a>
+  </div>
+  <div class="home-card-grid home-guide-grid">
+    {% for guide in site.data.nav.guides %}
+    <article class="home-card">
+      <span class="home-card-meta">Guide · {{ guide.last_reviewed }}</span>
+      <h3>{{ guide.title }}</h3>
+      <p>{{ guide.description }}</p>
+      <a href="/{{ guide.slug }}">Read Guide →</a>
+    </article>
+    {% endfor %}
+  </div>
+</section>
+
+<section class="home-section brand-directory">
+  <div class="section-heading-row">
+    <div>
+      <h2>Top Commercial Brands Compared</h2>
+      <p>Reference brand fit characteristics alongside your calculated size.</p>
+    </div>
+    <a class="button button-primary" href="/brand-size-converter">Open Brand Size Converter →</a>
+  </div>
+  <div class="brand-grid">
+    {% for brand in site.data.brands %}
+    <div class="brand-card">
+      <strong>{{ brand.name }}</strong>
+      <span>{{ brand.bandFit }}</span>
+      <p>{{ brand.notes }}</p>
+    </div>
+    {% endfor %}
+  </div>
+</section>
+
+<script>
+(function () {
+  const underbust = document.getElementById('quick-underbust');
+  const bust = document.getElementById('quick-bust');
+  const underbustValue = document.getElementById('quick-underbust-value');
+  const bustValue = document.getElementById('quick-bust-value');
+  const result = document.getElementById('quick-size-result');
+  const regions = document.getElementById('quick-size-regions');
+  const cups = ['AA', 'A', 'B', 'C', 'D', 'DD', 'DDD/F', 'G', 'H', 'I'];
+
+  function updateQuickEstimate() {
+    const bandRaw = Math.round(Number(underbust.value));
+    const band = bandRaw % 2 === 0 ? bandRaw : bandRaw + 1;
+    const bustValueNumber = Number(bust.value);
+    const diff = Math.max(0, bustValueNumber - bandRaw);
+    const cup = cups[Math.min(Math.round(diff), cups.length - 1)] || 'D';
+    const eu = Math.max(60, Math.round((band * 2.54 / 5)) * 5 - 10);
+
+    underbustValue.value = bandRaw;
+    bustValue.value = bustValueNumber;
+    result.textContent = band + cup;
+    regions.textContent = 'UK: ' + band + cup + ' · EU: ' + eu + cup;
+
+    bust.min = bandRaw;
+    if (Number(bust.value) < bandRaw) bust.value = bandRaw;
+  }
+
+  underbust.addEventListener('input', updateQuickEstimate);
+  bust.addEventListener('input', updateQuickEstimate);
+  updateQuickEstimate();
+}());
+</script>
