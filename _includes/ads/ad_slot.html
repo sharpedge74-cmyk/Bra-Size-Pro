@@ -4,12 +4,8 @@
 <aside class="ad-container ad-slot-{{ slot_name }}" aria-label="{{ ad_config.label | default: 'Sponsored Content' }}">
   <div class="ad-label">{{ ad_config.label | default: "Advertisement" }}</div>
   <div class="ad-content-box">
-    {% if slot_name == "top_banner" %}
-      <div class="ad-network-slot ad-network-728x90">
-        <script async type="text/javascript" src="https://pl29676384.profitableratecpmnetwork.com/79c41b6e6c590a043b788b1b40db50de/invoke.js"></script>
-      </div>
-    {% elsif slot_name == "in_calculator" or slot_name == "in_article" %}
-      <div class="ad-network-slot ad-network-300x250">
+    {% if ad_config.script_key %}
+      <div class="ad-network-slot ad-network-{{ ad_config.dimensions | replace: 'x', '-' | replace: ' ', '' }}">
         <script async type="text/javascript" src="https://www.profitableratecpmnetwork.com/{{ ad_config.script_key }}/invoke.js"></script>
       </div>
     {% else %}
