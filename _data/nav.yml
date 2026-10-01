@@ -80,6 +80,9 @@ all_tools:
     icon: "Target"
 
 all_guides:
+  - title: "Bra Sizing Methodology"
+    url: "/bra-sizing-methodology"
+    desc: "See the formulas, cup mappings, band conversions, sister-size logic, and limitations used by the main calculator."
   - title: "How to Measure Bra Size at Home"
     url: "/how-to-measure-bra-size-at-home"
     desc: "Step-by-step tutorial with tape positioning, posture tips, and common pitfalls."
