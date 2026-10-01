@@ -145,24 +145,22 @@ window.IMRango = (function() {
   }
 
   function getSisterSizes(band, cupIndex, system = 'us') {
-    const cupList = system === 'uk' ? CUP_ORDER_UK : (system === 'eu' ? CUP_ORDER_EU : CUP_ORDER_US);
-    const sisters = {
-      tighterBand: null,
-      looserBand: null
-    };
+    const numericBand = Number(band);
+    const numericCupIndex = Number(cupIndex);
+    const cupList = system === 'uk'
+      ? CUP_ORDER_UK
+      : (system === 'eu' ? CUP_ORDER_EU : (system === 'au' ? CUP_ORDER_AU : CUP_ORDER_US));
+    const sisters = { tighterBand: null, looserBand: null };
 
-    // Sister size tighter band: Band - 2, Cup + 1
-    if (band > 28 && cupIndex < cupList.length - 1) {
-      sisters.tighterBand = `${band - 2}${cupList[cupIndex + 1]}`;
+    if (!Number.isFinite(numericBand) || !Number.isInteger(numericCupIndex)) return sisters;
+    if (numericBand >= 30 && numericCupIndex >= 0 && numericCupIndex < cupList.length - 1) {
+      sisters.tighterBand = `${numericBand - 2}${cupList[numericCupIndex + 1]}`;
     }
-    // Sister size looser band: Band + 2, Cup - 1
-    if (band < 50 && cupIndex > 0) {
-      sisters.looserBand = `${band + 2}${cupList[cupIndex - 1]}`;
+    if (numericBand <= 48 && numericCupIndex > 0 && numericCupIndex < cupList.length) {
+      sisters.looserBand = `${numericBand + 2}${cupList[numericCupIndex - 1]}`;
     }
     return sisters;
   }
-
-  // Shared inches/centimeters controls for measurement-based calculators
   function initMeasurementUnits() {
     document.querySelectorAll('[data-measurement-unit-form]').forEach(form => {
       const unitSelect = form.querySelector('.measurement-unit-select');
