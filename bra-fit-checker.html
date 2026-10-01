@@ -1,7 +1,7 @@
 ---
 layout: tool
 title: "Bra Fit Checker & Problem Solver"
-description: "Diagnose gaping cups, slipping straps, riding bands, or digging wires. Get immediate anatomical troubleshooting and adjusted size recommendations."
+description: "Troubleshoot common bra-fit issues and compare practical sizing or fit adjustments."
 permalink: /bra-fit-checker
 breadcrumb_label: "Bra Fit Checker"
 intent: "Troubleshoot bra fit issues and find corrective sizing solutions"
@@ -21,7 +21,7 @@ related_guide:
   url: "/signs-your-bra-doesnt-fit"
 faq:
   - q: "Why do my straps keep slipping off my shoulders?"
-    a: "Straps sliding down is almost always caused by a band that is too large. When your band rides up your back, it releases tension on the straps, making them fall down. Tightening the band fixes this issue in 90% of cases."
+    a: "Straps sliding down is almost always caused by a band that is too large. When your band rides up your back, it releases tension on the straps, making them fall down. A loose or poorly adjusted band can contribute to straps slipping, but strap length, shoulder shape, garment design, and cup fit can also matter. Check the band and cup fit together before changing size."
   - q: "What should I do if the gore doesn't lay flat against my chest?"
     a: "If the center gore floats or perches away from your sternum, your cup volume is too small or the cup profile is too shallow for your natural projection. Move up 1 to 2 cup sizes."
 ---
@@ -32,7 +32,7 @@ faq:
       <div class="calc-control-group">
         <label for="current-band">Current Band Size</label>
         <div class="calc-input-wrapper">
-          <input type="number" id="current-band" value="36" min="28" max="52" step="2">
+          <input type="number" id="current-band" value="36" min="28" max="50" step="2">
         </div>
       </div>
 
@@ -71,15 +71,15 @@ faq:
     </div>
 
     <div class="calc-action-bar">
-      <button type="button" id="diagnose-btn" class="btn-primary">Diagnose Fit & Get Solution</button>
+      <button type="button" id="diagnose-btn" class="btn-primary">Check Fit & Get Guidance</button>
     </div>
   </div>
 
   <div id="diagnosis-result" class="sizing-result-box" style="display: none; margin-top: 2rem;">
-    <div class="result-badge">Fit Diagnosis & Immediate Fix</div>
+    <div class="result-badge">Fit Guidance & Possible Adjustments</div>
     <h3 id="diag-title" style="font-size: 1.4rem; font-family: var(--font-serif); margin-bottom: 0.5rem;"></h3>
     <div style="margin-bottom: 1rem;">
-      <strong>Root Anatomical Cause:</strong>
+      <strong>Possible Fit Factor:</strong>
       <p id="diag-cause" style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 0.25rem;"></p>
     </div>
     <div style="margin-bottom: 1rem;">
@@ -87,7 +87,7 @@ faq:
       <p id="diag-fix" style="font-size: 0.95rem; color: var(--color-text-muted); margin-top: 0.25rem;"></p>
     </div>
     <div style="padding: 1rem; background: var(--color-bg-surface); border-radius: 8px; border: 1px solid var(--color-border);">
-      <strong style="color: var(--color-primary);">Recommended Size Shift:</strong>
+      <strong style="color: var(--color-primary);">Possible Size/Style Comparison:</strong>
       <p id="diag-recommendation" style="font-size: 1rem; font-weight: 600; margin-top: 0.25rem;"></p>
     </div>
   </div>
