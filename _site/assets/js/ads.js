@@ -1,5 +1,5 @@
 /**
- * IMRango Ad Management & Non-Intrusive Ad Slots
+ * BraSizePRO Ad Management & Non-Intrusive Ad Slots
  */
 
 (function() {
@@ -10,10 +10,10 @@
     if (closeBtn && mobileAd) {
       closeBtn.addEventListener('click', function() {
         mobileAd.classList.add('is-hidden');
-        sessionStorage.setItem('imrango_mobile_ad_closed', '1');
+        sessionStorage.setItem('BraSizePRO_mobile_ad_closed', '1');
       });
 
-      if (sessionStorage.getItem('imrango_mobile_ad_closed') === '1') {
+      if (sessionStorage.getItem('BraSizePRO_mobile_ad_closed') === '1') {
         mobileAd.classList.add('is-hidden');
       }
     }

@@ -1,7 +1,7 @@
 ---
 layout: guide
 title: "Bra Sizing Methodology"
-description: "How IMRango calculates measurement-based bra-size starting points, maps cup labels, converts common sizing systems, and handles sister sizes."
+description: "How BraSizePRO calculates measurement-based bra-size starting points, maps cup labels, converts common sizing systems, and handles sister sizes."
 permalink: /bra-sizing-methodology
 breadcrumb_label: "Sizing Methodology"
 last_reviewed: "2026-10-01"
@@ -11,7 +11,7 @@ sources:
   - '<a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" rel="noopener">White & Scurr — Evaluation of professional bra fitting criteria for bra selection and fitting in the UK</a>'
   - '<a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" rel="noopener">Moscarelli et al. — Understanding Variation in Bra Cup Sizing Among Leading Manufacturers</a>'
 faq:
-  - q: "Does IMRango use the +4 method?"
+  - q: "Does BraSizePRO use the +4 method?"
     a: "No. The current calculator uses the entered snug underbust directly, rounds it to an even band value, and does not add four inches."
   - q: "How is the cup starting point calculated?"
     a: "The calculator subtracts snug underbust from standing bust, rounds the difference to the nearest whole inch, and uses that index in the selected sizing system's cup sequence."
@@ -20,9 +20,9 @@ faq:
 ---
 
 <h2>What this page documents</h2>
-<p>This page describes the current calculation logic used by IMRango's main Bra Size Calculator. The goal is transparency: you can see which measurements affect the result, how the arithmetic works, and where the result stops being a calculation and becomes a garment-fitting question.</p>
+<p>This page describes the current calculation logic used by BraSizePRO's main Bra Size Calculator. The goal is transparency: you can see which measurements affect the result, how the arithmetic works, and where the result stops being a calculation and becomes a garment-fitting question.</p>
 
-<p>IMRango is not treating this method as a universal industry standard. Clothing sizing depends on measurement definitions, sizing systems, population data, and garment design. ISO 8559-1 provides standardized terminology and guidance for clothing-related body measurements, while ISO 8559-3 describes how body-measurement tables and intervals can be constructed and notes that body shape and proportions vary between populations. <a href="https://www.iso.org/standard/61686.html" rel="noopener">ISO 8559-1</a> · <a href="https://www.iso.org/standard/67334.html" rel="noopener">ISO 8559-3</a></p>
+<p>BraSizePRO is not treating this method as a universal industry standard. Clothing sizing depends on measurement definitions, sizing systems, population data, and garment design. ISO 8559-1 provides standardized terminology and guidance for clothing-related body measurements, while ISO 8559-3 describes how body-measurement tables and intervals can be constructed and notes that body shape and proportions vary between populations. <a href="https://www.iso.org/standard/61686.html" rel="noopener">ISO 8559-1</a> · <a href="https://www.iso.org/standard/67334.html" rel="noopener">ISO 8559-3</a></p>
 
 <h2>Inputs used by the main calculator</h2>
 <table>
@@ -74,7 +74,7 @@ faq:
 
 <p>For example, a snug underbust of 32.2 inches becomes 32. A measurement of 31.2 inches rounds to 31 and then moves to the next even value, 32.</p>
 
-<p>The current accepted calculation range is 27 through 51 inches. The displayed band therefore runs from 28 through 50. This is a boundary of IMRango's calculation model, not a claim that bodies outside this range cannot be fitted.</p>
+<p>The current accepted calculation range is 27 through 51 inches. The displayed band therefore runs from 28 through 50. This is a boundary of BraSizePRO's calculation model, not a claim that bodies outside this range cannot be fitted.</p>
 
 <h2>Step 2: Calculate the cup index</h2>
 <p>The cup calculation uses the difference between standing bust and snug underbust:</p>
@@ -126,7 +126,7 @@ faq:
 <p>That does not mean every 32D bra will fit the same way. The actual garment may differ in cup shape, wire geometry, stretch, depth, and grading. Research comparing bra-fitting criteria also demonstrates that different fitting approaches can produce different recommended sizes. <a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" rel="noopener">White &amp; Scurr</a></p>
 
 <h2>International label mapping</h2>
-<p>After calculating the US/UK-style numeric band, IMRango maps the band to common EU, AU, FR, IT, and JP reference values where a mapping is available. For the main calculator's displayed conversions, the shared band reference is:</p>
+<p>After calculating the US/UK-style numeric band, BraSizePRO maps the band to common EU, AU, FR, IT, and JP reference values where a mapping is available. For the main calculator's displayed conversions, the shared band reference is:</p>
 
 <table>
   <thead>
@@ -176,8 +176,8 @@ faq:
   <li>It does not replace the current size chart supplied by the manufacturer of the garment you are considering.</li>
 </ul>
 
-<h2>Why IMRango documents the method</h2>
-<p>A calculator is more useful when its assumptions are visible. IMRango therefore treats its result as a reproducible sizing reference: the same inputs and selected system produce the same result, and the calculation can be inspected rather than presented as a black-box recommendation.</p>
+<h2>Why BraSizePRO documents the method</h2>
+<p>A calculator is more useful when its assumptions are visible. BraSizePRO therefore treats its result as a reproducible sizing reference: the same inputs and selected system produce the same result, and the calculation can be inspected rather than presented as a black-box recommendation.</p>
 
 <p>This approach is also consistent with the broader reality of clothing sizing. ISO's clothing-sizing methodology recognizes that body shape and proportions differ across populations and that measurement tables are constructed for particular sizing purposes. The fitting literature likewise shows that different fitting criteria can lead to different recommendations. <a href="https://www.iso.org/standard/67334.html" rel="noopener">ISO 8559-3</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" rel="noopener">White &amp; Scurr</a></p>
 
