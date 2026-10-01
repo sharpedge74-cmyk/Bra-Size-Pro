@@ -28,17 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const sisterRows = [];
 
     if (band >= 32 && cupIdx + 2 < cups.length) {
-      sisterRows.push({ band: band - 4, cup: cups[cupIdx + 2], desc: 'Much tighter band, 2 cups up' });
+      sisterRows.push({ band: band - 4, cup: cups[cupIdx + 2], desc: 'Much tighter band, 2 cup steps up' });
     }
     if (band >= 30 && cupIdx + 1 < cups.length) {
-      sisterRows.push({ band: band - 2, cup: cups[cupIdx + 1], desc: 'Snugger band (1 down), 1 cup up — consider if the current band feels too loose' });
+      sisterRows.push({ band: band - 2, cup: cups[cupIdx + 1], desc: 'Snugger band, 1 cup step up — compare if the current band feels too loose' });
     }
     sisterRows.push({ band: band, cup: cups[cupIdx], desc: 'Your current starting size' });
     if (band <= 48 && cupIdx - 1 >= 0) {
-      sisterRows.push({ band: band + 2, cup: cups[cupIdx - 1], desc: 'Looser band (1 up), 1 cup down — consider if the current band feels too tight' });
+      sisterRows.push({ band: band + 2, cup: cups[cupIdx - 1], desc: 'Looser band, 1 cup step down — compare if the current band feels too tight' });
     }
     if (band <= 46 && cupIdx - 2 >= 0) {
-      sisterRows.push({ band: band + 4, cup: cups[cupIdx - 2], desc: 'Much looser band, 2 cups down' });
+      sisterRows.push({ band: band + 4, cup: cups[cupIdx - 2], desc: 'Much looser band, 2 cup steps down' });
     }
 
     const tbody = document.getElementById('sister-matrix-body');
