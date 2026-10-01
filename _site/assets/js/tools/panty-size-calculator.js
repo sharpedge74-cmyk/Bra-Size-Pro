@@ -7,40 +7,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const waist = parseFloat(document.getElementById('panty-waist').value);
-    const hips = parseFloat(document.getElementById('panty-hips').value);
 
-    if (!waist || !hips) {
-      alert('Please enter both natural waist and full hip measurements.');
+    const unit = form.querySelector('.measurement-unit-select')?.value || 'inches';
+    let waist = parseFloat(document.getElementById('panty-waist').value);
+    let hips = parseFloat(document.getElementById('panty-hips').value);
+
+    if (!Number.isFinite(waist) || !Number.isFinite(hips) || waist <= 0 || hips <= 0) {
+      alert('Please enter valid positive waist and hip measurements.');
       return;
     }
 
-    // Standard hip-driven panty sizing (hips dictate fit for briefs and boyshorts)
-    let size = 'M';
-    let usNum = '8-10';
-    let ukNum = '12-14';
-    let euNum = '40-42';
-
-    if (hips < 36) {
-      size = 'XS'; usNum = '0-2'; ukNum = '4-6'; euNum = '32-34';
-    } else if (hips < 38) {
-      size = 'S'; usNum = '4-6'; ukNum = '8-10'; euNum = '36-38';
-    } else if (hips < 40) {
-      size = 'M'; usNum = '8-10'; ukNum = '12-14'; euNum = '40-42';
-    } else if (hips < 43) {
-      size = 'L'; usNum = '12-14'; ukNum = '16-18'; euNum = '44-46';
-    } else if (hips < 46) {
-      size = 'XL'; usNum = '16-18'; ukNum = '20-22'; euNum = '48-50';
-    } else if (hips < 50) {
-      size = '2XL'; usNum = '20-22'; ukNum = '24-26'; euNum = '52-54';
-    } else {
-      size = '3XL'; usNum = '24-26'; ukNum = '28-30'; euNum = '56-58';
+    if (unit === 'cm') {
+      waist /= 2.54;
+      hips /= 2.54;
     }
 
-    document.getElementById('panty-res-alpha').textContent = size;
-    document.getElementById('panty-res-us').textContent = usNum;
-    document.getElementById('panty-res-uk').textContent = ukNum;
-    document.getElementById('panty-res-eu').textContent = euNum;
+    const rows = IMRango.getData('sizes')?.panty_sizes || [];
+    if (!rows.length) {
+      alert('Panty size reference data is unavailable. Please try again.');
+      return;
+    }
+
+    const parseRange = (value) => {
+      const parts = String(value).split('-').map(Number);
+      return parts.length === 2 && parts.every(Number.isFinite) ? parts : null;
+    };
+
+    const matchingRows = rows.filter((row) => {
+      const waistRange = parseRange(row.waist_in);
+      const hipRange = parseRange(row.hips_in);
+      return waistRange && hipRange &&
+        waist >= waistRange[0] && waist <= waistRange[1] &&
+        hips >= hipRange[0] && hips <= hipRange[1];
+    });
+
+    // Hip fit is the primary reference for most panty cuts; waist helps
+    // distinguish rows and flags cases where the body proportions differ.
+    const hipRows = rows.filter((row) => {
+      const range = parseRange(row.hips_in);
+      return range && hips >= range[0] && hips <= range[1];
+    });
+
+    const result = matchingRows[0];
+    if (!result && hipRows.length) {
+      document.getElementById('panty-res-alpha').textContent = 'Check manufacturer chart';
+      document.getElementById('panty-res-us').textContent = '—';
+      document.getElementById('panty-res-uk').textContent = '—';
+      document.getElementById('panty-res-eu').textContent = '—';
+      const box = document.getElementById('panty-result-box');
+      if (box) { box.style.display = 'block'; box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+      return;
+    }
+    if (!result) {
+      alert('Your measurements fall outside this reference chart. Check the current brand size chart before choosing a size.');
+      return;
+    }
+
+    document.getElementById('panty-res-alpha').textContent = result.label;
+    document.getElementById('panty-res-us').textContent = result.us;
+    document.getElementById('panty-res-uk').textContent = result.uk;
+    document.getElementById('panty-res-eu').textContent = result.eu;
 
     const box = document.getElementById('panty-result-box');
     if (box) {

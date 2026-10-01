@@ -1,37 +1,35 @@
 /**
- * Men's Bra Calculator Logic (Gynecomastia, Broad Torso, Shallow Tissue)
+ * Men's Bra / Chest Support Calculator
+ * Uses the same measurement-based starting point as the general bra calculator.
  */
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('mens-bra-form');
   if (!form) return;
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const underbust = parseFloat(document.getElementById('mb-underbust').value);
     const bust = parseFloat(document.getElementById('mb-bust').value);
-    const torsoType = document.getElementById('mb-torso').value; // broad, athletic, slender
-
-    if (!underbust || !bust || bust <= underbust) {
+    const torsoType = document.getElementById('mb-torso').value;
+    if (!Number.isFinite(underbust) || !Number.isFinite(bust) || underbust <= 0 || bust < underbust) {
       alert('Please enter valid measurements.');
       return;
     }
-
-    // Male chests have wider sternums and shallower, wider root tissue
     const band = IMRango.calculateBand(underbust);
-    let diff = bust - underbust;
-    // Adjust down 0.5" for shallow wide tissue distribution to avoid cup gapping
-    if (torsoType === 'broad') diff = Math.max(0, diff - 0.5);
-
-    const cupIdx = Math.round(diff);
-    const cup = IMRango.CUP_ORDER_US[cupIdx] || 'AA';
-
-    document.getElementById('mb-res-size').textContent = `${band}${cup}`;
-    document.getElementById('mb-res-style').textContent = 'Look for wireless bralettes, wide wings, shallow balcony cuts, or athletic compression vests.';
-
-    const box = document.getElementById('mens-result-box');
-    if (box) {
-      box.style.display = 'block';
-      box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    if (band === null) {
+      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      return;
     }
+    const cupIdx = IMRango.calculateCupIndex(bust, underbust, 'us');
+    const cup = IMRango.getCupForSystem(cupIdx, 'us');
+    if (cup === null) {
+      alert('We could not calculate a cup starting point from these measurements.');
+      return;
+    }
+    document.getElementById('mb-res-size').textContent = `${band}${cup} (starting point)`;
+    document.getElementById('mb-res-style').textContent = torsoType === 'broad'
+      ? 'A wide-band or wire-free style may be worth comparing; fit depends on garment construction.'
+      : 'Compare wire-free, supportive, or compression styles according to comfort and garment construction.';
+    const box = document.getElementById('mens-result-box');
+    if (box) { box.style.display = 'block'; box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
   });
 });

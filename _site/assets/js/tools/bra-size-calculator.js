@@ -9,6 +9,35 @@ document.addEventListener('DOMContentLoaded', () => {
   const systemSelect = document.getElementById('calc-system');
   const resultBox = document.getElementById('calc-result-box');
 
+  const measurementInputs = [
+    document.getElementById('underbust-input'),
+    document.getElementById('tight-underbust'),
+    document.getElementById('bust-input'),
+    document.getElementById('leaning-bust')
+  ].filter(Boolean);
+
+  const updateMeasurementUnits = (unit, convertValues = false) => {
+    const isCm = unit === 'cm';
+    measurementInputs.forEach((input) => {
+      if (convertValues && input.value !== '') {
+        const value = parseFloat(input.value);
+        if (Number.isFinite(value)) {
+          input.value = (isCm ? value * 2.54 : value / 2.54).toFixed(1).replace(/\.0$/, '');
+        }
+      }
+      input.step = isCm ? '0.5' : '0.25';
+    });
+
+    form.querySelectorAll('.calc-input-unit').forEach((label) => {
+      label.textContent = isCm ? 'cm' : 'in';
+    });
+  };
+
+  updateMeasurementUnits(unitSelect?.value || 'inches');
+  unitSelect?.addEventListener('change', () => {
+    updateMeasurementUnits(unitSelect.value, true);
+  });
+
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const unit = unitSelect ? unitSelect.value : 'inches';
@@ -17,24 +46,9 @@ document.addEventListener('DOMContentLoaded', () => {
     let underbust = parseFloat(document.getElementById('underbust-input').value) || 0;
     let bust = parseFloat(document.getElementById('bust-input').value) || 0;
 
-    // Optional 6-point measurements
-    const looseUnder = parseFloat(document.getElementById('loose-underbust')?.value);
-    const snugUnder = parseFloat(document.getElementById('snug-underbust')?.value);
-    const tightUnder = parseFloat(document.getElementById('tight-underbust')?.value);
-    const standingBust = parseFloat(document.getElementById('standing-bust')?.value);
-    const leaningBust = parseFloat(document.getElementById('leaning-bust')?.value);
-    const lyingBust = parseFloat(document.getElementById('lying-bust')?.value);
-
-    // If 6-point measurements given, calculate refined average
-    if (snugUnder && standingBust) {
-      underbust = snugUnder;
-      // Weighted bust: leaning accounts for projection
-      if (leaningBust && lyingBust) {
-        bust = (standingBust + leaningBust * 1.5 + lyingBust) / 3.5;
-      } else {
-        bust = standingBust;
-      }
-    }
+    // Snug underbust and standing bust are the primary calculation measurements.
+    // Tight-underbust and leaning-bust remain optional fit-reference measurements;
+    // they are not blended into the size calculation without a validated formula.
 
     if (unit === 'cm') {
       underbust = underbust / 2.54;
@@ -47,23 +61,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     const band = IMRango.calculateBand(underbust);
-    const cupIdx = IMRango.calculateCupIndex(bust, underbust);
-    const cupLetter = (system === 'uk' ? IMRango.CUP_ORDER_UK : (system === 'eu' ? IMRango.CUP_ORDER_EU : IMRango.CUP_ORDER_US))[cupIdx] || 'D';
+    if (band === null) {
+      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      return;
+    }
+
+    const cupIdx = IMRango.calculateCupIndex(bust, underbust, system);
+    if (cupIdx === null) {
+      alert('Please check your measurements and try again.');
+      return;
+    }
+
+    const cupLetter = IMRango.getCupForSystem(cupIdx, system);
+    if (cupLetter === null) {
+      alert('We could not calculate a cup starting point from these measurements.');
+      return;
+    }
 
     // Display primary result
-    document.getElementById('result-primary-size').textContent = `${band}${cupLetter}`;
+    document.getElementById('result-primary-size').textContent = `${band}${cupLetter} (starting point)`;
     document.getElementById('result-system-name').textContent = system.toUpperCase();
 
     // Calculate regional equivalents
-    const usCup = IMRango.CUP_ORDER_US[cupIdx] || 'D';
-    const ukCup = IMRango.CUP_ORDER_UK[cupIdx] || 'D';
-    const euCup = IMRango.CUP_ORDER_EU[cupIdx] || 'D';
-    const euBand = Math.round(band * 2.54 / 5) * 5 - 10; // Standard EU band formula
+    const usCup = IMRango.getCupForSystem(cupIdx, 'us');
+    const ukCup = IMRango.getCupForSystem(cupIdx, 'uk');
+    const euCup = IMRango.getCupForSystem(cupIdx, 'eu');
+    const auCup = IMRango.getCupForSystem(cupIdx, 'au');
+    const bandMap = IMRango.getBandConversions(band);
 
-    document.getElementById('equiv-us').textContent = `${band}${usCup}`;
-    document.getElementById('equiv-uk').textContent = `${band}${ukCup}`;
-    document.getElementById('equiv-eu').textContent = `${Math.max(60, euBand)}${euCup}`;
-    document.getElementById('equiv-au').textContent = `${Math.max(6, band - 22)}${ukCup}`;
+    document.getElementById('equiv-us').textContent = usCup ? `${band}${usCup}` : '—';
+    document.getElementById('equiv-uk').textContent = ukCup ? `${band}${ukCup}` : '—';
+    document.getElementById('equiv-eu').textContent = bandMap?.eu && euCup ? `${bandMap.eu}${euCup}` : '—';
+    document.getElementById('equiv-au').textContent = bandMap?.au && auCup ? `${bandMap.au}${auCup}` : '—';
 
     // Sister sizes
     const sisters = IMRango.getSisterSizes(band, cupIdx, system);

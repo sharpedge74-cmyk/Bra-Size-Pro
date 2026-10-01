@@ -1,49 +1,39 @@
 /**
- * Sports Bra Calculator Logic (Encapsulation vs Compression)
+ * Sports Bra Calculator
  */
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('sports-bra-form');
   if (!form) return;
-
   form.addEventListener('submit', (e) => {
     e.preventDefault();
     const underbust = parseFloat(document.getElementById('sb-underbust').value);
     const bust = parseFloat(document.getElementById('sb-bust').value);
-    const impact = document.getElementById('sb-impact').value; // low, medium, high
-
-    if (!underbust || !bust || bust <= underbust) {
-      alert('Please enter valid underbust and bust measurements.');
+    const impact = document.getElementById('sb-impact').value;
+    if (!Number.isFinite(underbust) || !Number.isFinite(bust) || underbust <= 0 || bust < underbust) {
+      alert('Please enter valid measurements.');
       return;
     }
-
     const band = IMRango.calculateBand(underbust);
-    const cupIdx = IMRango.calculateCupIndex(bust, underbust);
-    const cup = IMRango.CUP_ORDER_US[cupIdx] || 'C';
-
-    let style = '';
-    let alphaSize = 'M';
-    if (band <= 32) alphaSize = cupIdx > 3 ? 'S-D+' : 'S';
-    else if (band <= 36) alphaSize = cupIdx > 3 ? 'M-D+' : 'M';
-    else if (band <= 40) alphaSize = cupIdx > 3 ? 'L-D+' : 'L';
-    else alphaSize = 'XL+';
-
-    if (impact === 'high' || cupIdx >= 4) {
-      style = 'Encapsulation with underwire or molded individual cups (such as Panache Sport or Shock Absorber)';
-    } else if (impact === 'medium') {
-      style = 'Hybrid encapsulation-compression with racerback construction';
-    } else {
-      style = 'Compression crop or soft wireless seamless bralette';
+    if (band === null) {
+      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      return;
     }
-
-    document.getElementById('sb-res-bra-size').textContent = `${band}${cup}`;
-    document.getElementById('sb-res-alpha-size').textContent = alphaSize;
+    const cupIdx = IMRango.calculateCupIndex(bust, underbust, 'us');
+    const cup = IMRango.getCupForSystem(cupIdx, 'us');
+    if (cup === null) {
+      alert('We could not calculate a cup starting point from these measurements.');
+      return;
+    }
+    const style = impact === 'high'
+      ? 'Look for a sports bra with secure encapsulation or well-engineered compression and adjustable straps.'
+      : impact === 'medium'
+        ? 'Look for a stable compression or encapsulation design with secure straps.'
+        : 'A lighter-support compression or wireless design may be suitable.';
+    document.getElementById('sb-res-bra-size').textContent = `${band}${cup} (starting point)`;
+    document.getElementById('sb-res-alpha-size').textContent = 'Brand-dependent';
     document.getElementById('sb-res-style').textContent = style;
-    document.getElementById('sb-res-impact').textContent = `${impact.toUpperCase()} Impact Activity`;
-
+    document.getElementById('sb-res-impact').textContent = `${impact.toUpperCase()} IMPACT ACTIVITY`;
     const box = document.getElementById('sports-result-box');
-    if (box) {
-      box.style.display = 'block';
-      box.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-    }
+    if (box) { box.style.display = 'block'; box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
   });
 });

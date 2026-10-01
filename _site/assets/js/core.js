@@ -1,6 +1,5 @@
 /**
  * IMRango Core Client-Side Logic
- * Precision Intimates Fit Intelligence
  */
 
 window.IMRango = (function() {
@@ -9,6 +8,14 @@ window.IMRango = (function() {
 
   // Cached data objects parsed from inlined Liquid JSON blocks
   const dataCache = {};
+
+  // Calculator sizing sequences are populated from _data/sizes.yml.
+  // Keep the exported arrays mutable so tools using the public API receive
+  // the same sizing data as the calculator itself.
+  let CUP_ORDER_US = [];
+  let CUP_ORDER_UK = [];
+  let CUP_ORDER_EU = [];
+  let CUP_ORDER_AU = [];
 
   function initData() {
     ['sizes', 'regions', 'brands', 'symptoms'].forEach(name => {
@@ -21,10 +28,33 @@ window.IMRango = (function() {
         }
       }
     });
+
+    const sequences = dataCache.sizes?.calculator_cup_sequences || {};
+    CUP_ORDER_US = Array.isArray(sequences.us) ? sequences.us.slice() : [];
+    CUP_ORDER_UK = Array.isArray(sequences.uk) ? sequences.uk.slice() : [];
+    CUP_ORDER_EU = Array.isArray(sequences.eu) ? sequences.eu.slice() : [];
+    CUP_ORDER_AU = Array.isArray(sequences.au) ? sequences.au.slice() : [];
   }
 
   function getData(name) {
     return dataCache[name] || null;
+  }
+
+  function refreshCupOrders() {
+    const sequences = dataCache.sizes?.calculator_cup_sequences || {};
+    CUP_ORDER_US = Array.isArray(sequences.us) ? sequences.us.slice() : [];
+    CUP_ORDER_UK = Array.isArray(sequences.uk) ? sequences.uk.slice() : [];
+    CUP_ORDER_EU = Array.isArray(sequences.eu) ? sequences.eu.slice() : [];
+    CUP_ORDER_AU = Array.isArray(sequences.au) ? sequences.au.slice() : [];
+  }
+
+  function getCupList(system = 'us') {
+    switch (system) {
+      case 'uk': return CUP_ORDER_UK;
+      case 'eu': return CUP_ORDER_EU;
+      case 'au': return CUP_ORDER_AU;
+      default: return CUP_ORDER_US;
+    }
   }
 
   // Theme Management
@@ -69,9 +99,7 @@ window.IMRango = (function() {
         localStorage.removeItem(key);
       }
     });
-    // Reset all forms in page
     document.querySelectorAll('form').forEach(f => f.reset());
-    // Also clear any dynamically generated results
     const results = document.querySelectorAll('.sizing-result-box');
     results.forEach(r => r.style.display = 'none');
     alert('Your saved measurements have been cleared.');
@@ -92,50 +120,114 @@ window.IMRango = (function() {
     }
   }
 
-  // Universal Sizing Physics
-  // Band calculation: Standard modern method (direct snug underbust rounded to closest even number)
+  // Band calculation: direct snug underbust rounded to the nearest even value.
+  // The accepted measurement range is derived from the first/last band rows
+  // in _data/sizes.yml rather than duplicated in this file.
   function calculateBand(underbustInches) {
-    let rounded = Math.round(underbustInches);
+    const value = Number(underbustInches);
+    const bands = dataCache.sizes?.bands || [];
+    if (!Number.isFinite(value) || !bands.length) return null;
+
+    const minInput = Number(bands[0].underbust_inches_min);
+    const maxInput = Number(bands[bands.length - 1].underbust_inches_max);
+    const maxBand = Number(bands[bands.length - 1].us_uk);
+
+    if (!Number.isFinite(minInput) || !Number.isFinite(maxInput) || !Number.isFinite(maxBand)) return null;
+    if (value < minInput || value > maxInput) return null;
+
+    let rounded = Math.round(value);
     if (rounded % 2 !== 0) {
-      // If odd, typically closest even based on tight measurement
       rounded += 1;
     }
-    return Math.max(28, Math.min(52, rounded));
+    return Math.min(rounded, maxBand);
   }
 
-  const CUP_ORDER_US = ['AA', 'A', 'B', 'C', 'D', 'DD', 'DDD/F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
-  const CUP_ORDER_UK = ['AA', 'A', 'B', 'C', 'D', 'DD', 'E', 'F', 'FF', 'G', 'GG', 'H', 'HH', 'J', 'JJ'];
-  const CUP_ORDER_EU = ['AA', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
+  function calculateCupIndex(bustInches, underbustInches, system = 'us') {
+    const bust = Number(bustInches);
+    const underbust = Number(underbustInches);
+    const cupList = getCupList(system);
+    if (!Number.isFinite(bust) || !Number.isFinite(underbust) || !cupList.length) return null;
 
-  function calculateCupIndex(bustInches, underbustInches) {
-    const diff = Math.max(0, bustInches - underbustInches);
+    const diff = Math.max(0, bust - underbust);
     const index = Math.round(diff);
-    return Math.min(index, CUP_ORDER_UK.length - 1);
+    return Math.min(index, cupList.length - 1);
+  }
+
+  function getCupForSystem(cupIndex, system = 'us') {
+    const cupList = getCupList(system);
+    return cupList[cupIndex] || null;
+  }
+
+  function getBandConversions(usUkBand) {
+    const band = Number(usUkBand);
+    if (!Number.isFinite(band)) return null;
+    const rows = getData('sizes')?.bands || [];
+    const row = rows.find(item => Number(item.us_uk) === band);
+    if (!row) return null;
+    return { us: band, uk: band, eu: row.eu_jp ?? null, au: row.au ?? null, fr: row.fr ?? null, it: row.it ?? null, jp: row.eu_jp ?? null };
   }
 
   function getSisterSizes(band, cupIndex, system = 'us') {
-    const cupList = system === 'uk' ? CUP_ORDER_UK : (system === 'eu' ? CUP_ORDER_EU : CUP_ORDER_US);
-    const sisters = {
-      tighterBand: null,
-      looserBand: null
-    };
+    const numericBand = Number(band);
+    const numericCupIndex = Number(cupIndex);
+    const cupList = getCupList(system);
+    const sisters = { tighterBand: null, looserBand: null };
 
-    // Sister size tighter band: Band - 2, Cup + 1
-    if (band > 28 && cupIndex < cupList.length - 1) {
-      sisters.tighterBand = `${band - 2}${cupList[cupIndex + 1]}`;
+    if (!Number.isFinite(numericBand) || !Number.isInteger(numericCupIndex) || !cupList.length) return sisters;
+    if (numericBand >= 30 && numericCupIndex < cupList.length - 1) {
+      sisters.tighterBand = `${numericBand - 2}${cupList[numericCupIndex + 1]}`;
     }
-    // Sister size looser band: Band + 2, Cup - 1
-    if (band < 50 && cupIndex > 1) {
-      sisters.looserBand = `${band + 2}${cupList[cupIndex - 1]}`;
+    if (numericBand <= 48 && numericCupIndex > 0 && numericCupIndex < cupList.length) {
+      sisters.looserBand = `${numericBand + 2}${cupList[numericCupIndex - 1]}`;
     }
     return sisters;
   }
 
-  // DOM Content Loaded
+  function initMeasurementUnits() {
+    document.querySelectorAll('[data-measurement-unit-form]').forEach(form => {
+      const unitSelect = form.querySelector('.measurement-unit-select');
+      const inputs = Array.from(form.querySelectorAll('.measurement-input'));
+      if (!unitSelect || !inputs.length) return;
+
+      const updateUnits = (unit, convertValues = false) => {
+        const toCm = unit === 'cm';
+        inputs.forEach(input => {
+          if (convertValues && input.value !== '') {
+            const value = parseFloat(input.value);
+            if (Number.isFinite(value)) {
+              input.value = (toCm ? value * 2.54 : value / 2.54).toFixed(1).replace(/\.0$/, '');
+            }
+          }
+          input.step = toCm ? '0.5' : '0.25';
+        });
+        form.querySelectorAll('.measurement-unit-label').forEach(label => {
+          label.textContent = toCm ? 'cm' : 'in';
+        });
+      };
+
+      updateUnits(unitSelect.value || 'inches');
+      unitSelect.addEventListener('change', () => updateUnits(unitSelect.value, true));
+
+      form.addEventListener('submit', () => {
+        if (unitSelect.value !== 'cm') return;
+        const displayedValues = inputs.map(input => input.value);
+        inputs.forEach(input => {
+          const value = parseFloat(input.value);
+          if (Number.isFinite(value)) input.value = value / 2.54;
+        });
+        queueMicrotask(() => {
+          inputs.forEach((input, index) => { input.value = displayedValues[index]; });
+        });
+      }, true);
+    });
+  }
+
   document.addEventListener('DOMContentLoaded', () => {
     initData();
+    refreshCupOrders();
     initTheme();
     initClearData();
+    initMeasurementUnits();
   });
 
   return {
@@ -147,8 +239,12 @@ window.IMRango = (function() {
     calculateBand,
     calculateCupIndex,
     getSisterSizes,
-    CUP_ORDER_US,
-    CUP_ORDER_UK,
-    CUP_ORDER_EU
+    get CUP_ORDER_US() { return CUP_ORDER_US; },
+    get CUP_ORDER_UK() { return CUP_ORDER_UK; },
+    get CUP_ORDER_EU() { return CUP_ORDER_EU; },
+    get CUP_ORDER_AU() { return CUP_ORDER_AU; },
+    getCupForSystem,
+    getBandConversions,
+    getCupList
   };
 })();

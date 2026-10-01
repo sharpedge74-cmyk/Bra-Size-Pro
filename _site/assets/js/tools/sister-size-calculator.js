@@ -11,8 +11,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const cup = document.getElementById('sister-cup').value;
     const system = document.getElementById('sister-system').value || 'us';
 
-    const cups = system === 'uk' ? IMRango.CUP_ORDER_UK : (system === 'eu' ? IMRango.CUP_ORDER_EU : IMRango.CUP_ORDER_US);
+    const cups = system === 'uk' ? IMRango.CUP_ORDER_UK : (system === 'eu' ? IMRango.CUP_ORDER_EU : (system === 'au' ? IMRango.CUP_ORDER_AU : IMRango.CUP_ORDER_US));
     const cupIdx = cups.indexOf(cup);
+
+    if (!Number.isInteger(band) || band < 28 || band > 50 || band % 2 !== 0) {
+      alert('Please enter an even band size from 28 to 50.');
+      return;
+    }
 
     if (cupIdx === -1) {
       alert('Selected cup not found in chosen system.');
@@ -23,17 +28,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const sisterRows = [];
 
     if (band >= 32 && cupIdx + 2 < cups.length) {
-      sisterRows.push({ band: band - 4, cup: cups[cupIdx + 2], desc: 'Much tighter band, 2 cups up' });
+      sisterRows.push({ band: band - 4, cup: cups[cupIdx + 2], desc: 'Much tighter band, 2 cup steps up' });
     }
     if (band >= 30 && cupIdx + 1 < cups.length) {
-      sisterRows.push({ band: band - 2, cup: cups[cupIdx + 1], desc: 'Snugger band (1 down), 1 cup up - RECOMMENDED if band rides up' });
+      sisterRows.push({ band: band - 2, cup: cups[cupIdx + 1], desc: 'Snugger band, 1 cup step up — compare if the current band feels too loose' });
     }
     sisterRows.push({ band: band, cup: cups[cupIdx], desc: 'Your current starting size' });
     if (band <= 48 && cupIdx - 1 >= 0) {
-      sisterRows.push({ band: band + 2, cup: cups[cupIdx - 1], desc: 'Looser band (1 up), 1 cup down - RECOMMENDED if band pinches ribs' });
+      sisterRows.push({ band: band + 2, cup: cups[cupIdx - 1], desc: 'Looser band, 1 cup step down — compare if the current band feels too tight' });
     }
     if (band <= 46 && cupIdx - 2 >= 0) {
-      sisterRows.push({ band: band + 4, cup: cups[cupIdx - 2], desc: 'Much looser band, 2 cups down' });
+      sisterRows.push({ band: band + 4, cup: cups[cupIdx - 2], desc: 'Much looser band, 2 cup steps down' });
     }
 
     const tbody = document.getElementById('sister-matrix-body');
