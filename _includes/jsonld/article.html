@@ -21,7 +21,9 @@
       "url": "https://iamrango.com/assets/img/logo.png"
     }
   },
-  "datePublished": "{% if page.last_reviewed %}{{ page.last_reviewed }}{% else %}2025-01-01{% endif %}",
-  "dateModified": "{% if page.last_reviewed %}{{ page.last_reviewed }}{% else %}2026-03-30{% endif %}"
+  {% if page.date_published %}
+  "datePublished": {{ page.date_published | jsonify }},
+  {% endif %}
+  {% if page.last_reviewed %}"dateModified": {{ page.last_reviewed | jsonify }}{% endif %}
 }
 </script>
