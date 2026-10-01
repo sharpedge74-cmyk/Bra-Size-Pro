@@ -68,23 +68,27 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
 
-    const cupLetter = IMRango.getCupForSystem(cupIdx, system) || 'D';
+    const cupLetter = IMRango.getCupForSystem(cupIdx, system);
+    if (cupLetter === null) {
+      alert('We could not calculate a cup starting point from these measurements.');
+      return;
+    }
 
     // Display primary result
-    document.getElementById('result-primary-size').textContent = `${band}${cupLetter}`;
+    document.getElementById('result-primary-size').textContent = `${band}${cupLetter} (starting point)`;
     document.getElementById('result-system-name').textContent = system.toUpperCase();
 
     // Calculate regional equivalents
-    const usCup = IMRango.getCupForSystem(cupIdx, 'us') || 'D';
-    const ukCup = IMRango.getCupForSystem(cupIdx, 'uk') || 'D';
-    const euCup = IMRango.getCupForSystem(cupIdx, 'eu') || 'D';
-    const auCup = IMRango.getCupForSystem(cupIdx, 'au') || 'D';
+    const usCup = IMRango.getCupForSystem(cupIdx, 'us');
+    const ukCup = IMRango.getCupForSystem(cupIdx, 'uk');
+    const euCup = IMRango.getCupForSystem(cupIdx, 'eu');
+    const auCup = IMRango.getCupForSystem(cupIdx, 'au');
     const bandMap = IMRango.getBandConversions(band);
 
-    document.getElementById('equiv-us').textContent = `${band}${usCup}`;
-    document.getElementById('equiv-uk').textContent = `${band}${ukCup}`;
-    document.getElementById('equiv-eu').textContent = `${bandMap ? bandMap.eu : ''}${euCup}`;
-    document.getElementById('equiv-au').textContent = `${bandMap && bandMap.au ? bandMap.au : ''}${auCup}`;
+    document.getElementById('equiv-us').textContent = usCup ? `${band}${usCup}` : '—';
+    document.getElementById('equiv-uk').textContent = ukCup ? `${band}${ukCup}` : '—';
+    document.getElementById('equiv-eu').textContent = bandMap?.eu && euCup ? `${bandMap.eu}${euCup}` : '—';
+    document.getElementById('equiv-au').textContent = bandMap?.au && auCup ? `${bandMap.au}${auCup}` : '—';
 
     // Sister sizes
     const sisters = IMRango.getSisterSizes(band, cupIdx, system);
