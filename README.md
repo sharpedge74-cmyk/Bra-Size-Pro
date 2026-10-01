@@ -1,7 +1,7 @@
-# IMRango - Bra Size Calculators & Fit Guides
+# BraSizePRO - Bra Size Calculators & Fit Guides
 
-**Domain:** [https://iamrango.com](https://iamrango.com)  
-**Brand:** IMRango  
+**Domain:** [https://brasizepro.com](https://brasizepro.com)  
+**Brand:** BraSizePRO  
 **Design Palette:** Dual theme support (Pinkish Rose/Blush & Emerald Forest), switchable with instant client-side persistence.
 
 ---
@@ -26,7 +26,7 @@ This site uses a standard Jekyll architecture with a **flat root for tools and g
 
 ## 2. Strict URL Rules
 
-- **Zero Trailing Slashes & Extensionless URLs:** Every page URL is canonicalized without `.html` and without a trailing slash (e.g., `https://iamrango.com/bra-size-calculator`).
+- **Zero Trailing Slashes & Extensionless URLs:** Every page URL is canonicalized without `.html` and without a trailing slash (e.g., `https://brasizepro.com/bra-size-calculator`).
 - **Host Redirects:**
   - Netlify / Cloudflare Pages: Handled via `/_redirects` (301 status).
   - Apache: Handled via `/.htaccess` with mod_rewrite.
