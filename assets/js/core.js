@@ -40,6 +40,14 @@ window.IMRango = (function() {
     return dataCache[name] || null;
   }
 
+  function refreshCupOrders() {
+    const sequences = dataCache.sizes?.calculator_cup_sequences || {};
+    CUP_ORDER_US = Array.isArray(sequences.us) ? sequences.us.slice() : [];
+    CUP_ORDER_UK = Array.isArray(sequences.uk) ? sequences.uk.slice() : [];
+    CUP_ORDER_EU = Array.isArray(sequences.eu) ? sequences.eu.slice() : [];
+    CUP_ORDER_AU = Array.isArray(sequences.au) ? sequences.au.slice() : [];
+  }
+
   function getCupList(system = 'us') {
     switch (system) {
       case 'uk': return CUP_ORDER_UK;
@@ -234,7 +242,8 @@ window.IMRango = (function() {
     CUP_ORDER_US,
     CUP_ORDER_UK,
     CUP_ORDER_EU,
-    CUP_ORDER_AU,
     getCupForSystem,
-    getBandConversions
+    getBandConversions,
+    getCupList
   };
+})();
