@@ -14,14 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     const band = IMRango.calculateBand(underbust);
-    const cupIdx = IMRango.calculateCupIndex(bust, underbust);
-    const cup = IMRango.getCupForSystem(cupIdx, 'us') || 'AA';
+    if (band === null) {
+      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      return;
+    }
+    const cupIdx = IMRango.calculateCupIndex(bust, underbust, 'us');
+    const cup = IMRango.getCupForSystem(cupIdx, 'us');
+    if (cup === null) {
+      alert('We could not calculate a cup starting point from these measurements.');
+      return;
+    }
     const style = impact === 'high'
       ? 'Look for a sports bra with secure encapsulation or well-engineered compression and adjustable straps.'
       : impact === 'medium'
         ? 'Look for a stable compression or encapsulation design with secure straps.'
         : 'A lighter-support compression or wireless design may be suitable.';
-    document.getElementById('sb-res-bra-size').textContent = `${band}${cup}`;
+    document.getElementById('sb-res-bra-size').textContent = `${band}${cup} (starting point)`;
     document.getElementById('sb-res-alpha-size').textContent = 'Brand-dependent';
     document.getElementById('sb-res-style').textContent = style;
     document.getElementById('sb-res-impact').textContent = `${impact.toUpperCase()} IMPACT ACTIVITY`;
