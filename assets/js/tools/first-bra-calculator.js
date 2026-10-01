@@ -14,12 +14,18 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     const band = IMRango.calculateBand(underbust);
-    const cupIdx = IMRango.calculateCupIndex(bust, underbust);
-    const cup = IMRango.getCupForSystem(cupIdx, 'us') || 'AA';
-    let style = 'A soft, wire-free starter style may be easier to adjust for fit.';
-    if (cupIdx <= 1) style = 'A soft, wire-free bralette or lightly lined starter style may be suitable.';
-    else if (cupIdx >= 4) style = 'A supportive wire-free or bra-sized starter style may provide more room in the cup.';
-    document.getElementById('fb-res-size').textContent = `${band}${cup}`;
+    if (band === null) {
+      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      return;
+    }
+    const cupIdx = IMRango.calculateCupIndex(bust, underbust, 'us');
+    const cup = IMRango.getCupForSystem(cupIdx, 'us');
+    if (cup === null) {
+      alert('We could not calculate a cup starting point from these measurements.');
+      return;
+    }
+    const style = 'A soft, wire-free starter style may be a comfortable place to begin. Choose based on fit, coverage and personal preference.';
+    document.getElementById('fb-res-size').textContent = `${band}${cup} (starting point)`;
     document.getElementById('fb-res-style').textContent = style;
     document.getElementById('fb-res-tip').textContent = 'Sizing varies by garment and brand; use the product size chart and reassess fit as measurements change.';
     const box = document.getElementById('first-result-box');
