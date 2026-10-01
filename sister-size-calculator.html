@@ -16,7 +16,7 @@ related_tool:
   url: "/bra-size-calculator"
 related_guide:
   title: "Sister Sizing Explained"
-  desc: "The geometry of why cup volume scales inversely with band length."
+  desc: "See how the adjacent band-and-cup relationship is constructed and where garment differences still matter."
   url: "/sister-sizing-explained"
 faq:
   - q: "What is a sister size?"
@@ -69,8 +69,20 @@ faq:
     </div>
   </form>
 
+
+<section class="calculator-reference" aria-labelledby="sister-reference-heading">
+  <h2 id="sister-reference-heading">How sister sizes are calculated</h2>
+  <p>The matrix moves the band in 2-inch steps and moves the cup position in the opposite direction within the selected sizing-system sequence. This produces nearby label combinations commonly used as sister-size comparisons.</p>
+  <ol>
+    <li><strong>Current size:</strong> the entered band and cup establish the reference position.</li>
+    <li><strong>One step:</strong> a 2-inch smaller band is paired with the next cup position; a 2-inch larger band is paired with the previous cup position.</li>
+    <li><strong>Two steps:</strong> the same relationship is extended to a 4-inch band change where the cup sequence allows it.</li>
+  </ol>
+  <p>The matrix is a sizing-system relationship, not a promise that two garments will have identical physical cup dimensions. Wire geometry, cup shape, fabric, and construction can change the fit. <a href="/sister-sizing-explained">Read the sister-sizing explanation</a>.</p>
+</section>
+
   <div id="sister-result-box" class="sizing-result-box" style="display: none; margin-top: 2rem;">
-    <div class="result-badge">Equivalent Cup Volume Matrix</div>
+    <div class="result-badge">Sister Size Matrix</div>
     <table class="guide-content" style="width: 100%; margin-top: 1rem;">
       <thead>
         <tr>
