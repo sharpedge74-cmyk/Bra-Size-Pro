@@ -41,6 +41,18 @@
   min-height: 250px;
 }
 
+.ad-network-160-600 {
+  min-height: 600px;
+}
+
+.ad-network-160-300 {
+  min-height: 300px;
+}
+
+.ad-network-468-60 {
+  min-height: 60px; 
+}
+
 .ad-slot-in_calculator,
 .ad-slot-in_article {
   clear: both;
@@ -54,9 +66,9 @@
 
 .ad-slot-sidebar {
   margin: 0;
-  
+
   .ad-content-box {
-    min-height: 250px;
+    min-height: 600px;
     display: flex;
     align-items: center;
     justify-content: center;
