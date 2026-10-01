@@ -6,8 +6,9 @@ tool:
     label: "Advertisement"
   in_calculator:
     enabled: true
-    format: "native_inline"
-    label: "Sponsored Fitting Partner"
+    format: "inline_rectangle"
+    dimensions: "336x280 / responsive"
+    label: "Advertisement"
   sidebar:
     enabled: true
     format: "half_page"
@@ -23,7 +24,7 @@ guide:
   in_article:
     enabled: true
     format: "inline_rectangle"
-    dimensions: "336x280"
+    dimensions: "336x280 / responsive"
     label: "Sponsored Content"
   bottom:
     enabled: true
