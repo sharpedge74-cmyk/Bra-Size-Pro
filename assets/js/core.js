@@ -239,9 +239,10 @@ window.IMRango = (function() {
     calculateBand,
     calculateCupIndex,
     getSisterSizes,
-    CUP_ORDER_US,
-    CUP_ORDER_UK,
-    CUP_ORDER_EU,
+    get CUP_ORDER_US() { return CUP_ORDER_US; },
+    get CUP_ORDER_UK() { return CUP_ORDER_UK; },
+    get CUP_ORDER_EU() { return CUP_ORDER_EU; },
+    get CUP_ORDER_AU() { return CUP_ORDER_AU; },
     getCupForSystem,
     getBandConversions,
     getCupList
