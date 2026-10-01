@@ -110,7 +110,26 @@ window.IMRango = (function() {
   function calculateCupIndex(bustInches, underbustInches) {
     const diff = Math.max(0, bustInches - underbustInches);
     const index = Math.round(diff);
-    return Math.min(index, CUP_ORDER_UK.length - 1);
+    return Math.min(index, Math.min(CUP_ORDER_US.length, CUP_ORDER_UK.length, CUP_ORDER_EU.length) - 1);
+  }
+
+  function getCupForSystem(cupIndex, system = 'us') {
+    const cupList = system === 'uk' ? CUP_ORDER_UK : (system === 'eu' ? CUP_ORDER_EU : CUP_ORDER_US);
+    return cupList[cupIndex] || null;
+  }
+
+  function getBandConversions(usUkBand) {
+    const band = Number(usUkBand);
+    if (!Number.isFinite(band)) return null;
+    return {
+      us: band,
+      uk: band,
+      eu: Math.round((band * 2.54) / 5) * 5,
+      au: band - 22,
+      fr: Math.round((band * 2.54) / 5) * 5 + 15,
+      it: Math.round((band - 28) / 2) + 1,
+      jp: Math.round((band * 2.54) / 5) * 5
+    };
   }
 
   function getSisterSizes(band, cupIndex, system = 'us') {
@@ -125,7 +144,7 @@ window.IMRango = (function() {
       sisters.tighterBand = `${band - 2}${cupList[cupIndex + 1]}`;
     }
     // Sister size looser band: Band + 2, Cup - 1
-    if (band < 50 && cupIndex > 1) {
+    if (band < 50 && cupIndex > 0) {
       sisters.looserBand = `${band + 2}${cupList[cupIndex - 1]}`;
     }
     return sisters;
@@ -149,6 +168,8 @@ window.IMRango = (function() {
     getSisterSizes,
     CUP_ORDER_US,
     CUP_ORDER_UK,
-    CUP_ORDER_EU
+    CUP_ORDER_EU,
+    getCupForSystem,
+    getBandConversions
   };
 })();
