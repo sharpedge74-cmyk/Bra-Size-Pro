@@ -22,7 +22,7 @@ document.addEventListener('DOMContentLoaded', () => {
       if (convertValues && input.value !== '') {
         const value = parseFloat(input.value);
         if (Number.isFinite(value)) {
-          input.value = (isCm ? value * 2.54 : value / 2.54).toFixed(1).replace(/\\.0$/, '');
+          input.value = (isCm ? value * 2.54 : value / 2.54).toFixed(1).replace(/\.0$/, '');
         }
       }
       input.step = isCm ? '0.5' : '0.25';
