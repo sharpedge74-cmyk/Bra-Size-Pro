@@ -217,6 +217,16 @@ cups:
     fr: "L"
     jp: "L"
 
+# Cup sequences used by the main calculator and sister-size tools.
+# Keeping these mappings in _data makes the client-side calculator logic
+# derive from the same repository data instead of maintaining a second
+# hardcoded copy in JavaScript.
+calculator_cup_sequences:
+  us: ["AA", "A", "B", "C", "D", "DD", "DDD/F", "G", "H", "I", "J", "K", "L", "M", "N"]
+  uk: ["AA", "A", "B", "C", "D", "DD", "E", "F", "FF", "G", "GG", "H", "HH", "J", "JJ"]
+  eu: ["AA", "A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N"]
+  au: ["AA", "A", "B", "C", "D", "DD", "E", "F", "FF", "G", "GG", "H"]
+
 panty_sizes:
   - label: "XS"
     waist_in: "24-25"
