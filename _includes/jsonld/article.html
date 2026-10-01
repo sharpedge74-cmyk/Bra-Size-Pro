@@ -20,10 +20,8 @@
       "@type": "ImageObject",
       "url": "https://iamrango.com/assets/img/logo.png"
     }
-  },
-  {% if page.date_published %}
-  "datePublished": {{ page.date_published | jsonify }},
-  {% endif %}
-  {% if page.last_reviewed %}"dateModified": {{ page.last_reviewed | jsonify }}{% endif %}
+  }{% if page.date_published %},
+  "datePublished": {{ page.date_published | jsonify }}{% endif %}{% if page.last_reviewed %},
+  "dateModified": {{ page.last_reviewed | jsonify }}{% endif %}
 }
 </script>
