@@ -18,8 +18,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const brands = IMRango.getData('brands') || [];
     const brand = brands.find(b => b.id === brandId);
 
-    if (!brand || !Number.isFinite(band) || band < 28 || band > 52 || band % 2 !== 0) {
-      alert('Please enter a valid even band size from 28 to 52 and select a brand.');
+    if (!brand || !Number.isFinite(band) || band < 28 || band > 50 || band % 2 !== 0) {
+      alert('Please enter a valid even band size from 28 to 50 and select a brand.');
       return;
     }
 
