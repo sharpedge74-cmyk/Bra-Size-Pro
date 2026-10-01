@@ -1,7 +1,7 @@
 ---
 layout: tool
 title: "Universal Bra Size Calculator"
-description: "Calculate your true bra size, cup size, and bust dimensions using precise modern measuring math for US, UK, EU, and AU sizing systems without outdated +4 inch errors."
+description: "Estimate a starting bra size from body measurements and compare common US, UK, EU, and AU size labels. Results are a sizing reference, not a medical assessment."
 permalink: /bra-size-calculator
 breadcrumb_label: "Bra Size Calculator"
 intent: "Find accurate bra size and international cup conversions"
@@ -9,9 +9,8 @@ last_reviewed: "2026-03-15"
 tool_js: "bra-size-calculator.js"
 ads: "tool"
 sources:
-  - "International Standard ISO 8559-1: Size designation of clothes — Part 1: Anthropometric definitions"
-  - "British Standards Institution BS 6183: Bra Sizing and Fit Specifications"
-  - "Journal of Science and Medicine in Sport: Breast biomechanics and support garment mechanics"
+  - '<a href="https://www.iso.org/standard/61686.html">ISO 8559-1:2017 — Anthropometric definitions for body measurement</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/26765495/">Nolte et al. — sports-bra fit, comfort and breast movement</a>'
 related_tool:
   title: "Sister Size Calculator"
   desc: "Find identical cup volumes with looser or firmer bands for customized comfort."
@@ -21,12 +20,12 @@ related_guide:
   desc: "Illustrated guide on measuring tape positioning, posture, and avoiding +4 sizing traps."
   url: "/how-to-measure-bra-size-at-home"
 faq:
-  - q: "Why is my calculated bra size so different from the size I usually buy?"
-    a: "Over 80% of individuals wear a band that is 1 to 2 sizes too large and cups that are 2 to 4 sizes too small. Traditional retail stores often add 4 inches to your underbust (+4 method) to squeeze you into their limited matrix (32A-38DD). IMRango uses direct snug underbust measurement to give you real support from the band."
+  - q: "Why is my calculated size different from the size I usually buy?"
+    a: "Bra sizing is not uniform across brands. This calculator provides a measurement-based starting point; use the target brand's own size chart before purchasing."
   - q: "What is the difference between US and UK cup sizes?"
-    a: "Both US and UK systems start with A, B, C, D, DD. Above DD, the UK system progresses as E, F, FF, G, GG, H, HH, J, whereas the US system uses DDD/F, G, H, I, J, K. UK sizing is prized worldwide for greater consistency in D+ cups."
-  - q: "Should I wear a bra when measuring my bust?"
-    a: "Measure without a bra or in an unpadded, non-push-up bra. For the most accurate result, taking leaning bust measurements accounts for tissue projection and prevents under-estimating cup volume."
+    a: "Cup-letter progressions differ between sizing systems, especially at larger cup ranges. The calculator shows the selected system and common conversions as reference values."
+  - q: "How should I take the measurements?"
+    a: "Use a flexible tape measure and follow the measurement instructions shown in the calculator. Keep the tape level and record the measurements consistently."
 ---
 
 <div class="calculator-card">
@@ -123,7 +122,7 @@ faq:
       <span style="font-size: 1.1rem; font-weight: 500; color: var(--color-text-muted); margin-left: 0.5rem;" id="result-system-name">US</span>
     </div>
     <p style="font-size: 0.92rem; color: var(--color-text-muted);">
-      This size anchors 85% of your breast support in the band, preventing painful shoulder strap gouges and back fatigue.
+      Use this result as a starting size. Actual fit can vary with garment construction, fabric stretch, cup shape, and brand sizing.
     </p>
 
     <div class="result-equivalents-grid">
