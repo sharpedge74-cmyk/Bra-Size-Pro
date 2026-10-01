@@ -24,19 +24,28 @@ faq:
 ---
 
 <div class="calculator-card">
-  <form id="shapewear-form" class="calc-form">
+  <form id="shapewear-form" class="calc-form" data-measurement-unit-form>
+    <div class="calc-control-group measurement-unit-control">
+      <label for="shapewear-form-unit">Measurement Unit</label>
+      <div class="calc-input-wrapper">
+        <select id="shapewear-form-unit" class="measurement-unit-select" name="unit">
+          <option value="inches" selected>Inches (in)</option>
+          <option value="cm">Centimeters (cm)</option>
+        </select>
+      </div>
+    </div>
     <div class="calc-card-grid">
       <div class="calc-control-group">
-        <label for="sh-waist">Natural Waist (in)</label>
+        <label for="sh-waist">Natural Waist <span class="measurement-unit-label">in</span></label>
         <div class="calc-input-wrapper">
-          <input type="number" step="0.5" id="sh-waist" value="29" required>
+          <input type="number" step="0.5" id="sh-waist" class="measurement-input" value="29" required>
         </div>
       </div>
 
       <div class="calc-control-group">
-        <label for="sh-hips">Fullest Hips (in)</label>
+        <label for="sh-hips">Fullest Hips <span class="measurement-unit-label">in</span></label>
         <div class="calc-input-wrapper">
-          <input type="number" step="0.5" id="sh-hips" value="39" required>
+          <input type="number" step="0.5" id="sh-hips" class="measurement-input" value="39" required>
         </div>
       </div>
 
