@@ -40,7 +40,6 @@ faq:
           </select>
         </div>
       </div>
-
       <div class="calc-control-group">
         <label for="calc-system">Target Sizing System</label>
         <div class="calc-input-wrapper">
@@ -54,7 +53,6 @@ faq:
       </div>
     </div>
 
-    <!-- Quick or Detailed Measurements -->
     <div class="calc-section">
       <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; font-weight: 700;">1. Underbust Measurements</h3>
       <div class="calc-card-grid">
@@ -68,7 +66,6 @@ faq:
             <span class="calc-input-unit">in</span>
           </div>
         </div>
-
         <div class="calc-control-group">
           <label for="tight-underbust">
             Tight Underbust (Break-the-tape)
@@ -86,6 +83,7 @@ faq:
       <h3 style="font-size: 1.1rem; margin-bottom: 0.75rem; font-weight: 700;">2. Bust Circumference</h3>
       <div class="calc-card-grid">
         <div class="calc-control-group">
+          <div class="calc-control-group">
           <label for="bust-input">
             Standing Bust
             <span class="field-help">Across fullest point standing</span>
@@ -95,7 +93,6 @@ faq:
             <span class="calc-input-unit">in</span>
           </div>
         </div>
-
         <div class="calc-control-group">
           <label for="leaning-bust">
             Leaning Bust (90&deg;)
@@ -121,59 +118,36 @@ faq:
       <span id="result-primary-size">32D</span>
       <span style="font-size: 1.1rem; font-weight: 500; color: var(--color-text-muted); margin-left: 0.5rem;" id="result-system-name">US</span>
     </div>
-    <p style="font-size: 0.92rem; color: var(--color-text-muted);">
-      Use this result as a starting size. Actual fit can vary with garment construction, fabric stretch, cup shape, and brand sizing.
-    </p>
-
+    <p style="font-size: 0.92rem; color: var(--color-text-muted);">Use this result as a starting size. Actual fit can vary with garment construction, fabric stretch, cup shape, and brand sizing.</p>
     <div class="result-equivalents-grid">
-      <div class="equivalent-pill">
-        <span class="country-code">US / CA</span>
-        <span class="country-size" id="equiv-us">32D</span>
-      </div>
-      <div class="equivalent-pill">
-        <span class="country-code">UK</span>
-        <span class="country-size" id="equiv-uk">32D</span>
-      </div>
-      <div class="equivalent-pill">
-        <span class="country-code">EU / JP</span>
-        <span class="country-size" id="equiv-eu">70D</span>
-      </div>
-      <div class="equivalent-pill">
-        <span class="country-code">AU / NZ</span>
-        <span class="country-size" id="equiv-au">10D</span>
-      </div>
+      <div class="equivalent-pill"><span class="country-code">US / CA</span><span class="country-size" id="equiv-us">32D</span></div>
+      <div class="equivalent-pill"><span class="country-code">UK</span><span class="country-size" id="equiv-uk">32D</span></div>
+      <div class="equivalent-pill"><span class="country-code">EU / JP</span><span class="country-size" id="equiv-eu">70D</span></div>
+      <div class="equivalent-pill"><span class="country-code">AU / NZ</span><span class="country-size" id="equiv-au">10D</span></div>
     </div>
-
     <div class="sister-size-strip">
-      <div class="sister-card">
-        <div class="sister-label">Sister Size (Snugger Band)</div>
-        <div class="sister-val" id="sister-tighter">30DD</div>
-        <div class="sister-tip">If the band feels stretchy or rides up.</div>
-      </div>
-      <div class="sister-card">
-        <div class="sister-label">Sister Size (Looser Band)</div>
-        <div class="sister-val" id="sister-looser">34C</div>
-        <div class="sister-tip">If the band feels too tight on ribs.</div>
-      </div>
+      <div class="sister-card"><div class="sister-label">Sister Size (Snugger Band)</div><div class="sister-val" id="sister-tighter">30DD</div><div class="sister-tip">If the band feels stretchy or rides up.</div></div>
+      <div class="sister-card"><div class="sister-label">Sister Size (Looser Band)</div><div class="sister-val" id="sister-looser">34C</div><div class="sister-tip">If the band feels too tight on ribs.</div></div>
     </div>
   </div>
 </div>
 
 <section class="calculator-reference" aria-labelledby="calculation-reference-heading">
-    <h2 id="calculation-reference-heading">How this starting point is calculated</h2>
-    <p>IMRango uses the snug underbust and standing bust measurements as the two inputs for the main calculation. Tight underbust and leaning bust are optional references and do not change the result.</p>
-    <ol>
-      <li><strong>Band:</strong> snug underbust is converted to inches, rounded to the nearest whole inch, then moved to the next even number when needed.</li>
-      <li><strong>Cup index:</strong> standing bust minus snug underbust is rounded to the nearest whole inch.</li>
-      <li><strong>Label:</strong> the cup index is looked up in the selected US, UK, EU, or AU cup sequence.</li>
-      <li><strong>Conversion:</strong> common regional band labels come from the same canonical sizing data used by the calculator.</li>
-    </ol>
-    <p>This is a reproducible sizing reference, not a universal fit guarantee. Manufacturer charts, garment construction, cup shape, fabric stretch, body shape, and fit preferences can change the size that works in a particular bra. <a href="/bra-sizing-methodology">See the full sizing methodology</a>.</p>
+  <h2 id="calculation-reference-heading">How this starting point is calculated</h2>
+  <p>IMRango uses the snug underbust and standing bust measurements as the two inputs for the main calculation. Tight underbust and leaning bust are optional references and do not change the result.</p>
+  <ol>
+    <li><strong>Band:</strong> snug underbust is converted to inches, rounded to the nearest whole inch, then moved to the next even number when needed.</li>
+    <li><strong>Cup index:</strong> standing bust minus snug underbust is rounded to the nearest whole inch.</li>
+    <li><strong>Label:</strong> the cup index is looked up in the selected US, UK, EU, or AU cup sequence.</li>
+    <li><strong>Conversion:</strong> common regional band labels come from the same canonical sizing data used by the calculator.</li>
+  </ol>
+  <p>This is a reproducible sizing reference, not a universal fit guarantee. Manufacturer charts, garment construction, cup shape, fabric stretch, body shape, and fit preferences can change the size that works in a particular bra. <a href="/bra-sizing-methodology">See the full sizing methodology</a>.</p>
 </section>
 
 <aside class="calculator-standalone-ad" aria-label="Advertisement">
   <div class="ad-label">Advertisement</div>
   <div class="ad-standalone-box">
-    <script async type="text/javascript" src="https://www.profitableratecpmnetwork.com/bed52797bfdfe0042d4e4dfb3cec902c/invoke.js"></script>
+    <script async="async" data-cfasync="false" src="https://pl29676384.profitableratecpmnetwork.com/79c41b6e6c590a043b788b1b40db50de/invoke.js"></script>
+    <div id="container-79c41b6e6c590a043b788b1b40db50de"></div>
   </div>
 </aside>
