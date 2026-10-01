@@ -48,22 +48,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const band = IMRango.calculateBand(underbust);
     const cupIdx = IMRango.calculateCupIndex(bust, underbust);
-    const cupLetter = (system === 'uk' ? IMRango.CUP_ORDER_UK : (system === 'eu' ? IMRango.CUP_ORDER_EU : IMRango.CUP_ORDER_US))[cupIdx] || 'D';
+    const cupLetter = IMRango.getCupForSystem(cupIdx, system) || 'D';
 
     // Display primary result
     document.getElementById('result-primary-size').textContent = `${band}${cupLetter}`;
     document.getElementById('result-system-name').textContent = system.toUpperCase();
 
     // Calculate regional equivalents
-    const usCup = IMRango.CUP_ORDER_US[cupIdx] || 'D';
-    const ukCup = IMRango.CUP_ORDER_UK[cupIdx] || 'D';
-    const euCup = IMRango.CUP_ORDER_EU[cupIdx] || 'D';
-    const euBand = Math.round(band * 2.54 / 5) * 5 - 10; // Standard EU band formula
+    const usCup = IMRango.getCupForSystem(cupIdx, 'us') || 'D';
+    const ukCup = IMRango.getCupForSystem(cupIdx, 'uk') || 'D';
+    const euCup = IMRango.getCupForSystem(cupIdx, 'eu') || 'D';
+    const bandMap = IMRango.getBandConversions(band);
 
     document.getElementById('equiv-us').textContent = `${band}${usCup}`;
     document.getElementById('equiv-uk').textContent = `${band}${ukCup}`;
-    document.getElementById('equiv-eu').textContent = `${Math.max(60, euBand)}${euCup}`;
-    document.getElementById('equiv-au').textContent = `${Math.max(6, band - 22)}${ukCup}`;
+    document.getElementById('equiv-eu').textContent = `${bandMap ? bandMap.eu : ''}${euCup}`;
+    document.getElementById('equiv-au').textContent = `${bandMap ? Math.max(6, bandMap.au) : ''}${ukCup}`;
 
     // Sister sizes
     const sisters = IMRango.getSisterSizes(band, cupIdx, system);
