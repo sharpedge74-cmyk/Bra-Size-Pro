@@ -106,6 +106,7 @@ window.IMRango = (function() {
   const CUP_ORDER_US = ['AA', 'A', 'B', 'C', 'D', 'DD', 'DDD/F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
   const CUP_ORDER_UK = ['AA', 'A', 'B', 'C', 'D', 'DD', 'E', 'F', 'FF', 'G', 'GG', 'H', 'HH', 'J', 'JJ'];
   const CUP_ORDER_EU = ['AA', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
+  const CUP_ORDER_AU = ['AA', 'A', 'B', 'C', 'D', 'DD', 'E', 'F', 'FF', 'G', 'GG', 'H'];
 
   function calculateCupIndex(bustInches, underbustInches) {
     const diff = Math.max(0, bustInches - underbustInches);
@@ -114,21 +115,23 @@ window.IMRango = (function() {
   }
 
   function getCupForSystem(cupIndex, system = 'us') {
-    const cupList = system === 'uk' ? CUP_ORDER_UK : (system === 'eu' ? CUP_ORDER_EU : CUP_ORDER_US);
+    const cupList = system === 'uk' ? CUP_ORDER_UK : (system === 'eu' ? CUP_ORDER_EU : (system === 'au' ? CUP_ORDER_AU : CUP_ORDER_US));
     return cupList[cupIndex] || null;
   }
 
   function getBandConversions(usUkBand) {
     const band = Number(usUkBand);
     if (!Number.isFinite(band)) return null;
+    const regional = {28:[60,6,75,1],30:[65,8,80,2],32:[70,10,85,3],34:[75,12,90,4],36:[80,14,95,5],38:[85,16,100,6],40:[90,18,105,7],42:[95,20,110,8],44:[100,22,115,9],46:[105,24,120,10],48:[110,26,125,11],50:[115,28,130,12]};
+    const row = regional[band];
     return {
       us: band,
       uk: band,
-      eu: Math.round((band * 2.54) / 5) * 5,
-      au: band - 22,
-      fr: Math.round((band * 2.54) / 5) * 5 + 15,
-      it: Math.round((band - 28) / 2) + 1,
-      jp: Math.round((band * 2.54) / 5) * 5
+      eu: row ? row[0] : null,
+      au: row ? row[1] : null,
+      fr: row ? row[2] : null,
+      it: row ? row[3] : null,
+      jp: row ? row[0] : null
     };
   }
 
@@ -212,6 +215,7 @@ window.IMRango = (function() {
     CUP_ORDER_US,
     CUP_ORDER_UK,
     CUP_ORDER_EU,
+    CUP_ORDER_AU,
     getCupForSystem,
     getBandConversions
   };
