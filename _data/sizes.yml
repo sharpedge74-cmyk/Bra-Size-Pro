@@ -6,7 +6,7 @@ bands:
     eu_jp: 60
     au: 6
     fr: 75
-    it: 0
+    it: -1
     underbust_inches_min: 27.0
     underbust_inches_max: 29.0
     underbust_cm_min: 68
@@ -15,7 +15,7 @@ bands:
     eu_jp: 65
     au: 8
     fr: 80
-    it: 1
+    it: 0
     underbust_inches_min: 29.0
     underbust_inches_max: 31.0
     underbust_cm_min: 73
@@ -24,7 +24,7 @@ bands:
     eu_jp: 70
     au: 10
     fr: 85
-    it: 2
+    it: 1
     underbust_inches_min: 31.0
     underbust_inches_max: 33.0
     underbust_cm_min: 78
@@ -33,7 +33,7 @@ bands:
     eu_jp: 75
     au: 12
     fr: 90
-    it: 3
+    it: 2
     underbust_inches_min: 33.0
     underbust_inches_max: 35.0
     underbust_cm_min: 83
@@ -42,7 +42,7 @@ bands:
     eu_jp: 80
     au: 14
     fr: 95
-    it: 4
+    it: 3
     underbust_inches_min: 35.0
     underbust_inches_max: 37.0
     underbust_cm_min: 88
@@ -51,7 +51,7 @@ bands:
     eu_jp: 85
     au: 16
     fr: 100
-    it: 5
+    it: 4
     underbust_inches_min: 37.0
     underbust_inches_max: 39.0
     underbust_cm_min: 93
@@ -60,7 +60,7 @@ bands:
     eu_jp: 90
     au: 18
     fr: 105
-    it: 6
+    it: 5
     underbust_inches_min: 39.0
     underbust_inches_max: 41.0
     underbust_cm_min: 98
@@ -69,7 +69,7 @@ bands:
     eu_jp: 95
     au: 20
     fr: 110
-    it: 7
+    it: 6
     underbust_inches_min: 41.0
     underbust_inches_max: 43.0
     underbust_cm_min: 103
@@ -78,7 +78,7 @@ bands:
     eu_jp: 100
     au: 22
     fr: 115
-    it: 8
+    it: 7
     underbust_inches_min: 43.0
     underbust_inches_max: 45.0
     underbust_cm_min: 108
@@ -87,7 +87,7 @@ bands:
     eu_jp: 105
     au: 24
     fr: 120
-    it: 9
+    it: 8
     underbust_inches_min: 45.0
     underbust_inches_max: 47.0
     underbust_cm_min: 113
@@ -96,7 +96,7 @@ bands:
     eu_jp: 110
     au: 26
     fr: 125
-    it: 10
+    it: 9
     underbust_inches_min: 47.0
     underbust_inches_max: 49.0
     underbust_cm_min: 118
@@ -105,7 +105,7 @@ bands:
     eu_jp: 115
     au: 28
     fr: 130
-    it: 11
+    it: 10
     underbust_inches_min: 49.0
     underbust_inches_max: 51.0
     underbust_cm_min: 123
@@ -216,6 +216,22 @@ cups:
     au: "HH"
     fr: "L"
     jp: "L"
+  - difference_inches: 13
+    difference_cm: 32.5
+    us: "M"
+    uk: "J"
+    eu: "M"
+    au: null
+    fr: "M"
+    jp: "M"
+  - difference_inches: 14
+    difference_cm: 35.0
+    us: "N"
+    uk: "JJ"
+    eu: "N"
+    au: null
+    fr: "N"
+    jp: "N"
 
 # Cup sequences used by the main calculator and sister-size tools.
 # Keeping these mappings in _data makes the client-side calculator logic
