@@ -46,26 +46,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let underbust = parseFloat(document.getElementById('underbust-input').value) || 0;
     let bust = parseFloat(document.getElementById('bust-input').value) || 0;
 
-    // Optional 6-point measurements
-    const looseUnder = parseFloat(document.getElementById('loose-underbust')?.value);
-    const snugUnder = parseFloat(document.getElementById('snug-underbust')?.value);
-    const tightUnder = parseFloat(document.getElementById('tight-underbust')?.value);
-    const standingBust = parseFloat(document.getElementById('standing-bust')?.value);
-    const leaningBust = parseFloat(document.getElementById('leaning-bust')?.value);
-    const lyingBust = parseFloat(document.getElementById('lying-bust')?.value);
-
-    // If 6-point measurements given, calculate refined average
-    if (snugUnder && standingBust) {
-      underbust = snugUnder;
-      // Weighted bust: leaning accounts for projection
-      if (leaningBust && lyingBust) {
-        bust = (standingBust + leaningBust * 1.5 + lyingBust) / 3.5;
-      } else {
-        bust = standingBust;
-      }
-    }
-
-    if (unit === 'cm') {
+    // Snug underbust and standing bust are the primary calculation measurements.\n    // Tight-underbust and leaning-bust remain optional fit-reference measurements;\n    // they are not blended into the size calculation without a validated formula.\n\n    if (unit === 'cm') {
       underbust = underbust / 2.54;
       bust = bust / 2.54;
     }
