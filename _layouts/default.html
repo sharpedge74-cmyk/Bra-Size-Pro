@@ -10,18 +10,13 @@
   {% include components/header.html %}
 
   <div class="site-layout-wrapper">
-    <!-- Desktop Left 25% Persistent Ad -->
     <aside class="desktop-left-ad-column" aria-label="Sponsored Content">
       <div class="desktop-ad-sticky-wrapper">
         <span class="ad-label">Advertisement</span>
-        <div class="desktop-sidebar-ad">
-          <script async="async" data-cfasync="false" src="https://pl29676384.profitableratecpmnetwork.com/79c41b6e6c590a043b788b1b40db50de/invoke.js"></script>
-          <div id="container-79c41b6e6c590a043b788b1b40db50de"></div>
-        </div>
+        <div class="desktop-sidebar-ad"></div>
       </div>
     </aside>
 
-    <!-- Main Content 75% on Desktop -->
     <main id="main-content" class="site-main site-main-column">
       <div class="content-wrapper">
         {% include components/breadcrumbs.html %}
@@ -32,7 +27,6 @@
 
   {% include components/footer.html %}
 
-  <!-- Mobile Closable Bottom Ad Bar -->
   <aside id="mobile-bottom-ad" class="mobile-bottom-ad-bar" aria-label="Sponsored Mobile Content">
     <div class="mobile-ad-header">
       <span class="mobile-ad-label">Advertisement</span>
@@ -43,7 +37,6 @@
     </div>
   </aside>
 
-  <!-- Core scripts -->
   <script src="/assets/js/core.js"></script>
   <script src="/assets/js/ads.js"></script>
   {% if page.tool_js %}
