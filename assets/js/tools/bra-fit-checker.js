@@ -1,5 +1,6 @@
 /**
- * Bra Fit Checker Diagnostic Logic
+ * Bra Fit Checker — symptom-based fit guidance.
+ * This is a fit-reference tool, not a medical diagnostic.
  */
 document.addEventListener('DOMContentLoaded', () => {
   const symptomSelect = document.getElementById('fit-symptom-select');
@@ -7,19 +8,17 @@ document.addEventListener('DOMContentLoaded', () => {
   const currentCupSelect = document.getElementById('current-cup');
   const diagnoseBtn = document.getElementById('diagnose-btn');
   const resultCard = document.getElementById('diagnosis-result');
-
   if (!diagnoseBtn) return;
 
   diagnoseBtn.addEventListener('click', () => {
     const symId = symptomSelect.value;
-    const band = parseInt(currentBandInput.value, 10) || 34;
-    const cup = currentCupSelect.value || 'C';
-
+    const band = parseInt(currentBandInput.value, 10);
+    const cup = currentCupSelect.value;
     const symptomsData = IMRango.getData('symptoms') || [];
     const symptom = symptomsData.find(s => s.id === symId);
 
-    if (!symptom) {
-      alert('Please select a fit symptom to diagnose.');
+    if (!symptom || !Number.isFinite(band) || band < 28 || band > 52 || band % 2 !== 0) {
+      alert('Please select a fit symptom and enter an even band size from 28 to 52.');
       return;
     }
 
@@ -27,20 +26,22 @@ document.addEventListener('DOMContentLoaded', () => {
     document.getElementById('diag-cause').textContent = symptom.cause;
     document.getElementById('diag-fix').textContent = symptom.fix;
 
-    // Suggest adjusted size based on symptom
-    let recommendation = '';
+    const next = nextCup(cup), prev = prevCup(cup);
+    let recommendation = symptom.fix;
     if (symId === 'band_rides_up') {
-      recommendation = `Try sister-sizing from ${band}${cup} to ${band - 2}${nextCup(cup)} for a snugger, load-bearing band.`;
+      recommendation = next !== cup
+        ? `As a fit experiment, compare ${band}${cup} with ${band - 2}${next} if a smaller band is available.`
+        : 'Compare a smaller available band while keeping equivalent cup volume where possible.';
     } else if (symId === 'band_digs_painfully') {
-      recommendation = `Test your band on backward. If it is comfortable, keep band ${band} and increase your cup to ${nextCup(cup)} or ${nextCup(nextCup(cup))}.`;
-    } else if (symId === 'quad_boob_spillage' || symId === 'wires_poking_breast') {
-      recommendation = `Increase cup volume immediately: try ${band}${nextCup(cup)} or ${band}${nextCup(nextCup(cup))}.`;
+      recommendation = `Check the band with the cups positioned correctly. If the band feels comfortable when the cups are excluded, compare the same band with a larger cup such as ${band}${next}.`;
+    } else if (symId === 'quad_boob_spillage' || symId === 'wires_poking_breast' || symId === 'gore_floating') {
+      recommendation = next !== cup
+        ? `Compare ${band}${cup} with the next cup volume, ${band}${next}. Cup shape and wire width also affect this fit.`
+        : 'Consider a larger cup volume or a different cup shape/wire width.';
     } else if (symId === 'cup_gaping_wrinkling') {
-      recommendation = `Check band tightness first. If band is snug, try a lower cup volume like ${band}${prevCup(cup)} or an unlined balcony cut.`;
-    } else if (symId === 'gore_floating') {
-      recommendation = `Center gore needs more room: try ${band}${nextCup(cup)} so wires can frame the sternum without floating.`;
-    } else {
-      recommendation = symptom.fix;
+      recommendation = prev !== cup
+        ? `If the band is secure, compare ${band}${cup} with ${band}${prev}, or try a different cup shape.`
+        : 'If the band is secure, try a smaller cup volume or a different cup shape.';
     }
 
     document.getElementById('diag-recommendation').textContent = recommendation;
