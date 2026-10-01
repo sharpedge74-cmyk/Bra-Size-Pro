@@ -150,11 +150,54 @@ window.IMRango = (function() {
     return sisters;
   }
 
+  // Shared inches/centimeters controls for measurement-based calculators
+  function initMeasurementUnits() {
+    document.querySelectorAll('[data-measurement-unit-form]').forEach(form => {
+      const unitSelect = form.querySelector('.measurement-unit-select');
+      const inputs = Array.from(form.querySelectorAll('.measurement-input'));
+      if (!unitSelect || !inputs.length) return;
+
+      const updateUnits = (unit, convertValues = false) => {
+        const toCm = unit === 'cm';
+        inputs.forEach(input => {
+          if (convertValues && input.value !== '') {
+            const value = parseFloat(input.value);
+            if (Number.isFinite(value)) {
+              input.value = (toCm ? value * 2.54 : value / 2.54).toFixed(1).replace(/\\.0$/, '');
+            }
+          }
+          input.step = toCm ? '0.5' : '0.25';
+        });
+        form.querySelectorAll('.measurement-unit-label').forEach(label => {
+          label.textContent = toCm ? 'cm' : 'in';
+        });
+      };
+
+      updateUnits(unitSelect.value || 'inches');
+      unitSelect.addEventListener('change', () => updateUnits(unitSelect.value, true));
+
+      // Existing calculator logic expects inches. Temporarily normalize cm values
+      // during submit, then restore the user's displayed unit after all listeners run.
+      form.addEventListener('submit', () => {
+        if (unitSelect.value !== 'cm') return;
+        const displayedValues = inputs.map(input => input.value);
+        inputs.forEach(input => {
+          const value = parseFloat(input.value);
+          if (Number.isFinite(value)) input.value = value / 2.54;
+        });
+        queueMicrotask(() => {
+          inputs.forEach((input, index) => { input.value = displayedValues[index]; });
+        });
+      }, true);
+    });
+  }
+
   // DOM Content Loaded
   document.addEventListener('DOMContentLoaded', () => {
     initData();
     initTheme();
     initClearData();
+    initMeasurementUnits();
   });
 
   return {
