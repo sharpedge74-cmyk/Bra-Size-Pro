@@ -1,7 +1,7 @@
 ---
 layout: tool
 title: "Bra Size to Measurements Converter"
-description: "Reverse engineer any bra size to see exactly what underbust and bust measurements in inches and centimeters fit that size."
+description: "Estimate reference underbust and bust ranges associated with a US bra-size label."
 permalink: /bra-size-to-measurements
 breadcrumb_label: "Size to Measurements"
 intent: "Reverse calculate bust and ribcage measurements from bra size"
@@ -20,7 +20,7 @@ related_guide:
   url: "/bra-measurement-chart"
 faq:
   - q: "Can two people with the same bra size have different body dimensions?"
-    a: "Yes. For example, a 34D fits someone with a 33-35 inch underbust and a 37-39 inch bust. Ribcage shape, posture, and breast projection vary across people with identical circumference numbers."
+    a: "Yes. For example, a 34D fits someone with a 33-35 inch underbust and a 37-39 inch bust. A size label is not a complete description of body shape or garment fit. The ranges shown here are estimates generated from the calculator reference method, so people with the same label can still have different proportions, shapes, or preferred garment fits."
 ---
 
 <div class="calculator-card">
@@ -29,7 +29,7 @@ faq:
       <div class="calc-control-group">
         <label for="input-band">Band Size</label>
         <div class="calc-input-wrapper">
-          <input type="number" id="input-band" value="34" min="28" max="52" step="2" required>
+          <input type="number" id="input-band" value="34" min="28" max="50" step="2" required>
         </div>
       </div>
 
@@ -64,12 +64,12 @@ faq:
     </div>
 
     <div class="calc-action-bar">
-      <button type="submit" class="btn-primary">Lookup Target Body Measurements</button>
+      <button type="submit" class="btn-primary">Estimate Reference Measurements</button>
     </div>
   </form>
 
   <div id="reverse-result-box" class="sizing-result-box" style="display: none; margin-top: 2rem;">
-    <div class="result-badge">Target Body Dimensions</div>
+    <div class="result-badge">Estimated Reference Ranges</div>
     <div class="result-equivalents-grid">
       <div class="equivalent-pill">
         <span class="country-code">Underbust Range</span>
