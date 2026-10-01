@@ -87,12 +87,13 @@ document.addEventListener('DOMContentLoaded', () => {
     const usCup = IMRango.getCupForSystem(cupIdx, 'us') || 'D';
     const ukCup = IMRango.getCupForSystem(cupIdx, 'uk') || 'D';
     const euCup = IMRango.getCupForSystem(cupIdx, 'eu') || 'D';
+    const auCup = IMRango.getCupForSystem(cupIdx, 'au') || 'D';
     const bandMap = IMRango.getBandConversions(band);
 
     document.getElementById('equiv-us').textContent = `${band}${usCup}`;
     document.getElementById('equiv-uk').textContent = `${band}${ukCup}`;
     document.getElementById('equiv-eu').textContent = `${bandMap ? bandMap.eu : ''}${euCup}`;
-    document.getElementById('equiv-au').textContent = `${bandMap ? Math.max(6, bandMap.au) : ''}${ukCup}`;
+    document.getElementById('equiv-au').textContent = `${bandMap && bandMap.au ? bandMap.au : ''}${auCup}`;
 
     // Sister sizes
     const sisters = IMRango.getSisterSizes(band, cupIdx, system);
