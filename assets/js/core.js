@@ -101,7 +101,7 @@ window.IMRango = (function() {
     if (rounded % 2 !== 0) {
       rounded += 1;
     }
-    return rounded;
+    return Math.min(rounded, 50);
   }
 
   const CUP_ORDER_US = ['AA', 'A', 'B', 'C', 'D', 'DD', 'DDD/F', 'G', 'H', 'I', 'J', 'K', 'L', 'M', 'N'];
