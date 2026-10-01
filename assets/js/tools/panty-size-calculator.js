@@ -48,7 +48,16 @@ document.addEventListener('DOMContentLoaded', () => {
       return range && hips >= range[0] && hips <= range[1];
     });
 
-    const result = matchingRows[0] || hipRows[0];
+    const result = matchingRows[0];
+    if (!result && hipRows.length) {
+      document.getElementById('panty-res-alpha').textContent = 'Check manufacturer chart';
+      document.getElementById('panty-res-us').textContent = '—';
+      document.getElementById('panty-res-uk').textContent = '—';
+      document.getElementById('panty-res-eu').textContent = '—';
+      const box = document.getElementById('panty-result-box');
+      if (box) { box.style.display = 'block'; box.scrollIntoView({ behavior: 'smooth', block: 'nearest' }); }
+      return;
+    }
     if (!result) {
       alert('Your measurements fall outside this reference chart. Check the current brand size chart before choosing a size.');
       return;
