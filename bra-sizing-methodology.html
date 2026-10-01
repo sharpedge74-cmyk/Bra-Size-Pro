@@ -1,0 +1,191 @@
+---
+layout: guide
+title: "Bra Sizing Methodology"
+description: "How IMRango calculates measurement-based bra-size starting points, maps cup labels, converts common sizing systems, and handles sister sizes."
+permalink: /bra-sizing-methodology
+breadcrumb_label: "Sizing Methodology"
+last_reviewed: "2026-10-01"
+sources:
+  - '<a href="https://www.iso.org/standard/61686.html" rel="noopener">ISO 8559-1:2017 — Anthropometric definitions for body measurement</a>'
+  - '<a href="https://www.iso.org/standard/67334.html" rel="noopener">ISO 8559-3:2018 — Methodology for body measurement tables and intervals</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" rel="noopener">White & Scurr — Evaluation of professional bra fitting criteria for bra selection and fitting in the UK</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" rel="noopener">Moscarelli et al. — Understanding Variation in Bra Cup Sizing Among Leading Manufacturers</a>'
+faq:
+  - q: "Does IMRango use the +4 method?"
+    a: "No. The current calculator uses the entered snug underbust directly, rounds it to an even band value, and does not add four inches."
+  - q: "How is the cup starting point calculated?"
+    a: "The calculator subtracts snug underbust from standing bust, rounds the difference to the nearest whole inch, and uses that index in the selected sizing system's cup sequence."
+  - q: "Is the calculated size a universal bra size?"
+    a: "No. It is a measurement-based starting point. Brand charts, garment construction, cup shape, fabric stretch, body shape, and fit preferences can change the size that fits best."
+---
+
+<h2>What this page documents</h2>
+<p>This page describes the current calculation logic used by IMRango's main Bra Size Calculator. The goal is transparency: you can see which measurements affect the result, how the arithmetic works, and where the result stops being a calculation and becomes a garment-fitting question.</p>
+
+<p>IMRango is not treating this method as a universal industry standard. Clothing sizing depends on measurement definitions, sizing systems, population data, and garment design. ISO 8559-1 provides standardized terminology and guidance for clothing-related body measurements, while ISO 8559-3 describes how body-measurement tables and intervals can be constructed and notes that body shape and proportions vary between populations. <a href="https://www.iso.org/standard/61686.html" rel="noopener">ISO 8559-1</a> · <a href="https://www.iso.org/standard/67334.html" rel="noopener">ISO 8559-3</a></p>
+
+<h2>Inputs used by the main calculator</h2>
+<table>
+  <thead>
+    <tr>
+      <th>Input</th>
+      <th>Used in calculation?</th>
+      <th>Role</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Snug underbust</td>
+      <td>Yes</td>
+      <td>Determines the starting band value and forms the cup-difference calculation.</td>
+    </tr>
+    <tr>
+      <td>Standing bust</td>
+      <td>Yes</td>
+      <td>Forms the bust-minus-underbust difference used for the cup index.</td>
+    </tr>
+    <tr>
+      <td>Tight underbust</td>
+      <td>No</td>
+      <td>Optional reference measurement shown to help you understand your measurement range.</td>
+    </tr>
+    <tr>
+      <td>Leaning bust</td>
+      <td>No</td>
+      <td>Optional reference measurement shown for comparison; it does not change the main result.</td>
+    </tr>
+    <tr>
+      <td>Measurement unit</td>
+      <td>Yes</td>
+      <td>Centimeter inputs are converted to inches internally before calculation.</td>
+    </tr>
+    <tr>
+      <td>Target sizing system</td>
+      <td>Yes</td>
+      <td>Controls the cup-label sequence used for the displayed starting size.</td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>Step 1: Calculate the band starting point</h2>
+<p>The calculator takes the snug underbust measurement in inches.</p>
+
+<p><strong>Band input → nearest whole inch → next even number when needed.</strong></p>
+
+<p>For example, a snug underbust of 32.2 inches becomes 32. A measurement of 31.2 inches rounds to 31 and then moves to the next even value, 32.</p>
+
+<p>The current accepted calculation range is 27 through 51 inches. The displayed band therefore runs from 28 through 50. This is a boundary of IMRango's calculation model, not a claim that bodies outside this range cannot be fitted.</p>
+
+<h2>Step 2: Calculate the cup index</h2>
+<p>The cup calculation uses the difference between standing bust and snug underbust:</p>
+
+<p><strong>Cup difference = standing bust − snug underbust</strong></p>
+
+<p>The difference is rounded to the nearest whole inch and used as an index into the selected cup sequence. Negative differences are treated as zero.</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rounded difference</th>
+      <th>US sequence</th>
+      <th>UK sequence</th>
+      <th>EU sequence</th>
+      <th>AU sequence</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>0</td><td>AA</td><td>AA</td><td>AA</td><td>AA</td></tr>
+    <tr><td>1</td><td>A</td><td>A</td><td>A</td><td>A</td></tr>
+    <tr><td>2</td><td>B</td><td>B</td><td>B</td><td>B</td></tr>
+    <tr><td>3</td><td>C</td><td>C</td><td>C</td><td>C</td></tr>
+    <tr><td>4</td><td>D</td><td>D</td><td>D</td><td>D</td></tr>
+    <tr><td>5</td><td>DD</td><td>DD</td><td>E</td><td>DD</td></tr>
+    <tr><td>6</td><td>DDD/F</td><td>E</td><td>F</td><td>E</td></tr>
+    <tr><td>7</td><td>G</td><td>F</td><td>G</td><td>F</td></tr>
+    <tr><td>8</td><td>H</td><td>FF</td><td>H</td><td>FF</td></tr>
+    <tr><td>9</td><td>I</td><td>G</td><td>I</td><td>G</td></tr>
+    <tr><td>10</td><td>J</td><td>GG</td><td>J</td><td>GG</td></tr>
+    <tr><td>11</td><td>K</td><td>H</td><td>K</td><td>H</td></tr>
+    <tr><td>12</td><td>L</td><td>HH</td><td>L</td><td>HH</td></tr>
+    <tr><td>13+</td><td>Clamped to final available label</td><td>Clamped to final available label</td><td>Clamped to final available label</td><td>Clamped to final available label</td></tr>
+  </tbody>
+</table>
+
+<p>These sequences are calculator mappings, not a claim that every manufacturer uses the same cup progression. Published research has found measurable differences in cup volume between manufacturers, with larger differences at some larger cup sizes. <a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" rel="noopener">Moscarelli et al.</a></p>
+
+<h2>Worked example</h2>
+<p>Suppose the entered measurements are:</p>
+<ul>
+  <li>Snug underbust: 32 inches</li>
+  <li>Standing bust: 36 inches</li>
+  <li>Target system: US</li>
+</ul>
+
+<p>The band calculation keeps 32 as the even band value. The bust difference is 36 − 32 = 4 inches. A rounded difference of 4 maps to D in the US sequence. The calculator therefore displays <strong>32D</strong> as the measurement-based starting point.</p>
+
+<p>That does not mean every 32D bra will fit the same way. The actual garment may differ in cup shape, wire geometry, stretch, depth, and grading. Research comparing bra-fitting criteria also demonstrates that different fitting approaches can produce different recommended sizes. <a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" rel="noopener">White &amp; Scurr</a></p>
+
+<h2>International label mapping</h2>
+<p>After calculating the US/UK-style numeric band, IMRango maps the band to common EU, AU, FR, IT, and JP reference values where a mapping is available. For the main calculator's displayed conversions, the shared band reference is:</p>
+
+<table>
+  <thead>
+    <tr>
+      <th>US / UK band</th>
+      <th>EU / JP</th>
+      <th>AU / NZ</th>
+      <th>FR</th>
+      <th>IT</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>28</td><td>60</td><td>6</td><td>75</td><td>1</td></tr>
+    <tr><td>30</td><td>65</td><td>8</td><td>80</td><td>2</td></tr>
+    <tr><td>32</td><td>70</td><td>10</td><td>85</td><td>3</td></tr>
+    <tr><td>34</td><td>75</td><td>12</td><td>90</td><td>4</td></tr>
+    <tr><td>36</td><td>80</td><td>14</td><td>95</td><td>5</td></tr>
+    <tr><td>38</td><td>85</td><td>16</td><td>100</td><td>6</td></tr>
+    <tr><td>40</td><td>90</td><td>18</td><td>105</td><td>7</td></tr>
+    <tr><td>42</td><td>95</td><td>20</td><td>110</td><td>8</td></tr>
+    <tr><td>44</td><td>100</td><td>22</td><td>115</td><td>9</td></tr>
+    <tr><td>46</td><td>105</td><td>24</td><td>120</td><td>10</td></tr>
+    <tr><td>48</td><td>110</td><td>26</td><td>125</td><td>11</td></tr>
+    <tr><td>50</td><td>115</td><td>28</td><td>130</td><td>12</td></tr>
+  </tbody>
+</table>
+
+<p>International labels should still be treated as reference mappings. A retailer's or manufacturer's chart is the appropriate final reference when purchasing a particular garment.</p>
+
+<h2>How sister sizes are generated</h2>
+<p>For the supported cup sequences, the calculator moves the band by 2 and moves one cup position in the opposite direction:</p>
+<ul>
+  <li><strong>Snugger-band sister:</strong> band − 2, cup + 1 position.</li>
+  <li><strong>Looser-band sister:</strong> band + 2, cup − 1 position.</li>
+</ul>
+
+<p>For example, a US 32D produces 30DD and 34C when both alternatives remain inside the calculator's supported boundaries.</p>
+
+<p>These are adjacent sizing references, not guarantees of identical fit. Cup construction, wire shape, fabric, and manufacturer grading can change how the garment feels and fits.</p>
+
+<h2>What the calculator does not claim</h2>
+<ul>
+  <li>It does not establish a medically or anatomically correct bra size.</li>
+  <li>It does not claim that one sizing formula works for every manufacturer.</li>
+  <li>It does not use tight underbust or leaning bust to override the primary calculation.</li>
+  <li>It does not determine whether a specific bra's cup shape, wire, straps, or fabric will fit your body.</li>
+  <li>It does not replace the current size chart supplied by the manufacturer of the garment you are considering.</li>
+</ul>
+
+<h2>Why IMRango documents the method</h2>
+<p>A calculator is more useful when its assumptions are visible. IMRango therefore treats its result as a reproducible sizing reference: the same inputs and selected system produce the same result, and the calculation can be inspected rather than presented as a black-box recommendation.</p>
+
+<p>This approach is also consistent with the broader reality of clothing sizing. ISO's clothing-sizing methodology recognizes that body shape and proportions differ across populations and that measurement tables are constructed for particular sizing purposes. The fitting literature likewise shows that different fitting criteria can lead to different recommendations. <a href="https://www.iso.org/standard/67334.html" rel="noopener">ISO 8559-3</a> · <a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" rel="noopener">White &amp; Scurr</a></p>
+
+<h2>Using the result</h2>
+<ol>
+  <li>Measure consistently using the instructions on the calculator.</li>
+  <li>Use the result as a starting point rather than a universal answer.</li>
+  <li>Check the current manufacturer's size chart for the garment you want.</li>
+  <li>Evaluate the actual garment's band, cups, wires, straps, and overall comfort.</li>
+  <li>If needed, use the <a href="/sister-size-calculator">Sister Size Calculator</a> or <a href="/bra-fit-checker">Bra Fit Checker</a> to explore adjacent sizing and fit considerations.</li>
+</ol>
