@@ -14,14 +14,22 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     const band = IMRango.calculateBand(underbust);
-    const cupIdx = IMRango.calculateCupIndex(bust, underbust);
+    if (band === null) {
+      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches).');
+      return;
+    }
+    const cupIdx = IMRango.calculateCupIndex(bust, underbust, 'us');
+    if (cupIdx === null) {
+      alert('Please check your bust and underbust measurements.');
+      return;
+    }
     const cup = IMRango.getCupForSystem(cupIdx, 'us') || 'AA';
     const rows = IMRango.getData('sizes')?.panty_sizes || [];
     const row = rows.find(r => {
-      const min = Number(r.hips_in.split('-')[0]), max = Number(r.hips_in.split('-')[1]);
-      return hips >= min && hips <= max;
-    }) || rows[rows.length - 1];
-    const bottomAlpha = row ? row.label : 'Brand-dependent';
+      const parts = String(r.hips_in).split('-').map(Number);
+      return parts.length === 2 && parts.every(Number.isFinite) && hips >= parts[0] && hips <= parts[1];
+    });
+    const bottomAlpha = row ? row.label : 'Outside reference range';
     document.getElementById('set-res-bra').textContent = `${band}${cup}`;
     document.getElementById('set-res-bottom').textContent = bottomAlpha;
     document.getElementById('set-res-tip').textContent = 'The bottom size is based on the supplied hip measurement; bra and bottom pieces can use different sizes.';
