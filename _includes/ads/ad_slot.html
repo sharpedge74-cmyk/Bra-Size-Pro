@@ -5,8 +5,7 @@
   <div class="ad-label">{{ ad_config.label | default: "Advertisement" }}</div>
   <div class="ad-content-box">
     {% if ad_config.script_key %}
-      <div class="ad-network-slot ad-network-{{ ad_config.dimensions | replace: 'x', '-' | replace: ' ', '' }}"
-           style="width: {{ ad_config.dimensions | split: 'x' | first }}px; min-height: {{ ad_config.dimensions | split: 'x' | last }}px;">
+      <div class="ad-network-slot ad-network-{{ ad_config.dimensions | replace: 'x', '-' | replace: ' ', '' }}" data-ad-width="{{ ad_config.dimensions | split: 'x' | first }}" data-ad-height="{{ ad_config.dimensions | split: 'x' | last }}">
         {% if ad_config.network == "highrevenue" %}
           <script type="text/javascript">
             atOptions = {
