@@ -193,3 +193,8 @@
   .home-directory-strip { margin-left: -1rem; margin-right: -1rem; }
   .home-directory-badges { gap: 1.5rem; padding-right: 1.5rem; }
 }
+
+.home-ad-card { position: relative; overflow: hidden; }
+.home-card-ad-label { position: absolute; top: .65rem; right: .65rem; color: var(--color-text-subtle); font-size: .6rem; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.home-card-ad-content { flex: 1; min-height: 0; display: flex; align-items: center; justify-content: center; overflow: hidden; margin: 1rem -0.5rem 0; }
+.home-card-ad-content iframe { display: block; max-width: 100%; }
