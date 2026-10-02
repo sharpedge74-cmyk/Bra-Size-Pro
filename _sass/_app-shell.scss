@@ -330,6 +330,19 @@
     height: 2px;
     background: currentColor;
     border-radius: 2px;
+    transition: transform 0.18s ease, opacity 0.18s ease;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] .mobile-nav-icon span:nth-child(1) {
+    transform: translateY(4px) rotate(45deg);
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] .mobile-nav-icon span:nth-child(2) {
+    opacity: 0;
+  }
+
+  .mobile-nav-toggle[aria-expanded="true"] .mobile-nav-icon span:nth-child(3) {
+    transform: translateY(-4px) rotate(-45deg);
   }
 
   .site-brand {
