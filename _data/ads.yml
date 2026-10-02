@@ -19,7 +19,7 @@ guide:
     enabled: true
     format: "leaderboard"
     dimensions: "728x90"
-    script_key: "bed52797bfdfe0042d4e4dfb3cec902c"
+    script_key: "11544c389728754f2a6cb6bf69c5ac15"
     network: "highrevenue"
     label: "Advertisement"
   in_article:
