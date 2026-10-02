@@ -1,10 +1,14 @@
 .guide-page-container {
+  min-width: 0;
+  max-width: 100%;
   display: flex;
   flex-direction: column;
   gap: 2rem;
 }
 
 .guide-header {
+  min-width: 0;
+  max-width: 100%;
   margin-bottom: 1rem;
 }
 
@@ -46,6 +50,8 @@
 }
 
 .guide-body-layout {
+  min-width: 0;
+  max-width: 100%;
   display: grid;
   grid-template-columns: 1fr;
   gap: 2.5rem;
@@ -56,6 +62,10 @@
 }
 
 .guide-content {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+  word-break: normal;
   background: var(--color-bg-surface);
   border: 1px solid var(--color-border);
   border-radius: $radius-xl;
@@ -149,5 +159,59 @@
         color: var(--color-primary);
       }
     }
+  }
+}
+
+
+@media (max-width: 767px) {
+  .guide-page-container {
+    overflow-x: clip;
+  }
+
+  .guide-header,
+  .guide-body-layout,
+  .guide-content,
+  .guide-content > * {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .guide-header {
+    overflow-wrap: anywhere;
+  }
+
+  .guide-title,
+  .guide-lead {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .guide-content {
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+
+  .guide-content table {
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+  }
+
+  .guide-content th,
+  .guide-content td {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .guide-content img,
+  .guide-content video,
+  .guide-content iframe,
+  .guide-content canvas,
+  .guide-content svg {
+    max-width: 100%;
+    height: auto;
   }
 }
