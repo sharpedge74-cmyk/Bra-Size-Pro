@@ -6,13 +6,6 @@ tool:
     script_key: "bed52797bfdfe0042d4e4dfb3cec902c"
     network: "highrevenue"
     label: "Advertisement"
-  in_calculator:
-    enabled: true
-    format: "inline_rectangle"
-    dimensions: "300x250"
-    script_key: "f8f2dba257de250e9798529f3a25a9f0"
-    network: "highrevenue"
-    label: "Advertisement"
   sidebar:
     enabled: true
     format: "half_page"
