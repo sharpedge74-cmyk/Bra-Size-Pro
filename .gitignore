@@ -38,3 +38,4 @@ Gemfile.lock
 *.tmp
 *.temp
 *.bak
+_site/assets/css/main.css
