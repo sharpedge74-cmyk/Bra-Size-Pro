@@ -242,14 +242,17 @@
   }
 
   .mobile-tool-top-ad .ad-network-slot {
-    width: 100%;
+    width: 320px !important;
+    max-width: 100%;
     min-height: 50px;
+    flex: 0 0 auto;
   }
 
   .mobile-tool-top-ad .ad-network-slot iframe {
     display: block;
-    max-width: 100%;
-    width: 100%;
+    width: 320px !important;
+    max-width: 100% !important;
+    height: 50px !important;
   }
 }
 
