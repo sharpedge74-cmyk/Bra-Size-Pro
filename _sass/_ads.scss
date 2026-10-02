@@ -87,7 +87,8 @@
 
 .desktop-sidebar-ad {
   width: 100%;
-  min-height: 600px;
+  height: 300px;
+  min-height: 300px;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -97,8 +98,8 @@
 @media (min-width: 1024px) {
   .desktop-left-ad-column {
     display: block;
-    width: 25%;
-    padding: 1.5rem 1rem 1.5rem 1.5rem;
+    width: 22%;
+    padding: 1.5rem 0.75rem 1.5rem 1rem;
     flex-shrink: 0;
   }
 
@@ -108,8 +109,8 @@
     background: var(--color-bg-subtle);
     border: 1px dashed var(--color-border);
     border-radius: $radius-md;
-    padding: 1.5rem 1rem;
-    min-height: 600px;
+    padding: 1rem 0.75rem;
+    min-height: 300px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -118,7 +119,7 @@
   }
 
   .site-main-column {
-    width: 75%;
+    width: 78%;
     flex: 1;
     min-width: 0;
   }
