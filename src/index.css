@@ -231,3 +231,66 @@
     -webkit-overflow-scrolling: touch;
   }
 }
+
+
+@media (max-width: 767px) {
+  html,
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  .site-layout-wrapper,
+  .site-main,
+  .content-wrapper,
+  .tool-page-container,
+  .tool-layout-split,
+  .tool-main-stage,
+  .guide-page-container,
+  .guide-body-layout,
+  .ad-container,
+  .ad-content-box,
+  .ad-network-slot,
+  .mobile-bottom-ad-bar,
+  .mobile-ad-box {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .ad-network-slot {
+    width: min(100%, var(--ad-slot-width, 100%)) !important;
+  }
+
+  .ad-network-slot iframe,
+  .ad-content-box iframe,
+  .mobile-ad-box iframe {
+    display: block;
+    max-width: 100% !important;
+  }
+
+  .mobile-bottom-ad-bar {
+    left: 0;
+    right: 0;
+    width: 100%;
+  }
+
+  .mobile-ad-box {
+    overflow: hidden;
+  }
+
+  img,
+  svg,
+  video,
+  canvas {
+    max-width: 100%;
+  }
+
+  input,
+  select,
+  textarea,
+  button {
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+}
