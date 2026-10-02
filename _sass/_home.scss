@@ -127,3 +127,69 @@
   .section-heading-row { align-items: flex-start; flex-direction: column; }
   .home-actions .button { width: 100%; }
 }
+
+
+.home-directory-strip {
+  margin: 1rem -1.5rem 0;
+  padding: 1rem 0;
+  border-top: 1px solid var(--color-border);
+  border-bottom: 1px solid var(--color-border);
+  overflow: hidden;
+  background: var(--color-bg-subtle);
+}
+
+.home-directory-label {
+  display: block;
+  text-align: center;
+  margin-bottom: .65rem;
+  color: var(--color-text-subtle);
+  font-size: .65rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.home-directory-marquee {
+  width: 100%;
+  overflow: hidden;
+}
+
+.home-directory-track {
+  display: flex;
+  width: max-content;
+  animation: home-directory-scroll 24s linear infinite;
+  will-change: transform;
+}
+
+.home-directory-badges {
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
+  padding-right: 2.5rem;
+  flex-shrink: 0;
+}
+
+.home-directory-badges a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.home-directory-badges img {
+  max-width: 260px;
+}
+
+@keyframes home-directory-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .home-directory-track { animation: none; }
+}
+
+@media (max-width: 640px) {
+  .home-directory-strip { margin-left: -1rem; margin-right: -1rem; }
+  .home-directory-badges { gap: 1.5rem; padding-right: 1.5rem; }
+}
