@@ -202,3 +202,31 @@
     display: none !important;
   }
 }
+
+
+@media (max-width: 767px) {
+  .ad-container,
+  .ad-content-box,
+  .ad-network-slot,
+  .mobile-bottom-ad-bar,
+  .mobile-ad-box {
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .ad-network-slot {
+    width: 100% !important;
+  }
+
+  .ad-network-slot iframe,
+  .ad-content-box iframe,
+  .mobile-ad-box iframe {
+    display: block;
+    max-width: 100% !important;
+  }
+
+  .mobile-bottom-ad-bar {
+    width: 100%;
+  }
+}
