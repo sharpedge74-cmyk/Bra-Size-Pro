@@ -292,21 +292,21 @@
 
 @media (max-width: 767px) {
   .site-header-inner {
-    position: relative;
-    flex-wrap: nowrap;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr);
+    grid-template-areas:
+      "menu brand"
+      "nav nav";
     align-items: center;
-  }
-
-  .site-brand {
-    flex: 1 1 auto;
+    gap: 0.75rem;
+    padding: 0.7rem 1rem;
   }
 
   .mobile-nav-toggle {
+    grid-area: menu;
     display: inline-flex;
-    order: 2;
-    flex: 0 0 auto;
-    width: 2.5rem;
-    height: 2.5rem;
+    width: 2.45rem;
+    height: 2.45rem;
     padding: 0;
     border: 1px solid var(--color-border);
     border-radius: $radius-md;
@@ -318,7 +318,7 @@
   }
 
   .mobile-nav-icon {
-    width: 1.15rem;
+    width: 1.1rem;
     display: flex;
     flex-direction: column;
     gap: 0.22rem;
@@ -332,14 +332,25 @@
     border-radius: 2px;
   }
 
-  .site-nav {
+  .site-brand {
+    grid-area: brand;
+    min-width: 0;
+  }
+
+  .brand-link {
+    font-size: 1.35rem;
+  }
+
+  .header-actions {
     display: none;
-    order: 4;
-    flex: 1 1 100%;
+  }
+
+  .site-nav {
+    grid-area: nav;
+    display: none;
     width: 100%;
-    max-width: 100%;
-    overflow: visible;
-    padding-top: 0.65rem;
+    min-width: 0;
+    padding: 0.5rem 0 0;
     border-top: 1px solid var(--color-border-subtle);
   }
 
@@ -347,20 +358,37 @@
     display: flex;
     flex-direction: column;
     align-items: stretch;
-    gap: 0.15rem;
+    gap: 0.1rem;
   }
 
   .site-nav .nav-item {
     display: block;
-    padding: 0.65rem 0.2rem;
+    padding: 0.72rem 0.35rem;
+    border-bottom: 1px solid var(--color-border-subtle);
   }
 
-  .header-actions {
-    order: 3;
-    flex: 0 0 auto;
+  .site-nav .nav-item:last-child {
+    border-bottom: 0;
   }
 
-  .site-header-inner:has(.site-nav.is-open) {
-    flex-wrap: wrap;
+  .mobile-menu-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.55rem;
+    padding-top: 0.65rem;
+    margin-top: 0.35rem;
+    border-top: 1px solid var(--color-border-subtle);
+  }
+
+  .mobile-menu-actions .theme-toggle-button,
+  .mobile-menu-actions .clear-data-button {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (min-width: 768px) {
+  .mobile-menu-actions {
+    display: none;
   }
 }
