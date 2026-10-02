@@ -152,10 +152,21 @@
   }
 
   .guide-content table {
-    display: block;
-    overflow-x: auto;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
+    display: table;
+    width: 100%;
+    max-width: 100%;
+    table-layout: fixed;
+    white-space: normal;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .guide-content table th,
+  .guide-content table td {
+    min-width: 0;
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
   }
 }
 
