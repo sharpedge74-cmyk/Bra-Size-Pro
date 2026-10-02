@@ -73,3 +73,94 @@
     font-family: 'Playfair Display', Georgia, serif;
   }
 }
+
+/* Mobile calculator and side-ad safeguards */
+@media (max-width: 767px) {
+  .desktop-left-ad-column,
+  .tool-sidebar-slot,
+  .guide-sidebar {
+    display: none !important;
+  }
+
+  .site-layout-wrapper,
+  .site-main-column,
+  .content-wrapper,
+  .tool-page-container,
+  .tool-layout-split,
+  .tool-main-stage,
+  .guide-page-container,
+  .guide-body-layout {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .content-wrapper {
+    padding-left: 0.85rem;
+    padding-right: 0.85rem;
+  }
+
+  .tool-main-stage {
+    padding: 0.85rem;
+  }
+
+  .calc-card-grid {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .calc-control-group,
+  .calc-input-wrapper,
+  .calc-input-wrapper input,
+  .calc-input-wrapper select,
+  .calc-input-wrapper textarea {
+    min-width: 0;
+    max-width: 100%;
+  }
+
+  .calc-control-group label {
+    flex-wrap: wrap;
+    gap: 0.15rem 0.5rem;
+  }
+
+  .calc-action-bar {
+    position: static;
+    margin-left: 0;
+    margin-right: 0;
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .calc-action-bar .btn-primary,
+  .calc-action-bar .btn-secondary {
+    flex: 1 1 100%;
+    width: 100%;
+  }
+
+  .sister-size-strip {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .result-equivalents-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .calculator-reference,
+  .sizing-result-box,
+  .faq-section,
+  .related-card,
+  .guide-content {
+    min-width: 0;
+    overflow-wrap: anywhere;
+  }
+
+  .guide-content table,
+  .guide-content table th,
+  .guide-content table td {
+    max-width: 100%;
+  }
+
+  .ad-content-box {
+    width: 100%;
+    max-width: 100%;
+  }
+}
