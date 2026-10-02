@@ -245,6 +245,70 @@
 
 
 @media (max-width: 767px) {
+  .guide-page-container,
+  .guide-header,
+  .guide-body-layout,
+  .guide-content,
+  .guide-content > * {
+    width: 100%;
+    min-width: 0;
+    max-width: 100%;
+    box-sizing: border-box;
+  }
+
+  .guide-page-container {
+    overflow-x: hidden;
+  }
+
+  .guide-content {
+    padding: 1rem;
+    overflow-x: hidden;
+  }
+
+  .guide-content table {
+    width: 100% !important;
+    max-width: 100% !important;
+    table-layout: fixed;
+    display: table;
+  }
+
+  .guide-content th,
+  .guide-content td,
+  .guide-content p,
+  .guide-content li,
+  .guide-content a,
+  .guide-content strong,
+  .guide-content span {
+    max-width: 100%;
+    overflow-wrap: anywhere;
+    word-break: break-word;
+  }
+
+  .guide-content img,
+  .guide-content video,
+  .guide-content iframe,
+  .guide-content canvas,
+  .guide-content svg {
+    max-width: 100% !important;
+    height: auto;
+  }
+
+  .guide-page-container .ad-container,
+  .guide-page-container .ad-content-box,
+  .guide-page-container .ad-network-slot {
+    width: 100% !important;
+    max-width: 100% !important;
+    min-width: 0 !important;
+    box-sizing: border-box;
+    overflow: hidden;
+  }
+
+  .guide-page-container .ad-network-slot iframe,
+  .guide-page-container .ad-content-box iframe {
+    max-width: 100% !important;
+    width: 100% !important;
+  }
+
   html,
   body {
     width: 100%;
