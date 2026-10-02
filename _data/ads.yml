@@ -3,14 +3,14 @@ tool:
     enabled: true
     format: "leaderboard"
     dimensions: "728x90"
-    script_key: "bed52797bfdfe0042d4e4dfb3cec902c"
+    script_key: "11544c389728754f2a6cb6bf69c5ac15"
     network: "highrevenue"
     label: "Advertisement"
   sidebar:
     enabled: true
     format: "half_page"
     dimensions: "160x600"
-    script_key: "e65631ef92ea50b905c474e1448a284a"
+    script_key: "0f2ed69f5044d84ced7876d72eb7224c"
     network: "highrevenue"
     label: "Advertisement"
 
@@ -26,14 +26,14 @@ guide:
     enabled: true
     format: "inline_rectangle"
     dimensions: "300x250"
-    script_key: "f8f2dba257de250e9798529f3a25a9f0"
+    script_key: "c891357951c9fa74200a4b22e7a18c12"
     network: "highrevenue"
     label: "Sponsored Content"
   bottom:
     enabled: true
     format: "responsive_strip"
     dimensions: "320x50"
-    script_key: "943ee87c3b973b157887078278b64f16"
+    script_key: "b2eecbb77859ad4e35df0af6795506f0"
     network: "highrevenue"
     label: "Advertisement"
 
