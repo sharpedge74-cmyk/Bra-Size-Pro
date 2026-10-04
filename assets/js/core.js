@@ -59,25 +59,43 @@ window.IMRango = (function() {
 
   // Theme Management
   function initTheme() {
-    const savedTheme = localStorage.getItem(THEME_KEY) || 'pinkish';
+    let savedTheme = 'pinkish';
+    try {
+      const storedTheme = localStorage.getItem(THEME_KEY);
+      if (storedTheme === 'pinkish' || storedTheme === 'emerald') {
+        savedTheme = storedTheme;
+      }
+    } catch (e) {}
+
     applyTheme(savedTheme);
 
-    const toggleBtns = document.querySelectorAll('[data-theme-toggle]');
-    toggleBtns.forEach(btn => {
+    document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
       btn.addEventListener('click', () => {
         const current = document.documentElement.getAttribute('data-theme') || 'pinkish';
-        const next = current === 'pinkish' ? 'emerald' : 'pinkish';
-        applyTheme(next);
+        applyTheme(current === 'pinkish' ? 'emerald' : 'pinkish');
       });
     });
   }
 
   function applyTheme(theme) {
-    document.documentElement.setAttribute('data-theme', theme);
-    localStorage.setItem(THEME_KEY, theme);
-    const labels = document.querySelectorAll('.theme-label');
-    labels.forEach(label => {
-      label.textContent = theme === 'pinkish' ? 'Rose Theme' : 'Emerald Theme';
+    const nextTheme = theme === 'emerald' ? 'emerald' : 'pinkish';
+    document.documentElement.setAttribute('data-theme', nextTheme);
+
+    try {
+      localStorage.setItem(THEME_KEY, nextTheme);
+    } catch (e) {}
+
+    document.querySelectorAll('.theme-label').forEach(label => {
+      label.textContent = nextTheme === 'pinkish' ? 'Rose Theme' : 'Emerald Theme';
+    });
+
+    document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
+      btn.setAttribute(
+        'aria-label',
+        nextTheme === 'pinkish'
+          ? 'Switch to Emerald Forest palette'
+          : 'Switch to Rose Pink palette'
+      );
     });
   }
 
@@ -106,10 +124,9 @@ window.IMRango = (function() {
 
   // Clear User Data
   function initClearData() {
-    const btns = document.querySelectorAll('[data-clear-data]');
-    btns.forEach(btn => {
+    document.querySelectorAll('[data-clear-data]').forEach(btn => {
       btn.addEventListener('click', () => {
-        if (confirm('Clear all your saved measurements and calculator inputs?')) {
+        if (window.confirm('Clear all saved measurements and calculator inputs on this browser?')) {
           clearAllUserData();
         }
       });
@@ -117,16 +134,36 @@ window.IMRango = (function() {
   }
 
   function clearAllUserData() {
-    Object.keys(localStorage).forEach(key => {
-      if (key.startsWith(STORAGE_PREFIX)) {
-        localStorage.removeItem(key);
-      }
+    // Remove current BraSizePRO data plus legacy IMRango calculator data.
+    try {
+      Object.keys(localStorage).forEach(key => {
+        if (
+          key.startsWith(STORAGE_PREFIX) ||
+          key.startsWith('brasizepro_data_') ||
+          key.startsWith('BraSizePRO_data_') ||
+          key.startsWith('imrango_data_')
+        ) {
+          localStorage.removeItem(key);
+        }
+      });
+    } catch (e) {}
+
+    // Reset visible calculator state, including result boxes that use
+    // page-specific IDs/classes rather than .sizing-result-box.
+    document.querySelectorAll('form').forEach(form => {
+      try { form.reset(); } catch (e) {}
     });
-    document.querySelectorAll('form').forEach(f => f.reset());
-    const results = document.querySelectorAll('.sizing-result-box');
-    results.forEach(r => r.style.display = 'none');
+
+    document.querySelectorAll(
+      '.sizing-result-box, [id$="-result-box"], [id$="-result-card"], [id$="-result"], .calculator-result, .diagnosis-result'
+    ).forEach(result => {
+      result.style.display = 'none';
+    });
+
     document.querySelectorAll('[role="alert"].calculator-alert').forEach(el => el.remove());
-    alert('Your saved measurements have been cleared.');
+
+    // Keep the user's palette choice; it is a preference, not calculator data.
+    alert('Your saved measurements and calculator data have been cleared.');
   }
 
   function saveValue(key, value) {
