@@ -69,6 +69,11 @@ window.IMRango = (function() {
 
     applyTheme(savedTheme);
 
+    window.BraSizePROThemeToggle = () => {
+      const current = document.documentElement.getAttribute('data-theme') || 'pinkish';
+      applyTheme(current === 'pinkish' ? 'emerald' : 'pinkish');
+    };
+
     document.querySelectorAll('[data-theme-toggle]').forEach(btn => {
       btn.addEventListener('click', () => {
         const current = document.documentElement.getAttribute('data-theme') || 'pinkish';
