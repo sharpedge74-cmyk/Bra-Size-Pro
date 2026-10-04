@@ -10,8 +10,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const waist = parseFloat(document.getElementById('sh-waist').value);
     const hips = parseFloat(document.getElementById('sh-hips').value);
     const compression = document.getElementById('sh-level').value;
+    IMRango.clearError(form);
+
     if (!Number.isFinite(waist) || !Number.isFinite(hips) || waist <= 0 || hips <= 0) {
-      alert('Please enter valid waist and hip measurements.');
+      IMRango.showError(form, 'Please enter valid waist and hip measurements.');
       return;
     }
     const rows = IMRango.getData('sizes')?.panty_sizes || [];

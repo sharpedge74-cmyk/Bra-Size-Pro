@@ -55,26 +55,28 @@ document.addEventListener('DOMContentLoaded', () => {
       bust = bust / 2.54;
     }
 
+    IMRango.clearError(form);
+
     if (underbust <= 20 || bust <= underbust) {
-      alert('Please check your measurements. Bust measurement should be larger than underbust.');
+      IMRango.showError(form, 'Please check your measurements. Bust measurement should be larger than underbust.');
       return;
     }
 
     const band = IMRango.calculateBand(underbust);
     if (band === null) {
-      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      IMRango.showError(form, IMRango.getBandErrorMessage(underbust));
       return;
     }
 
     const cupIdx = IMRango.calculateCupIndex(bust, underbust, system);
     if (cupIdx === null) {
-      alert('Please check your measurements and try again.');
+      IMRango.showError(form, 'Please check your measurements and try again.');
       return;
     }
 
     const cupLetter = IMRango.getCupForSystem(cupIdx, system);
     if (cupLetter === null) {
-      alert('We could not calculate a cup starting point from these measurements.');
+      IMRango.showError(form, 'We could not calculate a cup starting point from these measurements.');
       return;
     }
 

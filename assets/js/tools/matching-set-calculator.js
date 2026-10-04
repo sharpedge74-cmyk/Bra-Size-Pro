@@ -9,23 +9,25 @@ document.addEventListener('DOMContentLoaded', () => {
     const underbust = parseFloat(document.getElementById('set-underbust').value);
     const bust = parseFloat(document.getElementById('set-bust').value);
     const hips = parseFloat(document.getElementById('set-hips').value);
+    IMRango.clearError(form);
+
     if (![underbust, bust, hips].every(Number.isFinite) || underbust <= 0 || bust < underbust || hips <= 0) {
-      alert('Please enter valid measurements.');
+      IMRango.showError(form, 'Please enter valid measurements.');
       return;
     }
     const band = IMRango.calculateBand(underbust);
     if (band === null) {
-      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches).');
+      IMRango.showError(form, IMRango.getBandErrorMessage(underbust));
       return;
     }
     const cupIdx = IMRango.calculateCupIndex(bust, underbust, 'us');
     if (cupIdx === null) {
-      alert('Please check your bust and underbust measurements.');
+      IMRango.showError(form, 'Please check your bust and underbust measurements.');
       return;
     }
     const cup = IMRango.getCupForSystem(cupIdx, 'us');
     if (cup === null) {
-      alert('We could not calculate a cup starting point from these measurements.');
+      IMRango.showError(form, 'We could not calculate a cup starting point from these measurements.');
       return;
     }
     const rows = IMRango.getData('sizes')?.panty_sizes || [];

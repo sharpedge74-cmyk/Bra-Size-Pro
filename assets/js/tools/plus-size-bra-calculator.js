@@ -1,6 +1,6 @@
 /**
  * Plus-Size Bra Calculator
- * Uses snug underbust and an average of standing/leaning bust measurements.
+ * Uses snug underbust and standing bust measurements as primary calculation inputs.
  */
 document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('plus-size-form');
@@ -9,14 +9,15 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const snug = parseFloat(document.getElementById('ps-snug').value);
     const standing = parseFloat(document.getElementById('ps-standing').value);
-    const leaning = parseFloat(document.getElementById('ps-leaning').value);
-    if (![snug, standing, leaning].every(Number.isFinite) || snug <= 0 || standing < snug || leaning < snug) {
-      alert('Please enter valid measurements.');
+    IMRango.clearError(form);
+
+    if (!Number.isFinite(snug) || !Number.isFinite(standing) || snug <= 0 || standing < snug) {
+      IMRango.showError(form, 'Please enter valid measurements.');
       return;
     }
     const band = IMRango.calculateBand(snug);
     if (band === null) {
-      alert('Please enter a snug underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      IMRango.showError(form, IMRango.getBandErrorMessage(snug));
       return;
     }
 
@@ -27,7 +28,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const usCup = IMRango.getCupForSystem(cupIdx, 'us');
     const ukCup = IMRango.getCupForSystem(cupIdx, 'uk');
     if (usCup === null || ukCup === null) {
-      alert('We could not calculate a cup starting point from these measurements.');
+      IMRango.showError(form, 'We could not calculate a cup starting point from these measurements.');
       return;
     }
     document.getElementById('ps-res-us').textContent = `${band}${usCup} (starting point)`;

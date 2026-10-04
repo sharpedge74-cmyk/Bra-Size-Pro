@@ -13,8 +13,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const unit = document.getElementById('input-unit').value || 'inches';
     const cupIdx = IMRango.CUP_ORDER_US.indexOf(cup);
 
+    IMRango.clearError(form);
+
     if (!Number.isFinite(band) || band < 28 || band > 50 || band % 2 !== 0 || cupIdx < 0) {
-      alert('Please enter a valid band and cup size.');
+      IMRango.showError(form, 'Please enter a valid band and cup size.');
       return;
     }
 

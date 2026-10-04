@@ -14,13 +14,15 @@ document.addEventListener('DOMContentLoaded', () => {
     const cups = system === 'uk' ? IMRango.CUP_ORDER_UK : (system === 'eu' ? IMRango.CUP_ORDER_EU : (system === 'au' ? IMRango.CUP_ORDER_AU : IMRango.CUP_ORDER_US));
     const cupIdx = cups.indexOf(cup);
 
+    IMRango.clearError(form);
+
     if (!Number.isInteger(band) || band < 28 || band > 50 || band % 2 !== 0) {
-      alert('Please enter an even band size from 28 to 50.');
+      IMRango.showError(form, 'Please enter an even band size from 28 to 50.');
       return;
     }
 
     if (cupIdx === -1) {
-      alert('Selected cup not found in chosen system.');
+      IMRango.showError(form, 'Selected cup not found in chosen system.');
       return;
     }
 

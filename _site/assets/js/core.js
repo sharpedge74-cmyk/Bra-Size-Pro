@@ -62,23 +62,23 @@ window.IMRango = (function() {
     const savedTheme = localStorage.getItem(THEME_KEY) || 'pinkish';
     applyTheme(savedTheme);
 
-    const toggleBtn = document.getElementById('theme-toggle-btn');
-    if (toggleBtn) {
-      toggleBtn.addEventListener('click', () => {
+    const toggleBtns = document.querySelectorAll('[data-theme-toggle]');
+    toggleBtns.forEach(btn => {
+      btn.addEventListener('click', () => {
         const current = document.documentElement.getAttribute('data-theme') || 'pinkish';
         const next = current === 'pinkish' ? 'emerald' : 'pinkish';
         applyTheme(next);
       });
-    }
+    });
   }
 
   function applyTheme(theme) {
     document.documentElement.setAttribute('data-theme', theme);
     localStorage.setItem(THEME_KEY, theme);
-    const label = document.getElementById('theme-current-label');
-    if (label) {
+    const labels = document.querySelectorAll('.theme-label');
+    labels.forEach(label => {
       label.textContent = theme === 'pinkish' ? 'Rose Theme' : 'Emerald Theme';
-    }
+    });
   }
 
   // Mobile navigation
@@ -89,13 +89,16 @@ window.IMRango = (function() {
 
     toggle.addEventListener('click', () => {
       const open = toggle.getAttribute('aria-expanded') === 'true';
-      toggle.setAttribute('aria-expanded', String(!open));
-      nav.classList.toggle('is-open', !open);
+      const nextState = !open;
+      toggle.setAttribute('aria-expanded', String(nextState));
+      toggle.setAttribute('aria-label', nextState ? 'Close menu' : 'Open menu');
+      nav.classList.toggle('is-open', nextState);
     });
 
     nav.querySelectorAll('.nav-item').forEach(link => {
       link.addEventListener('click', () => {
         toggle.setAttribute('aria-expanded', 'false');
+        toggle.setAttribute('aria-label', 'Open menu');
         nav.classList.remove('is-open');
       });
     });
@@ -103,14 +106,14 @@ window.IMRango = (function() {
 
   // Clear User Data
   function initClearData() {
-    const btn = document.getElementById('clear-my-data-btn');
-    if (btn) {
+    const btns = document.querySelectorAll('[data-clear-data]');
+    btns.forEach(btn => {
       btn.addEventListener('click', () => {
         if (confirm('Clear all your saved measurements and calculator inputs?')) {
           clearAllUserData();
         }
       });
-    }
+    });
   }
 
   function clearAllUserData() {
@@ -122,6 +125,7 @@ window.IMRango = (function() {
     document.querySelectorAll('form').forEach(f => f.reset());
     const results = document.querySelectorAll('.sizing-result-box');
     results.forEach(r => r.style.display = 'none');
+    document.querySelectorAll('[role="alert"].calculator-alert').forEach(el => el.remove());
     alert('Your saved measurements have been cleared.');
   }
 
@@ -251,6 +255,52 @@ window.IMRango = (function() {
     initMobileNavigation();
   });
 
+  function showError(formOrEl, msg) {
+    if (!formOrEl) return;
+    const container = formOrEl.closest?.('.calculator-card') || formOrEl.closest?.('form') || formOrEl.parentElement || document.body;
+    const resultBox = container.querySelector?.('.sizing-result-box') || document.querySelector('.sizing-result-box');
+
+    let alertEl = container.querySelector?.('[role="alert"].calculator-alert');
+    if (!alertEl) {
+      alertEl = document.createElement('div');
+      alertEl.className = 'calculator-alert';
+      alertEl.setAttribute('role', 'alert');
+      if (resultBox && resultBox.parentNode) {
+        resultBox.parentNode.insertBefore(alertEl, resultBox);
+      } else if (formOrEl.parentNode) {
+        formOrEl.parentNode.insertBefore(alertEl, formOrEl.nextSibling);
+      } else {
+        container.appendChild(alertEl);
+      }
+    }
+
+    alertEl.textContent = msg;
+
+    if (resultBox) {
+      resultBox.style.display = 'none';
+    }
+
+    alertEl.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  }
+
+  function clearError(formOrEl) {
+    if (!formOrEl) {
+      document.querySelectorAll('[role="alert"].calculator-alert').forEach(el => el.remove());
+      return;
+    }
+    const container = formOrEl.closest?.('.calculator-card') || formOrEl.closest?.('form') || formOrEl.parentElement || document.body;
+    const alerts = container.querySelectorAll?.('[role="alert"].calculator-alert') || [];
+    alerts.forEach(el => el.remove());
+  }
+
+  function getBandErrorMessage(underbustInches) {
+    const val = Number(underbustInches);
+    if (Number.isFinite(val) && val < 27) {
+      return "The calculator's reference range starts at 27 in (68.6 cm). For smaller frames, the shopper should use the brand's own youth/training bra chart.";
+    }
+    return "Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).";
+  }
+
   return {
     getData,
     applyTheme,
@@ -266,6 +316,9 @@ window.IMRango = (function() {
     get CUP_ORDER_AU() { return CUP_ORDER_AU; },
     getCupForSystem,
     getBandConversions,
-    getCupList
+    getCupList,
+    showError,
+    clearError,
+    getBandErrorMessage
   };
 })();

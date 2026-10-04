@@ -9,19 +9,20 @@ document.addEventListener('DOMContentLoaded', () => {
     e.preventDefault();
     const underbust = parseFloat(document.getElementById('fb-underbust').value);
     const bust = parseFloat(document.getElementById('fb-bust').value);
+    IMRango.clearError(form);
     if (!Number.isFinite(underbust) || !Number.isFinite(bust) || underbust <= 0 || bust < underbust) {
-      alert('Please enter valid measurements.');
+      IMRango.showError(form, 'Please enter valid measurements.');
       return;
     }
     const band = IMRango.calculateBand(underbust);
     if (band === null) {
-      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      IMRango.showError(form, IMRango.getBandErrorMessage(underbust));
       return;
     }
     const cupIdx = IMRango.calculateCupIndex(bust, underbust, 'us');
     const cup = IMRango.getCupForSystem(cupIdx, 'us');
     if (cup === null) {
-      alert('We could not calculate a cup starting point from these measurements.');
+      IMRango.showError(form, 'We could not calculate a cup starting point from these measurements.');
       return;
     }
     const style = 'A soft, wire-free starter style may be a comfortable place to begin. Choose based on fit, coverage and personal preference.';

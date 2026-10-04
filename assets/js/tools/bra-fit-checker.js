@@ -17,8 +17,10 @@ document.addEventListener('DOMContentLoaded', () => {
     const symptomsData = IMRango.getData('symptoms') || [];
     const symptom = symptomsData.find(s => s.id === symId);
 
+    IMRango.clearError(diagnoseBtn);
+
     if (!symptom || !Number.isFinite(band) || band < 28 || band > 50 || band % 2 !== 0) {
-      alert('Please select a fit symptom and enter an even band size from 28 to 50.');
+      IMRango.showError(diagnoseBtn, 'Please select a fit symptom and enter an even band size from 28 to 50.');
       return;
     }
 

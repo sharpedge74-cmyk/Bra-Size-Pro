@@ -57,7 +57,7 @@
   ]
 }
 </script>
-<script src="http://127.0.0.1:35729/livereload.js"></script></head>
+</head>
 <body class="site-body">
   <header class="site-header">
   <div class="site-header-inner">
@@ -72,7 +72,7 @@
       </a>
     </div>
 
-    <button class="mobile-nav-toggle" id="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+    <button class="mobile-nav-toggle" id="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open menu">
       <span class="mobile-nav-icon" aria-hidden="true"><span></span><span></span><span></span></span>
       
     </button>
@@ -86,14 +86,14 @@
       <a href="/how-to-measure-bra-size-at-home" class="nav-item">Guide</a>
       <div class="mobile-menu-actions">
         <div class="theme-switch-container">
-  <button type="button" id="theme-toggle-btn" class="theme-toggle-button" aria-label="Switch Theme Palette (Rose Pink / Emerald Forest)">
+  <button type="button" data-theme-toggle class="theme-toggle-button" aria-label="Switch Theme Palette (Rose Pink / Emerald Forest)">
     <span class="theme-icon-indicator" aria-hidden="true">✦</span>
-    <span class="theme-label" id="theme-current-label">Palette</span>
+    <span class="theme-label">Palette</span>
   </button>
 </div>
 
         <div class="clear-data-container">
-  <button type="button" id="clear-my-data-btn" class="clear-data-button" title="Clear saved measurement and calculator data from this browser" aria-label="Clear saved measurement data">
+  <button type="button" data-clear-data class="clear-data-button" title="Clear saved measurement and calculator data from this browser" aria-label="Clear saved measurement data">
     <span class="clear-icon" aria-hidden="true">↺</span>
     <span>Clear my data</span>
   </button>
@@ -104,14 +104,14 @@
 
     <div class="header-actions">
       <div class="theme-switch-container">
-  <button type="button" id="theme-toggle-btn" class="theme-toggle-button" aria-label="Switch Theme Palette (Rose Pink / Emerald Forest)">
+  <button type="button" data-theme-toggle class="theme-toggle-button" aria-label="Switch Theme Palette (Rose Pink / Emerald Forest)">
     <span class="theme-icon-indicator" aria-hidden="true">✦</span>
-    <span class="theme-label" id="theme-current-label">Palette</span>
+    <span class="theme-label">Palette</span>
   </button>
 </div>
 
       <div class="clear-data-container">
-  <button type="button" id="clear-my-data-btn" class="clear-data-button" title="Clear saved measurement and calculator data from this browser" aria-label="Clear saved measurement data">
+  <button type="button" data-clear-data class="clear-data-button" title="Clear saved measurement and calculator data from this browser" aria-label="Clear saved measurement data">
     <span class="clear-icon" aria-hidden="true">↺</span>
     <span>Clear my data</span>
   </button>
@@ -226,7 +226,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Universal Bra Size Calculator</h3>
-      <p></p>
+      <p>Estimate a US, UK, EU, and AU sizing starting point from measurements.</p>
       <a href="/bra-size-calculator">Open Calculator →</a>
     </article>
     
@@ -234,7 +234,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Bra Fit Checker & Problem Solver</h3>
-      <p></p>
+      <p>Review common bra-fit issues and compare possible adjustments.</p>
       <a href="/bra-fit-checker">Open Calculator →</a>
     </article>
     
@@ -242,7 +242,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Bra Size to Measurements</h3>
-      <p></p>
+      <p>Estimate reference underbust and bust ranges for a selected size.</p>
       <a href="/bra-size-to-measurements">Open Calculator →</a>
     </article>
     
@@ -250,7 +250,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Sister Size Calculator</h3>
-      <p></p>
+      <p>Explore common adjacent sister-size alternatives within a sizing system.</p>
       <a href="/sister-size-calculator">Open Calculator →</a>
     </article>
     
@@ -258,7 +258,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Brand Size Converter</h3>
-      <p></p>
+      <p>Compare how a baseline size is labeled in the US and UK sizing systems used by selected brands. Always confirm with the brand's own chart.</p>
       <a href="/brand-size-converter">Open Calculator →</a>
     </article>
     
@@ -266,7 +266,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Sports Bra Calculator</h3>
-      <p></p>
+      <p>Estimate a sports-bra starting point and compare support considerations by activity.</p>
       <a href="/sports-bra-calculator">Open Calculator →</a>
     </article>
     
@@ -274,7 +274,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Maternity & Nursing Bra Calculator</h3>
-      <p></p>
+      <p>Estimate a current maternity or nursing bra starting point from measurements.</p>
       <a href="/maternity-nursing-bra-calculator">Open Calculator →</a>
     </article>
     
@@ -282,7 +282,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Plus-Size Bra Calculator</h3>
-      <p></p>
+      <p>Estimate a plus-size bra starting point using the same basic measurement reference.</p>
       <a href="/plus-size-bra-calculator">Open Calculator →</a>
     </article>
     
@@ -290,7 +290,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Men's Bra Calculator</h3>
-      <p></p>
+      <p>Estimate a bra-size starting point for men's and gender-diverse shoppers using measurements.</p>
       <a href="/mens-bra-calculator">Open Calculator →</a>
     </article>
     
@@ -298,7 +298,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>First Bra Calculator</h3>
-      <p></p>
+      <p>Use measurements to get a beginner bra starting point without assuming a particular age or bra style.</p>
       <a href="/first-bra-calculator">Open Calculator →</a>
     </article>
     
@@ -306,7 +306,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Panty Size Calculator</h3>
-      <p></p>
+      <p>Convert waist and hip dimensions to US, UK, and European brief and thong sizes.</p>
       <a href="/panty-size-calculator">Open Calculator →</a>
     </article>
     
@@ -314,7 +314,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Matching Set Calculator</h3>
-      <p></p>
+      <p>Coordinate complementary bra and panty sizes for balanced lingerie sets.</p>
       <a href="/matching-set-calculator">Open Calculator →</a>
     </article>
     
@@ -322,7 +322,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Swimwear Size Calculator</h3>
-      <p></p>
+      <p>Estimate bra-sized swimwear and review one-piece fit considerations such as torso length and construction.</p>
       <a href="/swimwear-size-calculator">Open Calculator →</a>
     </article>
     
@@ -330,7 +330,7 @@
       <div class="home-card-icon" aria-hidden="true">◆</div>
       
       <h3>Shapewear Size Calculator</h3>
-      <p></p>
+      <p>Use waist and hip measurements to compare shapewear sizing references and compression guidance.</p>
       <a href="/shapewear-size-calculator">Open Calculator →</a>
     </article>
     
@@ -366,70 +366,70 @@
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
       <h3>Bra Sizing Methodology</h3>
-      <p></p>
+      <p>See the formulas, cup mappings, band conversions, sister-size logic, and limitations used by the main calculator.</p>
       <a href="/bra-sizing-methodology">Read Guide →</a>
     </article>
     
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
       <h3>How to Measure Bra Size at Home</h3>
-      <p></p>
+      <p>Step-by-step tutorial with tape positioning, posture tips, and common pitfalls.</p>
       <a href="/how-to-measure-bra-size-at-home">Read Guide →</a>
     </article>
     
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
       <h3>How Bra Sizes Are Determined</h3>
-      <p></p>
+      <p>Understand band measurements, cup-index mapping, international labels, and the limits of sizing formulas.</p>
       <a href="/how-bra-sizes-are-determined">Read Guide →</a>
     </article>
     
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
-      <h3>Bra Cup Size Guide (AA to O)</h3>
-      <p></p>
+      <h3>Bra Cup Size Guide (AA to L)</h3>
+      <p>Compare cup-letter sequences across common US, UK, and EU sizing conventions.</p>
       <a href="/bra-cup-size-guide">Read Guide →</a>
     </article>
     
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
       <h3>How to Measure Band Size Correctly</h3>
-      <p></p>
+      <p>Learn consistent band measurement technique and how BraSizePRO uses the result as a sizing starting point.</p>
       <a href="/how-to-measure-band-size">Read Guide →</a>
     </article>
     
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
       <h3>Universal Bra Measurement Chart</h3>
-      <p></p>
+      <p>Searchable cross-reference table matching inches and centimeters to global bra sizes.</p>
       <a href="/bra-measurement-chart">Read Guide →</a>
     </article>
     
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
       <h3>Sister Sizing Explained</h3>
-      <p></p>
+      <p>Understand adjacent band-and-cup relationships and why garment construction can change the fit.</p>
       <a href="/sister-sizing-explained">Read Guide →</a>
     </article>
     
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
       <h3>9 Signs Your Bra Doesn't Fit</h3>
-      <p></p>
+      <p>Review common signs of bra-fit problems and possible adjustments.</p>
       <a href="/signs-your-bra-doesnt-fit">Read Guide →</a>
     </article>
     
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
       <h3>How to Measure for a Sports Bra</h3>
-      <p></p>
+      <p>Compare sports-bra construction and support considerations by activity.</p>
       <a href="/how-to-measure-sports-bra">Read Guide →</a>
     </article>
     
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
       <h3>Bra Size to Bust Size Chart</h3>
-      <p></p>
+      <p>Reference approximate relationships between band, bust measurement and cup difference.</p>
       <a href="/bra-size-to-bust-size-chart">Read Guide →</a>
     </article>
     
@@ -464,61 +464,61 @@
     
     <div class="brand-card">
       <strong>Panache</strong>
-      <span></span>
+      <span>UK · UK sizing</span>
       <p>Sizing and fit can vary by style. Check the brand's current product chart before ordering.</p>
     </div>
     
     <div class="brand-card">
       <strong>Freya</strong>
-      <span></span>
+      <span>UK · UK sizing</span>
       <p>Sizing and fit can vary by style. Check the brand's current product chart before ordering.</p>
     </div>
     
     <div class="brand-card">
       <strong>Wacoal</strong>
-      <span></span>
+      <span>US · US sizing</span>
       <p>Sizing and fit can vary by style. Check the brand's current product chart before ordering.</p>
     </div>
     
     <div class="brand-card">
       <strong>Victoria's Secret</strong>
-      <span></span>
+      <span>US · US sizing</span>
       <p>Sizing and fit can vary by style. Check the brand's current product chart before ordering.</p>
     </div>
     
     <div class="brand-card">
       <strong>Natori</strong>
-      <span></span>
+      <span>US · US sizing</span>
       <p>Sizing and fit can vary by style. Check the brand's current product chart before ordering.</p>
     </div>
     
     <div class="brand-card">
       <strong>ThirdLove</strong>
-      <span></span>
+      <span>US · US sizing</span>
       <p>Sizing and fit can vary by style. Check the brand's current product chart before ordering.</p>
     </div>
     
     <div class="brand-card">
       <strong>Aerie</strong>
-      <span></span>
+      <span>US · US sizing</span>
       <p>Sizing and fit can vary by style. Check the brand's current product chart before ordering.</p>
     </div>
     
     <div class="brand-card">
       <strong>Skims</strong>
-      <span></span>
+      <span>US · US sizing</span>
       <p>Sizing and fit can vary by style. Check the brand's current product chart before ordering.</p>
     </div>
     
     <div class="brand-card">
       <strong>Elomi</strong>
-      <span></span>
+      <span>UK · UK sizing</span>
       <p>Sizing and fit can vary by style. Check the brand's current product chart before ordering.</p>
     </div>
     
     <div class="brand-card">
       <strong>Curvy Kate</strong>
-      <span></span>
+      <span>UK · UK sizing</span>
       <p>Sizing and fit can vary by style. Check the brand's current product chart before ordering.</p>
     </div>
     
@@ -557,20 +557,25 @@
   const bustValue = document.getElementById('quick-bust-value');
   const result = document.getElementById('quick-size-result');
   const regions = document.getElementById('quick-size-regions');
-  const cups = ['AA', 'A', 'B', 'C', 'D', 'DD', 'DDD/F', 'G', 'H', 'I'];
+  const cupsUS = ['AA', 'A', 'B', 'C', 'D', 'DD', 'DDD/F', 'G', 'H', 'I'];
+  const cupsUK = ['AA', 'A', 'B', 'C', 'D', 'DD', 'E', 'F', 'FF', 'G'];
+  const cupsEU = ['AA', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
 
   function updateQuickEstimate() {
     const bandRaw = Math.round(Number(underbust.value));
     const band = bandRaw % 2 === 0 ? bandRaw : bandRaw + 1;
     const bustValueNumber = Number(bust.value);
     const diff = Math.max(0, bustValueNumber - bandRaw);
-    const cup = cups[Math.min(Math.round(diff), cups.length - 1)] || 'D';
+    const cupIndex = Math.min(Math.round(diff), cupsUS.length - 1);
+    const usCup = cupsUS[cupIndex] || 'D';
+    const ukCup = cupsUK[Math.min(cupIndex, cupsUK.length - 1)] || 'D';
+    const euCup = cupsEU[Math.min(cupIndex, cupsEU.length - 1)] || 'D';
     const eu = Math.max(60, Math.round((band * 2.54 / 5)) * 5 - 10);
 
     underbustValue.value = bandRaw;
     bustValue.value = bustValueNumber;
-    result.textContent = band + cup;
-    regions.textContent = 'UK: ' + band + cup + ' · EU: ' + eu + cup;
+    result.textContent = band + usCup;
+    regions.textContent = 'UK: ' + band + ukCup + ' · EU: ' + eu + euCup;
 
     bust.min = bandRaw;
     if (Number(bust.value) < bandRaw) bust.value = bandRaw;

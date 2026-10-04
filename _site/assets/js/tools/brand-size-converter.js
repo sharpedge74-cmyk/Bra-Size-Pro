@@ -18,14 +18,16 @@ document.addEventListener('DOMContentLoaded', () => {
     const brands = IMRango.getData('brands') || [];
     const brand = brands.find(b => b.id === brandId);
 
+    IMRango.clearError(convertBtn);
+
     if (!brand || !Number.isFinite(band) || band < 28 || band > 50 || band % 2 !== 0) {
-      alert('Please enter a valid even band size from 28 to 50 and select a brand.');
+      IMRango.showError(convertBtn, 'Please enter a valid even band size from 28 to 50 and select a brand.');
       return;
     }
 
     const cupIdx = IMRango.CUP_ORDER_US.indexOf(cup);
     if (cupIdx < 0) {
-      alert('Please select a valid baseline cup.');
+      IMRango.showError(convertBtn, 'Please select a valid baseline cup.');
       return;
     }
 

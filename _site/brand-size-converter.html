@@ -62,7 +62,7 @@
   ]
 }
 </script>
-<script src="http://127.0.0.1:35729/livereload.js"></script></head>
+</head>
 <body class="site-body">
   <header class="site-header">
   <div class="site-header-inner">
@@ -77,7 +77,7 @@
       </a>
     </div>
 
-    <button class="mobile-nav-toggle" id="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation">
+    <button class="mobile-nav-toggle" id="mobile-nav-toggle" type="button" aria-expanded="false" aria-controls="site-navigation" aria-label="Open menu">
       <span class="mobile-nav-icon" aria-hidden="true"><span></span><span></span><span></span></span>
       
     </button>
@@ -91,14 +91,14 @@
       <a href="/how-to-measure-bra-size-at-home" class="nav-item">Guide</a>
       <div class="mobile-menu-actions">
         <div class="theme-switch-container">
-  <button type="button" id="theme-toggle-btn" class="theme-toggle-button" aria-label="Switch Theme Palette (Rose Pink / Emerald Forest)">
+  <button type="button" data-theme-toggle class="theme-toggle-button" aria-label="Switch Theme Palette (Rose Pink / Emerald Forest)">
     <span class="theme-icon-indicator" aria-hidden="true">✦</span>
-    <span class="theme-label" id="theme-current-label">Palette</span>
+    <span class="theme-label">Palette</span>
   </button>
 </div>
 
         <div class="clear-data-container">
-  <button type="button" id="clear-my-data-btn" class="clear-data-button" title="Clear saved measurement and calculator data from this browser" aria-label="Clear saved measurement data">
+  <button type="button" data-clear-data class="clear-data-button" title="Clear saved measurement and calculator data from this browser" aria-label="Clear saved measurement data">
     <span class="clear-icon" aria-hidden="true">↺</span>
     <span>Clear my data</span>
   </button>
@@ -109,14 +109,14 @@
 
     <div class="header-actions">
       <div class="theme-switch-container">
-  <button type="button" id="theme-toggle-btn" class="theme-toggle-button" aria-label="Switch Theme Palette (Rose Pink / Emerald Forest)">
+  <button type="button" data-theme-toggle class="theme-toggle-button" aria-label="Switch Theme Palette (Rose Pink / Emerald Forest)">
     <span class="theme-icon-indicator" aria-hidden="true">✦</span>
-    <span class="theme-label" id="theme-current-label">Palette</span>
+    <span class="theme-label">Palette</span>
   </button>
 </div>
 
       <div class="clear-data-container">
-  <button type="button" id="clear-my-data-btn" class="clear-data-button" title="Clear saved measurement and calculator data from this browser" aria-label="Clear saved measurement data">
+  <button type="button" data-clear-data class="clear-data-button" title="Clear saved measurement and calculator data from this browser" aria-label="Clear saved measurement data">
     <span class="clear-icon" aria-hidden="true">↺</span>
     <span>Clear my data</span>
   </button>
@@ -315,7 +315,7 @@
     <li><strong>System mapping:</strong> that cup position is read against the selected brand's declared US or UK system.</li>
     <li><strong>Brand note:</strong> the result does not model every style. Use the brand's current product chart for the specific garment before ordering.</li>
   </ol>
-  <p>Manufacturer sizing can vary even when labels match; research has documented measurable differences in cup volume between manufacturers. citeturn0search0</p>
+  <p>Manufacturer sizing can vary even when labels match; research has documented measurable differences in cup volume between manufacturers. (<a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" rel="noopener" target="_blank">Moscarelli et al.</a>)</p>
 </section>
 
   <div id="brand-result-card" class="sizing-result-box" style="display: none; margin-top: 2rem;">

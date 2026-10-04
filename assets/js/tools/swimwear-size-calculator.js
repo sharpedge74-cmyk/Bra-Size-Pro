@@ -11,20 +11,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const bust = parseFloat(document.getElementById('sw-bust').value);
     const torso = parseFloat(document.getElementById('sw-torso').value); // optional diagonal torso loop
 
+    IMRango.clearError(form);
+
     if (!Number.isFinite(underbust) || !Number.isFinite(bust) || underbust <= 0 || bust < underbust) {
-      alert('Please provide valid underbust and bust measurements.');
+      IMRango.showError(form, 'Please provide valid underbust and bust measurements.');
       return;
     }
 
     const band = IMRango.calculateBand(underbust);
     if (band === null) {
-      alert('Please enter an underbust measurement within the calculator reference range (27–51 inches / 68.6–129.5 cm).');
+      IMRango.showError(form, IMRango.getBandErrorMessage(underbust));
       return;
     }
     const cupIdx = IMRango.calculateCupIndex(bust, underbust, 'us');
     const cup = IMRango.getCupForSystem(cupIdx, 'us');
     if (cup === null) {
-      alert('We could not calculate a cup starting point from these measurements.');
+      IMRango.showError(form, 'We could not calculate a cup starting point from these measurements.');
       return;
     }
 

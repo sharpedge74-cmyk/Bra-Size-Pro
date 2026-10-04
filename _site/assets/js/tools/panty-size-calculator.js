@@ -12,8 +12,10 @@ document.addEventListener('DOMContentLoaded', () => {
     let waist = parseFloat(document.getElementById('panty-waist').value);
     let hips = parseFloat(document.getElementById('panty-hips').value);
 
+    IMRango.clearError(form);
+
     if (!Number.isFinite(waist) || !Number.isFinite(hips) || waist <= 0 || hips <= 0) {
-      alert('Please enter valid positive waist and hip measurements.');
+      IMRango.showError(form, 'Please enter valid positive waist and hip measurements.');
       return;
     }
 
@@ -24,7 +26,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const rows = IMRango.getData('sizes')?.panty_sizes || [];
     if (!rows.length) {
-      alert('Panty size reference data is unavailable. Please try again.');
+      IMRango.showError(form, 'Panty size reference data is unavailable. Please try again.');
       return;
     }
 
@@ -59,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
       return;
     }
     if (!result) {
-      alert('Your measurements fall outside this reference chart. Check the current brand size chart before choosing a size.');
+      IMRango.showError(form, 'Your measurements fall outside this reference chart. Check the current brand size chart before choosing a size.');
       return;
     }
 

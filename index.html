@@ -171,20 +171,25 @@ permalink: /
   const bustValue = document.getElementById('quick-bust-value');
   const result = document.getElementById('quick-size-result');
   const regions = document.getElementById('quick-size-regions');
-  const cups = ['AA', 'A', 'B', 'C', 'D', 'DD', 'DDD/F', 'G', 'H', 'I'];
+  const cupsUS = ['AA', 'A', 'B', 'C', 'D', 'DD', 'DDD/F', 'G', 'H', 'I'];
+  const cupsUK = ['AA', 'A', 'B', 'C', 'D', 'DD', 'E', 'F', 'FF', 'G'];
+  const cupsEU = ['AA', 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I'];
 
   function updateQuickEstimate() {
     const bandRaw = Math.round(Number(underbust.value));
     const band = bandRaw % 2 === 0 ? bandRaw : bandRaw + 1;
     const bustValueNumber = Number(bust.value);
     const diff = Math.max(0, bustValueNumber - bandRaw);
-    const cup = cups[Math.min(Math.round(diff), cups.length - 1)] || 'D';
+    const cupIndex = Math.min(Math.round(diff), cupsUS.length - 1);
+    const usCup = cupsUS[cupIndex] || 'D';
+    const ukCup = cupsUK[Math.min(cupIndex, cupsUK.length - 1)] || 'D';
+    const euCup = cupsEU[Math.min(cupIndex, cupsEU.length - 1)] || 'D';
     const eu = Math.max(60, Math.round((band * 2.54 / 5)) * 5 - 10);
 
     underbustValue.value = bandRaw;
     bustValue.value = bustValueNumber;
-    result.textContent = band + cup;
-    regions.textContent = 'UK: ' + band + cup + ' · EU: ' + eu + cup;
+    result.textContent = band + usCup;
+    regions.textContent = 'UK: ' + band + ukCup + ' · EU: ' + eu + euCup;
 
     bust.min = bandRaw;
     if (Number(bust.value) < bandRaw) bust.value = bandRaw;
