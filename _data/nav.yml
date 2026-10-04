@@ -40,7 +40,7 @@ all_tools:
     icon: "Sparkles"
   - title: "Brand Size Converter"
     url: "/brand-size-converter"
-    desc: "Compare sizes across Victoria's Secret, Panache, Freya, Skims, Wacoal, and Natori."
+    desc: "Compare how a baseline size is labeled in the US and UK sizing systems used by selected brands. Always confirm with the brand's own chart."
     icon: "Tag"
   - title: "Sports Bra Calculator"
     url: "/sports-bra-calculator"

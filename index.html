@@ -91,7 +91,7 @@ permalink: /
       <div class="home-card-icon" aria-hidden="true">◆</div>
       {% if tool.badge %}<span class="home-card-badge">{{ tool.badge }}</span>{% endif %}
       <h3>{{ tool.title }}</h3>
-      <p>{{ tool.description }}</p>
+      <p>{{ tool.desc }}</p>
       <a href="{{ tool.url }}">Open Calculator →</a>
     </article>
     {% endfor %}
@@ -112,7 +112,7 @@ permalink: /
     <article class="home-card">
       <span class="home-card-meta">Guide</span>
       <h3>{{ guide.title }}</h3>
-      <p>{{ guide.description }}</p>
+      <p>{{ guide.desc }}</p>
       <a href="{{ guide.url }}">Read Guide →</a>
     </article>
     {% endfor %}
@@ -132,7 +132,7 @@ permalink: /
     {% for brand in site.data.brands %}
     <div class="brand-card">
       <strong>{{ brand.name }}</strong>
-      <span>{{ brand.bandFit }}</span>
+      <span>{{ brand.origin }} · {{ brand.sizing_system | upcase }} sizing</span>
       <p>{{ brand.notes }}</p>
     </div>
     {% endfor %}
