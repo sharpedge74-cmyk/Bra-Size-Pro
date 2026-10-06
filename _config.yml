@@ -1,7 +1,7 @@
 title: "Bra Size - Bra Size Calculators & Fit Guides"
 description: "Bra size calculators, sister size conversions, fit guidance, and sizing references for US, UK, EU, AU and related sizing systems."
 baseurl: ""
-url: "https://Bra Size.com"
+url: "https://brasizepro.com"
 permalink: /:basename
 
 include:
@@ -35,6 +35,6 @@ sass:
 
 brand:
   name: "Bra Size"
-  domain: "https://Bra Size.com"
+  domain: "https://brasizepro.com"
   tagline: "Independent Bra Sizing & Fit Reference"
   founding_year: 2024
