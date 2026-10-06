@@ -110,7 +110,6 @@ all_guides:
   - title: "Bra Size to Bust Size Chart"
     url: "/bra-size-to-bust-size-chart"
     desc: "Reference approximate relationships between band, bust measurement and cup difference."
-
   - title: "Bra Size Guide by Size"
     url: "/bra-size-guide-by-size"
     desc: "Detailed reference for individual bra sizes from 26AA through 52K, with band-and-cup explanations and fit context."
