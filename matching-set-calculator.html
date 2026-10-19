@@ -1,15 +1,17 @@
 ---
 layout: tool
-title: "Matching Set Calculator"
-description: "Coordinate your ideal bra and panty sizes for balanced lingerie sets, ensuring the bra supports properly without compromising bottom comfort."
+title: "Matching Bra and Panty Set Calculator"
+description: "Estimate a bra starting label and a separate panty reference size from your measurements, with clear limits for coordinated sets."
 permalink: /matching-set-calculator
 breadcrumb_label: "Matching Set Calculator"
 intent: "Coordinate bra and panty sizes for full lingerie sets"
-last_reviewed: "2026-02-18"
+last_reviewed: "2026-10-19"
 tool_js: "matching-set-calculator.js"
 ads: "tool"
 sources:
-  - "Apparel Manufacturing Standards: Proportional grading for coordinated intimates sets"
+  - '<a href="https://www.ae.com/US/en/content/help/aerie-size-chart" target="_blank" rel="noopener">Aerie official size chart — checked 2026-10-19</a>'
+  - '<a href="https://www.thirdlove.com/pages/bra-size-chart" target="_blank" rel="noopener">ThirdLove official bra size chart — checked 2026-10-19</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" target="_blank" rel="noopener">Moscarelli et al. (2025), variation in bra cup sizing among manufacturers — retrieved 2026-10-19</a>
 related_tool:
   title: "Universal Bra Size Calculator"
   desc: "Get a measurement-based bra starting point."
@@ -19,10 +21,20 @@ related_guide:
   desc: "Compare sizing charts across international systems."
   url: "/bra-measurement-chart"
 faq:
-  - q: "What should I do if a brand only sells sets in fixed S/M/L combinations?"
-    a: "Avoid fixed one-size-fits-all sets if you have full bust proportions (e.g. 30F with S bottoms). Look for brands offering separates or bra-sized sets."
+  - q: "Can my bra and panty sizes be different?"
+    a: "Yes. The two pieces use different measurements and may use different sizing scales. This tool calculates a bra starting label from underbust and bust, then matches the hip measurement to its panty reference table."
+  - q: "What if a brand sells only fixed-size matching sets?"
+    a: "Compare the brand's chart for both pieces before buying. If the set cannot accommodate your bra and bottom measurements comfortably, look for separates or a style with separately sized pieces."
+  - q: "Does the calculator guarantee the top and bottom will fit as a set?"
+    a: "No. It displays two independent starting references. It does not account for every brand, fabric, cut, cup shape, or product-specific fit detail."
+  - q: "How is the bra starting label calculated?"
+    a: "The tool applies the site's band rule to the underbust measurement and maps bust minus underbust to its configured US cup sequence. This label is a starting point, not a universal fit prediction."
+  - q: "Why should I check the manufacturer's chart?"
+    a: "Brands can use different bra and bottom size ranges. A chart for the exact product is more relevant than assuming that one international label maps perfectly to another."
+
 ---
 
+<section class="calculator-reference"><h2>Direct answer</h2><p>This tool estimates a bra starting label from underbust and bust measurements, then selects a separate panty reference size from your hip measurement. It does not assume that a bra size predicts a bottom size. Treat both results as starting points and compare them with the current chart for the exact set or separates you plan to buy.</p></section>
 <div class="calculator-card">
   <form id="matching-set-form" class="calc-form" data-measurement-unit-form>
     <div class="calc-control-group measurement-unit-control">
@@ -88,3 +100,4 @@ faq:
     <p id="set-res-tip" style="font-size: 0.92rem; color: var(--color-text-muted); margin-top: 0.75rem;"></p>
   </div>
 </div>
+<section class="calculator-reference"><h2>Worked example</h2><p>Suppose your underbust is 32 inches, full bust is 36 inches, and hips are 39 inches. The bust difference is 36 − 32 = 4 inches. The tool applies its band rule to 32 inches and maps the four-inch difference to its configured US cup sequence. A 39-inch hip measurement falls in the reference table's M range of 38–39 inches. These are separate starting references, not a guarantee that every matching set will fit.</p></section>
