@@ -1,15 +1,17 @@
 ---
 layout: tool
-title: "Shapewear Size Calculator"
-description: "Estimate a shapewear starting size from waist and hip measurements and compare the result with the specific garment chart."
+title: "Shapewear Size Calculator: Waist and Hips"
+description: "Estimate a shapewear starting size from waist and hip measurements, compare compression options, and check the garment's size chart."
 permalink: /shapewear-size-calculator
 breadcrumb_label: "Shapewear Calculator"
 intent: "Estimate shapewear size from body measurements"
-last_reviewed: "2026-02-10"
+last_reviewed: "2026-10-19"
 tool_js: "shapewear-size-calculator.js"
 ads: "tool"
 sources:
-  - "Shapewear sizing references; manufacturer and garment-specific charts should take precedence."
+  - '<a href="https://skims.com/en-pf/pages/size-guides-bras" target="_blank" rel="noopener">SKIMS official size guides — checked 2026-10-19; confirm the specific shapewear product chart</a>'
+  - '<a href="https://www.iso.org/standard/61686.html" target="_blank" rel="noopener">ISO 8559-1:2017, clothing anthropometric measurement definitions — checked 2026-10-19</a>'
+  - '<a href="https://www.ae.com/US/en/content/help/aerie-size-chart" target="_blank" rel="noopener">Aerie official size chart — checked 2026-10-19; general apparel reference, not a universal shapewear chart</a>'
 related_tool:
   title: "Panty Size Calculator"
   desc: "Compare regular underwear dimensions."
@@ -19,10 +21,20 @@ related_guide:
   desc: "Reference measurement chart for comparison."
   url: "/bra-measurement-chart"
 faq:
-  - q: "Should I buy a smaller size shapewear for extra slimming?"
-    a: "Do not assume that sizing down improves shapewear performance. Compression level, garment construction, body measurements, and manufacturer instructions all matter. Use the garment's chart and choose a size that fits its stated measurement range."
+  - q: "Should I size down for stronger compression?"
+    a: "No. Do not assume a smaller size is the right way to increase compression. Check the exact garment's measurement chart and compression guidance."
+  - q: "What measurements does this calculator use?"
+    a: "It compares waist and hip measurements with the site's reference ranges. The compression selector changes the displayed guidance, not the size match."
+  - q: "What if my waist and hips point to different sizes?"
+    a: "Use the product's chart and consider its cut and intended fit. The calculator will not force two different measurement ranges into one label."
+  - q: "Can I use this result for every shapewear brand?"
+    a: "No. The ranges are a site reference based on the stored panty-size table, not a verified universal shapewear standard. Check the exact garment chart."
+  - q: "What if shapewear feels painful or restricts movement?"
+    a: "Remove a garment that causes pain, numbness, breathing restriction, or skin injury. Do not treat compression as a reason to tolerate discomfort."
+
 ---
 
+<section class="calculator-reference"><h2>Direct answer</h2><p>This calculator compares your waist and hip measurements with the site's stored reference ranges to suggest a starting size. Its compression selector changes the guidance, not the size calculation. Because shapewear varies by cut, fabric, compression design, and brand, use the result as a reference and check the chart for the exact garment.</p></section>
 <div class="calculator-card">
   <form id="shapewear-form" class="calc-form" data-measurement-unit-form>
     <div class="calc-control-group measurement-unit-control">
@@ -86,3 +98,4 @@ faq:
     </div>
   </div>
 </div>
+<section class="calculator-reference"><h2>Worked example</h2><p>Suppose your waist measures 29 inches and your hips measure 39 inches. The stored reference table lists M for a 28–29-inch waist and 38–39-inch hips, so both measurements fall in that row. The result is M in this site's reference table—not a guarantee that every medium shapewear garment will fit or provide a particular level of compression.</p><p>The calculator's light, medium, and firm options do not automatically move the result down or up a size. Follow the product's own size and compression guidance.</p></section>
