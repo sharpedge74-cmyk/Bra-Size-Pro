@@ -1,15 +1,16 @@
 ---
 layout: tool
-title: "Panty Size Calculator"
-description: "Estimate panty and underwear sizing from waist and hip measurements, with reference sizes for common US, UK, and European lingerie sizing systems."
+title: "Panty Size Calculator: Waist and Hip Guide"
+description: "Estimate a panty size from waist and hip measurements, compare reference labels, and learn when to check a brand's own chart."
 permalink: /panty-size-calculator
 breadcrumb_label: "Panty Size Calculator"
 intent: "Estimate underwear size from waist and hip measurements"
-last_reviewed: "2026-02-20"
+last_reviewed: "2026-10-19"
 tool_js: "panty-size-calculator.js"
 ads: "tool"
 sources:
-  - "Reference measurement terminology; manufacturer size charts may differ."
+  - '<a href="https://www.ae.com/US/en/content/help/aerie-size-chart" target="_blank" rel="noopener">Aerie official size chart — checked 2026-10-19</a>'
+  - '<a href="https://www.iso.org/standard/61686.html" target="_blank" rel="noopener">ISO 8559-1:2017, clothing anthropometric measurement definitions — checked 2026-10-19</a>'
 related_tool:
   title: "Matching Set Calculator"
   desc: "Coordinate complementary bra and bottom sets."
@@ -19,10 +20,20 @@ related_guide:
   desc: "Full international body sizing tables."
   url: "/bra-measurement-chart"
 faq:
-  - q: "Which measurement is more important for panty sizing: waist or hips?"
-    a: "Waist and hip measurements can both matter depending on the garment rise and construction. If your measurements point to different reference sizes, compare both with the manufacturer's chart rather than forcing one size."
+  - q: "Which measurement matters more for panty sizing, waist or hips?"
+    a: "It depends on the garment's cut and the manufacturer's chart. This calculator looks for a reference row matching both measurements; if they do not fit the same row, check the brand chart instead of forcing a label."
+  - q: "How do I measure my hips for underwear?"
+    a: "Measure around the fullest part of your hips and seat, keeping the tape level and comfortably close without pulling it tight. Follow the garment maker's measuring instructions when available."
+  - q: "What if my waist and hips suggest different sizes?"
+    a: "Treat the mismatch as useful information. Different rises and cuts sit on different parts of the body, so compare both measurements with the brand's chart and consider a different cut."
+  - q: "Are US, UK, and EU panty sizes interchangeable?"
+    a: "No universal conversion fits every brand. The labels displayed here come from this site's reference table and may not match every manufacturer's underwear range."
+  - q: "Why does the calculator ask me to check a brand chart?"
+    a: "The reference table is not a universal apparel standard. Fabric stretch, rise, coverage, and brand grading can affect which size feels right."
+
 ---
 
+<section class="calculator-reference"><h2>Direct answer</h2><p>This panty size calculator compares your natural waist and full-hip measurements with a reference table. It returns a label only when both measurements fit a listed row. If your measurements do not match the same row, it asks you to check the manufacturer's chart rather than guess. Use the result as a starting reference because cut, rise, fabric, and brand sizing vary.</p></section>
 <div class="calculator-card">
   <form id="panty-calc-form" class="calc-form" data-measurement-unit-form>
     <div class="calc-control-group measurement-unit-control">
@@ -86,3 +97,4 @@ faq:
     </div>
   </div>
 </div>
+<section class="calculator-reference"><h2>Worked example</h2><p>Suppose your waist is 28 inches and your hips are 38 inches. The reference table lists size M with a waist range of 28–29 inches and hip range of 38–39 inches, so both measurements fit that row. The same row displays US 8–10, UK 12–14, and EU 40–42 as this site's reference labels. These are not guaranteed conversions for every brand.</p></section>
