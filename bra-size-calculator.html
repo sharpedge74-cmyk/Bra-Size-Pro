@@ -1,32 +1,45 @@
 ---
 layout: tool
-title: "Universal Bra Size Calculator"
-description: "Estimate a starting bra size from body measurements and compare common US, UK, EU, and AU size labels. Results are a sizing reference, not a medical assessment."
+title: "Bra Size Calculator: Find Your Starting Size"
+description: "Estimate a starting bra size from snug underbust and standing bust measurements. Compare US, UK, EU, and AU labels, then check the brand's own chart."
 permalink: /bra-size-calculator
 breadcrumb_label: "Bra Size Calculator"
-intent: "Estimate bra size from body measurements and compare international cup labels"
-last_reviewed: "2026-03-15"
+intent: "Estimate a starting bra size from body measurements and compare common regional labels"
+last_reviewed: "2026-10-19"
 tool_js: "bra-size-calculator.js"
 ads: "tool"
 sources:
-  - '<a href="https://www.iso.org/standard/61686.html">ISO 8559-1:2017 — Anthropometric definitions for body measurement</a>'
-  - '<a href="https://pubmed.ncbi.nlm.nih.gov/22397508/">White &amp; Scurr — professional bra fitting criteria</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" target="_blank" rel="noopener">White &amp; Scurr (2012), comparison of traditional sizing and professional fit criteria — retrieved 2026-10-19</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" target="_blank" rel="noopener">Moscarelli et al. (2025), variation in cup sizing among manufacturers — retrieved 2026-10-19</a>'
+  - '<a href="https://www.iso.org/standard/61686.html" target="_blank" rel="noopener">ISO 8559-1:2017, definitions for body measurement — checked 2026-10-19; not a universal bra conversion chart</a>'
 related_tool:
   title: "Sister Size Calculator"
-  desc: "Find identical cup volumes with looser or firmer bands for customized comfort."
+  desc: "Compare nearby band-and-cup labels within a sizing system."
   url: "/sister-size-calculator"
 related_guide:
   title: "How to Measure Bra Size at Home"
-  desc: "Illustrated guide on measurement positioning, posture, and consistent tape placement."
+  desc: "Follow clear steps for taking and recording your measurements."
   url: "/how-to-measure-bra-size-at-home"
 faq:
-  - q: "Why is my calculated size different from the size I usually buy?"
-    a: "Bra sizing is not uniform across brands. This calculator provides a measurement-based starting point; use the target brand's own size chart before purchasing."
-  - q: "What is the difference between US and UK cup sizes?"
-    a: "Cup-letter progressions differ between sizing systems, especially at larger cup ranges. The calculator shows the selected system and common conversions as reference values."
-  - q: "How should I take the measurements?"
-    a: "Use a flexible tape measure and follow the measurement instructions shown in the calculator. Keep the tape level and record the measurements consistently."
+  - q: "How does this bra size calculator work?"
+    a: "It converts the snug underbust to inches, applies the site's documented band rounding rule, and uses the rounded difference between standing bust and snug underbust to select a cup label. The result is a starting point, not a fit guarantee."
+  - q: "Why is my calculated size different from my usual size?"
+    a: "Sizing labels and garment fit can vary between manufacturers and styles. Compare the result with the current chart for the exact bra you are considering."
+  - q: "What is the difference between US and UK bra sizes?"
+    a: "Cup sequences are not identical across all sizing systems. This tool shows labels from its stored regional sequences; use a brand's own chart when shopping."
+  - q: "Do the tight underbust and leaning bust measurements change the result?"
+    a: "No. In the current calculator, snug underbust and standing bust determine the displayed starting size. Tight underbust and leaning bust are optional references only."
 ---
+
+<section class="tool-intro" aria-labelledby="calculator-intro-heading">
+  <h2 id="calculator-intro-heading">Find a bra size starting point</h2>
+  <p>This calculator estimates a starting bra size from two measurements: snug underbust and standing bust. Choose inches or centimeters and a sizing system to see the site's calculated label and common regional equivalents. Measurements are a starting point, not a verdict; check the chart for the specific bra before buying.</p>
+</section>
+
+<section class="tool-intro" aria-labelledby="calculator-intro-heading">
+  <h2 id="calculator-intro-heading">Find a bra size starting point</h2>
+  <p>This calculator estimates a starting bra size from two measurements: snug underbust and standing bust. Choose inches or centimeters and a sizing system to see the site's calculated label and common regional equivalents. Measurements are a starting point, not a verdict; check the chart for the specific bra before buying.</p>
+</section>
 
 <div class="calculator-card">
   <form id="bra-calculator-form" class="calc-form">
@@ -143,3 +156,40 @@ faq:
   <p>This is a reproducible sizing reference, not a universal fit guarantee. Manufacturer charts, garment construction, cup shape, fabric stretch, body shape, and fit preferences can change the size that works in a particular bra. <a href="/bra-sizing-methodology">See the full sizing methodology</a>.</p>
 </section>
 
+<section class="calculator-reference" aria-labelledby="calculator-example-heading">
+  <h2 id="calculator-example-heading">Worked example: 32-inch underbust and 36-inch bust</h2>
+  <p>This example follows the calculator's current rules. It demonstrates the site's calculation, not a guarantee that every 32D bra will fit.</p>
+  <table class="guide-content">
+    <thead><tr><th>Step</th><th>Calculation</th><th>Result</th></tr></thead>
+    <tbody>
+      <tr><td>1. Underbust</td><td>32 inches, rounded to the nearest whole inch</td><td>32</td></tr>
+      <tr><td>2. Band rule</td><td>32 is already even, so no upward adjustment is needed</td><td>32</td></tr>
+      <tr><td>3. Bust difference</td><td>36 − 32 = 4 inches</td><td>Cup index 4</td></tr>
+      <tr><td>4. US cup label</td><td>Index 4 in the site's US sequence (AA, A, B, C, D…)</td><td>32D US</td></tr>
+      <tr><td>5. Stored regional labels</td><td>Current site data maps band 32 to EU 70 and AU 10; the cup index is looked up in each sequence</td><td>32D UK, 70D EU, 10D AU</td></tr>
+    </tbody>
+  </table>
+  <p><strong>Important:</strong> these regional labels reflect BraSizePRO's stored conversion data, checked against the site's implementation on 19 October 2026. They are not a universal standard for every manufacturer or product.</p>
+</section>
+
+<section class="calculator-reference" aria-labelledby="calculator-limits-heading">
+  <h2 id="calculator-limits-heading">What this calculator can and cannot tell you</h2>
+  <ul>
+    <li>It can produce a repeatable label from the two required measurements and the selected cup sequence.</li>
+    <li>It does not model a particular bra's cup shape, wire width, stretch, cut, or construction.</li>
+    <li>Tight underbust and leaning bust are optional and do not change the current result.</li>
+    <li>If the measurements are outside the supported range, or bust is not greater than underbust, the tool asks you to check the inputs.</li>
+    <li>If you have persistent pain, a new lump, or questions related to pregnancy or surgery, consult a qualified clinician. This calculator is not a medical tool.</li>
+  </ul>
+  <p>Some sizing methods add inches to underbust measurements; others use different rounding rules. BraSizePRO uses the formula documented here and on the <a href="/bra-sizing-methodology">sizing methodology page</a>. We do not label every alternative method outdated without a source that supports that exact claim.</p>
+</section>
+
+<nav class="tool-next-steps" aria-label="Related bra sizing resources">
+  <h2>Next steps</h2>
+  <ul>
+    <li><a href="/how-to-measure-bra-size-at-home">Learn how to measure bra size at home</a></li>
+    <li><a href="/bra-fit-checker">Check common bra-fit signs</a></li>
+    <li><a href="/bra-measurement-chart">Review the bra measurement chart</a></li>
+    <li><a href="/sister-size-calculator">Compare sister sizes</a></li>
+  </ul>
+</nav>
