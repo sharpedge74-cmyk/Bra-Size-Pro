@@ -7,8 +7,13 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!form) return;
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const waist = parseFloat(document.getElementById('sh-waist').value);
-    const hips = parseFloat(document.getElementById('sh-hips').value);
+    const unit = form.querySelector('.measurement-unit-select')?.value || 'inches';
+    let waist = parseFloat(document.getElementById('sh-waist').value);
+    let hips = parseFloat(document.getElementById('sh-hips').value);
+    if (unit === 'cm') {
+      waist /= 2.54;
+      hips /= 2.54;
+    }
     const compression = document.getElementById('sh-level').value;
     IMRango.clearError(form);
 
