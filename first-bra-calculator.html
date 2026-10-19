@@ -1,15 +1,17 @@
 ---
 layout: tool
-title: "First Bra Calculator (Teens & Tweens)"
-description: "A gentle, pressure-free calculator for young people getting their first training bra, camisole, or starter bralette."
+title: "First Bra Calculator for Teens and Tweens"
+description: "Find a gentle first-bra starting size from measurements, with comfort-first guidance for training bras, camisoles, and bralettes."
 permalink: /first-bra-calculator
 breadcrumb_label: "First Bra Calculator"
 intent: "Find gentle beginner bra sizes for teens and tweens"
-last_reviewed: "2026-02-24"
+last_reviewed: "2026-10-19"
 tool_js: "first-bra-calculator.js"
 ads: "tool"
 sources:
-  - "General beginner-bra fit guidance; manufacturer sizing charts should be checked for the specific garment."
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" target="_blank" rel="noopener">White &amp; Scurr (2012), traditional sizing compared with professional fit criteria — retrieved 2026-10-19</a>'
+  - '<a href="https://www.iso.org/standard/61686.html" target="_blank" rel="noopener">ISO 8559-1:2017, clothing anthropometric measurement definitions — checked 2026-10-19</a>'
+  - '<a href="https://www.ae.com/US/en/content/help/aerie-size-chart" target="_blank" rel="noopener">Aerie official size chart — checked 2026-10-19</a>'
 related_tool:
   title: "Universal Bra Size Calculator"
   desc: "General measurement-based sizing reference."
@@ -19,12 +21,20 @@ related_guide:
   desc: "Simple instructions for measuring with comfort and privacy."
   url: "/how-to-measure-bra-size-at-home"
 faq:
-  - q: "When should someone get their first bra?"
-    a: "There is no set age. There is no single age or milestone that determines when a first bra is appropriate. Comfort, personal preference, and the fit of the chosen garment are useful considerations."
-  - q: "Do beginner bras have underwires?"
-    a: "There is no universal rule that beginner bras must be wire-free. Many people prefer soft, wire-free styles for comfort, while others may prefer a different construction. Choose a well-fitting garment appropriate for the wearer and follow the manufacturer’s sizing guidance."
+  - q: "When is the right time to get a first bra?"
+    a: "There is no set age. Comfort, personal preference, privacy, and the fit of the chosen garment are more useful guides than a birthday or milestone."
+  - q: "Does someone need to know their cup size to wear a first bra?"
+    a: "No. Some starter garments use general sizes such as XS, S, or M. Follow the manufacturer's chart for that garment."
+  - q: "How can measurements be taken comfortably?"
+    a: "Use a soft tape over light clothing or as directed by the garment's chart, and only measure if the wearer feels comfortable. A trusted adult can help if the young person wants support."
+  - q: "Do first bras have to be wire-free?"
+    a: "No single design is right for everyone. Soft, wire-free options are common, but choose based on comfort, preference, and the product's sizing guidance."
+  - q: "What if the measurement result feels uncomfortable or confusing?"
+    a: "There is no need to force a label. Recheck the measurements if wanted, try a different garment style, or use the brand's own size chart. Comfort and choice matter more than a number."
+
 ---
 
+<section class="calculator-reference"><h2>Direct answer</h2><p>This calculator uses underbust and bust measurements to suggest a starting label for a first bra. It does not assume a particular age or stage of development. Some starter garments use band-and-cup labels, while others use general sizes. Comfort, privacy, personal choice, and the garment's own size chart matter most.</p></section>
 <div class="calculator-card">
   <form id="first-bra-form" class="calc-form" data-measurement-unit-form>
     <div class="calc-control-group measurement-unit-control">
@@ -76,3 +86,4 @@ faq:
     <p id="fb-res-tip" style="font-size: 0.92rem; color: var(--color-text-muted);"></p>
   </div>
 </div>
+<section class="calculator-reference"><h2>Worked example</h2><p>Suppose underbust is 28 inches and bust is 29.5 inches. The difference is 29.5 − 28 = 1.5 inches. The calculator uses its underbust rounding rule for the band starting label and maps the difference through its configured cup sequence. This is a starting label only; a camisole or bralette may use a different chart.</p></section>
