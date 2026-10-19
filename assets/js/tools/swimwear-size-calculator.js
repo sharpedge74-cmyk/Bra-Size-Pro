@@ -7,9 +7,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const underbust = parseFloat(document.getElementById('sw-underbust').value);
-    const bust = parseFloat(document.getElementById('sw-bust').value);
+    const unit = form.querySelector('.measurement-unit-select')?.value || 'inches';
+    let underbust = parseFloat(document.getElementById('sw-underbust').value);
+    let bust = parseFloat(document.getElementById('sw-bust').value);
     const torso = parseFloat(document.getElementById('sw-torso').value); // optional diagonal torso loop
+    if (unit === 'cm') {
+      underbust /= 2.54;
+      bust /= 2.54;
+    }
 
     IMRango.clearError(form);
 
