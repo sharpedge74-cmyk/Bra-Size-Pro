@@ -1,11 +1,11 @@
 ---
 layout: tool
 title: "Plus-Size Bra Calculator"
-description: "A measurement-based starting point for plus-size bra sizing, with US and UK cup labels and fit guidance."
+description: "Get a measurement-based plus-size bra starting point, compare US and UK cup labels, and learn how to check a specific bra's fit."
 permalink: /plus-size-bra-calculator
 breadcrumb_label: "Plus-Size Bra Calculator"
 intent: "Estimate a plus-size bra sizing starting point from body measurements"
-last_reviewed: "2026-03-01"
+last_reviewed: "2026-10-19"
 tool_js: "plus-size-bra-calculator.js"
 ads: "tool"
 related_tool:
@@ -17,10 +17,21 @@ related_guide:
   desc: "Understand cup labels and why they can vary between sizing systems."
   url: "/bra-cup-size-guide"
 faq:
-  - q: "Does being plus size change the basic bra-size calculation?"
-    a: "The same basic measurements can be used as a starting point. Plus-size ranges may offer different styles, constructions and size charts, so compare your measurements with the specific manufacturer's chart and check the actual fit."
+  - q: "Does plus-size bra sizing use a different formula?"
+    a: "This calculator uses the same core relationship as the main calculator: snug underbust for the band starting label and standing bust minus snug underbust for the cup index. It does not add a separate plus-size correction."
+  - q: "Can I use the result for every plus-size brand?"
+    a: "No. Treat the result as a starting label and check the current chart for the exact brand and style. Size availability and garment construction differ."
+  - q: "Do loose, tight, and leaning measurements affect the result?"
+    a: "They are optional inputs for context. The documented calculation uses snug underbust and standing bust; optional measurements are not blended into the core formula."
+  - q: "What if the calculator gives a size I cannot find?"
+    a: "Check the brand's actual size range and any product-specific chart. A calculated label does not mean every manufacturer produces it."
+  - q: "What if a bra causes pain or pressure?"
+    a: "Stop wearing a garment that causes persistent pain or skin injury and reassess fit and style. For ongoing pain, a new lump, or concerns related to surgery or pregnancy, consult a qualified clinician."
+
 ---
 
+<h2>Direct answer</h2>
+<p>This plus-size calculator uses snug underbust and standing bust measurements to produce a starting bra-size label. It applies the site's core calculation rather than adding a separate plus-size correction. The result is a reference, not a fit guarantee: brand charts, garment construction, and available size ranges differ.</p>
 <div class="calculator-card">
   <form id="plus-size-form" class="calc-form" data-measurement-unit-form>
     <div class="calc-control-group measurement-unit-control">
@@ -74,6 +85,10 @@ faq:
     </div>
   </form>
 
+<section class="calculator-reference" aria-labelledby="plus-example-heading">
+  <h2 id="plus-example-heading">Worked example</h2>
+  <p>If snug underbust is 40 inches and standing bust is 48 inches, the cup difference is 48 − 40 = 8 inches. The calculator uses the 40-inch snug underbust to select the band starting label and maps the 8-inch difference through its stored US and UK cup sequences. The final labels depend on those configured sequences; use the result as a starting point, not a fit guarantee.</p>
+</section>
 <section class="calculator-reference" aria-labelledby="plus-reference-heading">
   <h2 id="plus-reference-heading">How this plus-size starting point is calculated</h2>
   <p>This calculator uses the same core measurement relationship as the main bra calculator rather than applying a separate plus-size correction formula.</p>
