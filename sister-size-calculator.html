@@ -1,29 +1,44 @@
 ---
 layout: tool
-title: "Sister Size Calculator"
-description: "Explore common sister-size alternatives across different band sizes. Use them as adjacent fit options, not guarantees of identical physical cup dimensions."
+title: "Sister Size Calculator: Compare Bra Sizes"
+description: "Compare nearby bra sizes with a smaller or larger band. See how the cup label changes and why sister sizes are not guaranteed to fit the same."
 permalink: /sister-size-calculator
 breadcrumb_label: "Sister Size Calculator"
-intent: "Find common sister-size alternatives within a sizing system"
-last_reviewed: "2026-03-14"
+intent: "Find nearby sister-size label combinations within a selected sizing system"
+last_reviewed: "2026-10-19"
 tool_js: "sister-size-calculator.js"
 ads: "tool"
 sources:
-  - "General bra sizing reference; sister-size relationships can vary with garment construction."
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" target="_blank" rel="noopener">Moscarelli et al. (2025), variation in cup sizing among manufacturers — retrieved 2026-10-19</a>'
+  - '<a href="https://www.thirdlove.com/pages/bra-size-chart" target="_blank" rel="noopener">ThirdLove official bra size chart — checked 2026-10-19; brand-specific reference, not a universal standard</a>'
 related_tool:
-  title: "Universal Bra Size Calculator"
-  desc: "Establish your starting benchmark measurements."
+  title: "Bra Size Calculator"
+  desc: "Estimate a starting size from your measurements."
   url: "/bra-size-calculator"
 related_guide:
   title: "Sister Sizing Explained"
-  desc: "See how the adjacent band-and-cup relationship is constructed and where garment differences still matter."
+  desc: "Learn what the adjacent band-and-cup relationship does—and does not—tell you."
   url: "/sister-sizing-explained"
 faq:
   - q: "What is a sister size?"
-    a: "Sister sizes are a common grading relationship intended to preserve a similar cup-capacity relationship while changing the band. Physical cup dimensions, wire geometry, and construction can still differ."
-  - q: "When should I sister size down?"
-    a: "If the band feels too loose and the cups otherwise fit, compare a smaller band with the corresponding larger cup. Check the complete fit before changing size."
+    a: "A sister size is a nearby band-and-cup label commonly used to compare a smaller or larger band while moving the cup label in the opposite direction. It is a comparison, not a promise of identical physical fit."
+  - q: "What is the sister size of 34D?"
+    a: "In the US cup sequence used by this tool, the one-step comparisons are 32DD and 36C. Check the selected sizing system and the specific bra's chart before using these labels to shop."
+  - q: "Should I go up or down a sister size?"
+    a: "Treat the matrix as a shortlist. Consider how the band, cups, wires, and overall shape fit in the actual garment rather than changing size based on one symptom alone."
+  - q: "Are sister sizes identical across brands?"
+    a: "No. The label relationship does not guarantee identical cup dimensions, wire shape, fabric behavior, or fit across manufacturers and styles."
 ---
+
+<section class="tool-intro" aria-labelledby="sister-intro-heading">
+  <h2 id="sister-intro-heading">Compare nearby bra sizes</h2>
+  <p>Enter a band and cup label to see nearby combinations in the selected sizing sequence. The matrix changes the band in two-inch steps and moves the cup position in the opposite direction. These are useful labels to compare, not proof that the bras will feel or fit the same.</p>
+</section>
+
+<section class="tool-intro" aria-labelledby="sister-intro-heading">
+  <h2 id="sister-intro-heading">Compare nearby bra sizes</h2>
+  <p>Enter a band and cup label to see nearby combinations in the selected sizing sequence. The matrix changes the band in two-inch steps and moves the cup position in the opposite direction. These are useful labels to compare, not proof that the bras will feel or fit the same.</p>
+</section>
 
 <div class="calculator-card">
   <form id="sister-size-form" class="calc-form">
@@ -97,3 +112,39 @@ faq:
     </table>
   </div>
 </div>
+
+<section class="calculator-reference" aria-labelledby="sister-example-heading">
+  <h2 id="sister-example-heading">Worked example: 34D in the US sequence</h2>
+  <p>For this example, the current label is 34D. In the site's US cup sequence, the next cup position is DD and the previous position is C.</p>
+  <table class="guide-content">
+    <thead><tr><th>Comparison</th><th>Band change</th><th>Cup change</th><th>Example label</th></tr></thead>
+    <tbody>
+      <tr><td>Two steps smaller band</td><td>34 → 30</td><td>Two cup positions up</td><td>30DDD/F</td></tr>
+      <tr><td>One step smaller band</td><td>34 → 32</td><td>One cup position up</td><td>32DD</td></tr>
+      <tr><td>Current label</td><td>No change</td><td>No change</td><td>34D</td></tr>
+      <tr><td>One step larger band</td><td>34 → 36</td><td>One cup position down</td><td>36C</td></tr>
+      <tr><td>Two steps larger band</td><td>34 → 38</td><td>Two cup positions down</td><td>38B</td></tr>
+    </tbody>
+  </table>
+  <p>This example shows the tool's current US sequence. Cup labels differ by region, and the matrix omits options that fall outside its supported band or cup range.</p>
+</section>
+
+<section class="calculator-reference" aria-labelledby="sister-limits-heading">
+  <h2 id="sister-limits-heading">How to use the matrix</h2>
+  <ul>
+    <li>Use sister sizes to compare adjacent labels when the band feels too loose or too firm and the cups otherwise seem close.</li>
+    <li>Recheck the whole garment. A different band can change how the cups sit and how the wires rest against the body.</li>
+    <li>Do not assume sister sizes have identical cup dimensions or feel identical across brands and styles.</li>
+    <li>The current selector supports the cup options displayed in the form. Some labels may not be available in every regional sequence; if an option cannot be mapped, the tool will ask you to choose a supported label.</li>
+  </ul>
+  <p>For the starting measurement-based label, use the <a href="/bra-size-calculator">Bra Size Calculator</a>. For a fuller explanation, read <a href="/sister-sizing-explained">Sister Sizing Explained</a>.</p>
+</section>
+
+<nav class="tool-next-steps" aria-label="Related bra sizing resources">
+  <h2>Next steps</h2>
+  <ul>
+    <li><a href="/bra-size-calculator">Calculate a starting bra size</a></li>
+    <li><a href="/sister-sizing-explained">Understand sister sizing</a></li>
+    <li><a href="/signs-your-bra-doesnt-fit">Review signs a bra may not fit well</a></li>
+  </ul>
+</nav>
