@@ -1,12 +1,12 @@
 ---
 layout: guide
-title: "Bra Sizing Methodology"
-description: "How Bra Size calculates measurement-based bra-size starting points, maps cup labels, converts common sizing systems, and handles sister sizes."
+title: "Bra Sizing Methodology: Formulas and Limits"
+description: "See how BraSizePRO calculates a starting band and cup label, rounds measurements, maps regional labels, and explains the limits of the result."
 permalink: /bra-sizing-methodology
 breadcrumb_label: "Sizing Methodology"
-last_reviewed: "2026-10-13"
+last_reviewed: "2026-10-19"
 related_tool:
-  title: "Universal Bra Size Calculator"
+  title: "Bra Size Calculator"
   desc: "Compare your measurements with the exact calculation described on this page."
   url: "/bra-size-calculator"
 related_guide:
@@ -14,24 +14,31 @@ related_guide:
   desc: "Understand the cup-letter sequences used in the calculation."
   url: "/bra-cup-size-guide"
 sources:
-  - '<a href="https://www.iso.org/standard/61686.html" rel="noopener">ISO 8559-1:2017 — Anthropometric definitions for body measurement</a>'
-  - '<a href="https://www.iso.org/standard/67334.html" rel="noopener">ISO 8559-3:2018 — Methodology for body measurement tables and intervals</a>'
-  - '<a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" rel="noopener">White & Scurr — Evaluation of professional bra fitting criteria for bra selection and fitting in the UK</a>'
-  - '<a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" rel="noopener">Moscarelli et al. — Understanding Variation in Bra Cup Sizing Among Leading Manufacturers</a>'
+  - '<a href="https://www.iso.org/standard/61686.html" target="_blank" rel="noopener">ISO 8559-1:2017 — Anthropometric definitions for body measurement; checked 2026-10-19</a>'
+  - '<a href="https://www.iso.org/standard/67334.html" target="_blank" rel="noopener">ISO 8559-3:2018 — Methodology for body measurement tables and intervals; checked 2026-10-19</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" target="_blank" rel="noopener">White &amp; Scurr (2012) — Evaluation of professional bra-fitting criteria; retrieved 2026-10-19</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" target="_blank" rel="noopener">Moscarelli et al. (2025) — Variation in bra cup sizing among manufacturers; retrieved 2026-10-19</a>'
 faq:
-  - q: "Does Bra Size use the +4 method?"
-    a: "No. The current calculator uses the entered snug underbust directly, rounds it to an even band value, and does not add four inches."
+  - q: "Does this calculator use the +4 method?"
+    a: "No. The documented formula rounds the snug underbust to a whole inch, then moves to the next even band value when needed. It does not add four inches. Bra-sizing methods differ, so the result should be compared with the fit of the actual garment."
   - q: "How is the cup starting point calculated?"
-    a: "The calculator subtracts snug underbust from standing bust, rounds the difference to the nearest whole inch, and uses that index in the selected sizing system's cup sequence."
-  - q: "Is the calculated size a universal bra size?"
-    a: "No. It is a measurement-based starting point. Brand charts, garment construction, cup shape, fabric stretch, body shape, and fit preferences can change the size that fits best."
+    a: "The calculator subtracts snug underbust from standing bust, rounds the difference to the nearest whole inch, and uses that index in the selected system's stored cup sequence. Negative differences are treated as zero."
+  - q: "Are the regional conversions universal?"
+    a: "No. The displayed values are BraSizePRO's reference mappings. Manufacturer charts may use different conventions, so check the current chart for the exact product."
+  - q: "Will the calculated size fit every bra?"
+    a: "No. Research has found differences in cup volume among manufacturers, and fit also depends on garment shape and construction. Treat the result as a starting point."
+  - q: "Do tight underbust and leaning bust affect the result?"
+    a: "No. The main calculator uses snug underbust and standing bust. Tight underbust and leaning bust are optional reference measurements only."
+
 ---
 
+<h2>Direct answer</h2>
+<p>BraSizePRO calculates a starting label from snug underbust and standing bust measurements. It rounds the underbust to a whole inch, moves to the next even band value when needed, and rounds the bust-minus-underbust difference to choose a cup position. The method is reproducible, but it is not a universal standard or a guarantee of garment fit.</p>
+
 <h2>What this page documents</h2>
-<p>This page describes the current calculation logic used by Bra Size's main Bra Size Calculator. The goal is transparency: you can see which measurements affect the result, how the arithmetic works, and where the result stops being a calculation and becomes a garment-fitting question.</p>
+<p>This page explains the current formula, regional label mappings, and limits of the main calculator. The calculation is a reference point; the manufacturer's chart and the fit of the actual bra remain important.</p>
 
-<p>Bra Size is not treating this method as a universal industry standard. Clothing sizing depends on measurement definitions, sizing systems, population data, and garment design. ISO 8559-1 provides standardized terminology and guidance for clothing-related body measurements, while ISO 8559-3 describes how body-measurement tables and intervals can be constructed and notes that body shape and proportions vary between populations. <a href="https://www.iso.org/standard/61686.html" rel="noopener">ISO 8559-1</a> · <a href="https://www.iso.org/standard/67334.html" rel="noopener">ISO 8559-3</a></p>
-
+<p>ISO 8559-1 defines clothing-related anthropometric measurement terms, and ISO 8559-3 describes a methodology for constructing body-measurement tables and intervals. Neither standard provides a single universal bra-size formula. <a href="https://www.iso.org/standard/61686.html" target="_blank" rel="noopener">ISO 8559-1</a> · <a href="https://www.iso.org/standard/67334.html" target="_blank" rel="noopener">ISO 8559-3</a></p>
 <h2>Inputs used by the main calculator</h2>
 <table>
   <thead>
@@ -200,3 +207,11 @@ faq:
   <li>Evaluate the actual garment's band, cups, wires, straps, and overall comfort.</li>
   <li>If needed, use the <a href="/sister-size-calculator">Sister Size Calculator</a> or <a href="/bra-fit-checker">Bra Fit Checker</a> to explore adjacent sizing and fit considerations.</li>
 </ol>
+<h2>How we calculated this</h2>
+<div class="methodology-note"><p><strong>Band:</strong> convert the snug underbust to inches, round to the nearest whole inch, then move to the next even number if the rounded value is odd.</p><p><strong>Cup index:</strong> subtract snug underbust from standing bust in inches, round the difference to the nearest whole inch, and use the result as an index in the selected stored cup sequence. Negative differences are set to zero. Values beyond the sequence are limited to the last available label.</p><p><strong>Unit handling:</strong> centimeter inputs are converted to inches before the main calculation. Displayed conversions are reference mappings maintained by the site, not a universal industry conversion standard.</p></div>
+
+<h2>About the +4/+5 band method</h2>
+<p>Bra-sizing approaches differ. Some traditional methods add inches to an underbust measurement before selecting a band label. BraSizePRO's calculator does not add four or five inches; it follows the formula documented above. This page does not claim that one method guarantees a better fit for every person or every brand. Compare the calculated starting point with the current product chart and the fit of the garment.</p>
+
+<h2>Limits of the examples and tables</h2>
+<p>The worked example and tables below describe BraSizePRO's calculation rules. They should not be read as official size charts for all manufacturers. The international band mapping and cup-label sequences are site reference values; brand-specific exceptions remain possible.</p>
