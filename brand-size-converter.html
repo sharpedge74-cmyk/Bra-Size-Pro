@@ -1,27 +1,54 @@
 ---
 layout: tool
-title: "Brand Size Converter"
-description: "Compare a baseline bra size with sizing systems used by selected lingerie brands, helping you review brand-specific size labels before choosing a bra."
+title: "Brand Bra Size Converter"
+description: "Compare a baseline US bra size with the general sizing system used by selected lingerie brands. Confirm the result against the brand's current product chart."
 permalink: /brand-size-converter
 breadcrumb_label: "Brand Size Converter"
-intent: "Compare and convert bra sizes between different commercial lingerie brands"
-last_reviewed: "2026-03-08"
+intent: "Compare a baseline bra size with the declared general sizing system for selected lingerie brands"
+last_reviewed: "2026-10-19"
 tool_js: "brand-size-converter.js"
 ads: "tool"
 sources:
-  - "Comparative Technical Evaluation of Commercial Bra Patterns"
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" target="_blank" rel="noopener">Moscarelli et al. (2025), variation in cup sizing among manufacturers — retrieved 2026-10-19</a>'
+  - '<a href="https://media.freyalingerie.com/us/en/size-guide/" target="_blank" rel="noopener">Freya US official size guide — checked 2026-10-19</a>'
+  - '<a href="https://media.freyalingerie.com/uk/en/size-guide/" target="_blank" rel="noopener">Freya UK official size guide — checked 2026-10-19</a>'
+  - '<a href="https://wacoal-america.com/pages/size-charts" target="_blank" rel="noopener">Wacoal official size charts — checked 2026-10-19</a>'
+  - '<a href="https://customercare.victoriassecret.com/articles/Knowledge/2052" target="_blank" rel="noopener">Victoria’s Secret official international size chart — checked 2026-10-19</a>'
+  - '<a href="https://www.natori.com/collections/bra-size-guide" target="_blank" rel="noopener">Natori official bra size guide — checked 2026-10-19; exact product-specific mappings require confirmation</a>'
+  - '<a href="https://www.thirdlove.com/pages/bra-size-chart" target="_blank" rel="noopener">ThirdLove official bra size chart — checked 2026-10-19</a>'
+  - '<a href="https://www.ae.com/US/EN/content/help/aerie-size-chart" target="_blank" rel="noopener">Aerie official size chart — checked 2026-10-19</a>'
+  - '<a href="https://skims.com/en-pf/pages/size-guides-bras" target="_blank" rel="noopener">SKIMS official bra size guide — checked 2026-10-19</a>'
+  - '<a href="https://www.elomilingerie.com/us/en/advice/" target="_blank" rel="noopener">Elomi official fit advice — checked 2026-10-19</a>'
+  - '<a href="https://us.curvykate.com/pages/bra-fitting-size-guide" target="_blank" rel="noopener">Curvy Kate official fitting and size guide — checked 2026-10-19</a>'
+  - '<a href="https://www.panache-lingerie.com/" target="_blank" rel="noopener">Panache official website — checked 2026-10-19; a dedicated chart URL and product-level mapping remain [UNVERIFIED]</a>'
 related_tool:
-  title: "Universal Bra Size Calculator"
-  desc: "Get a measurement-based starting point for comparison."
+  title: "Bra Size Calculator"
+  desc: "Establish a measurement-based starting point before comparing labels."
   url: "/bra-size-calculator"
 related_guide:
-  title: "Universal Bra Measurement Chart"
-  desc: "Examine international band and cup conversion tables."
+  title: "Bra Measurement Chart"
+  desc: "Review regional label references and their limits."
   url: "/bra-measurement-chart"
 faq:
-  - q: "Why do I wear different sizes in different brands?"
-    a: "Bra cup volume and fit can vary between manufacturers, even when the labeled size is the same. Use the converted label only as a reference and check the current product chart for the specific style."
+  - q: "Why do I wear different bra sizes in different brands?"
+    a: "The same labeled size does not guarantee the same cup dimensions or garment fit across manufacturers. Research has measured variation in cup sizing among manufacturers. Compare the exact product's official chart."
+  - q: "Does this converter use each brand's individual product chart?"
+    a: "No. The current tool maps the baseline US cup position to the general US or UK sizing sequence assigned to the selected brand. It does not calculate style-specific fit or verify every product chart."
+  - q: "Can I use the result to order a bra without checking the size chart?"
+    a: "Use the result as a label comparison only. Check the current official chart for the specific product and market before ordering."
+  - q: "Are Panache, Freya, Elomi, and Curvy Kate sizes interchangeable?"
+    a: "The tool groups brands by a general sizing system; that does not prove their products fit identically. Confirm each brand's current chart and the particular style."
 ---
+
+<section class="tool-intro" aria-labelledby="brand-intro-heading">
+  <h2 id="brand-intro-heading">Compare a size label before shopping</h2>
+  <p>This converter maps a baseline US cup label to the general US or UK sizing sequence assigned to the selected brand. It does not read every product's chart or predict style-specific fit. Use the result as a comparison, then check the brand's current chart for the exact product and market.</p>
+</section>
+
+<section class="tool-intro" aria-labelledby="brand-intro-heading">
+  <h2 id="brand-intro-heading">Compare a size label before shopping</h2>
+  <p>This converter maps a baseline US cup label to the general US or UK sizing sequence assigned to the selected brand. It does not read every product's chart or predict style-specific fit. Use the result as a comparison, then check the brand's current chart for the exact product and market.</p>
+</section>
 
 <div class="calculator-card">
   <div class="calc-form">
@@ -95,3 +122,50 @@ faq:
     </div>
   </div>
 </div>
+
+<section class="calculator-reference" aria-labelledby="brand-example-heading">
+  <h2 id="brand-example-heading">Worked example: US 34D as a label comparison</h2>
+  <p>In the site's current cup sequence, a baseline US D cup is at index 4. A brand assigned to the UK sequence maps that index to UK D; the converter keeps the entered band number unchanged.</p>
+  <table class="guide-content">
+    <thead><tr><th>Step</th><th>Rule used by this tool</th><th>Example</th></tr></thead>
+    <tbody>
+      <tr><td>Baseline input</td><td>Enter an even band from 28 to 50 and a supported US cup label</td><td>34D US</td></tr>
+      <tr><td>Find cup position</td><td>Locate D in the stored US cup sequence</td><td>Index 4</td></tr>
+      <tr><td>Choose target sequence</td><td>Use the general US or UK sequence assigned to the selected brand</td><td>UK sequence</td></tr>
+      <tr><td>Map the cup label</td><td>Read index 4 in the UK sequence</td><td>D</td></tr>
+      <tr><td>Display comparison</td><td>Retain the band number</td><td>34D UK label comparison</td></tr>
+    </tbody>
+  </table>
+  <p>This is an example of the tool's sequence mapping. It is <strong>not</strong> confirmation that a particular 34D bra from a selected brand will fit.</p>
+</section>
+
+<section class="calculator-reference" aria-labelledby="brand-data-heading">
+  <h2 id="brand-data-heading">How to verify a brand result</h2>
+  <ol>
+    <li>Open the brand's official chart for the market where you plan to shop.</li>
+    <li>Check whether the chart is for the same garment category. Bra, wireless bra, bralette, sports bra, swimwear, and shapewear charts may differ.</li>
+    <li>Compare the result with the chart for the exact style where one is provided.</li>
+    <li>Use the brand's own guidance if its chart does not support your size or the converter's label.</li>
+  </ol>
+  <p>The source links below were checked on 19 October 2026. They are reference links, not proof that every brand's product-level conversion has been incorporated into this calculator. A dedicated Panache chart URL and some exact product-specific mappings remain <strong>[UNVERIFIED]</strong>.</p>
+</section>
+
+<section class="calculator-reference" aria-labelledby="brand-limits-heading">
+  <h2 id="brand-limits-heading">Limits of this converter</h2>
+  <ul>
+    <li>It maps a cup position between the site's general US and UK sequences and retains the entered band number.</li>
+    <li>It does not read live product inventory, select a bra style, or model fit for a specific garment.</li>
+    <li>It does not use every brand's product chart as an individual conversion table.</li>
+    <li>Manufacturer sizing and garment construction can differ. A peer-reviewed 2025 study measured cup-volume variation among bras from seven manufacturers in the sizes tested; the findings do not cover every brand, size, or style. <a href="https://pubmed.ncbi.nlm.nih.gov/39623226/" target="_blank" rel="noopener">Read the study abstract</a>.</li>
+  </ul>
+  <p>For a measurement-based starting point, use the <a href="/bra-size-calculator">Bra Size Calculator</a>. For regional label references, see the <a href="/bra-measurement-chart">Bra Measurement Chart</a>.</p>
+</section>
+
+<nav class="tool-next-steps" aria-label="Related bra sizing resources">
+  <h2>Next steps</h2>
+  <ul>
+    <li><a href="/bra-size-calculator">Calculate a starting size</a></li>
+    <li><a href="/bra-measurement-chart">Compare regional size labels</a></li>
+    <li><a href="/bra-sizing-methodology">Read the sizing methodology</a></li>
+  </ul>
+</nav>
