@@ -6,9 +6,15 @@ document.addEventListener('DOMContentLoaded', () => {
   if (!form) return;
   form.addEventListener('submit', (e) => {
     e.preventDefault();
-    const underbust = parseFloat(document.getElementById('set-underbust').value);
-    const bust = parseFloat(document.getElementById('set-bust').value);
-    const hips = parseFloat(document.getElementById('set-hips').value);
+    const unit = form.querySelector('.measurement-unit-select')?.value || 'inches';
+    let underbust = parseFloat(document.getElementById('set-underbust').value);
+    let bust = parseFloat(document.getElementById('set-bust').value);
+    let hips = parseFloat(document.getElementById('set-hips').value);
+    if (unit === 'cm') {
+      underbust /= 2.54;
+      bust /= 2.54;
+      hips /= 2.54;
+    }
     IMRango.clearError(form);
 
     if (![underbust, bust, hips].every(Number.isFinite) || underbust <= 0 || bust < underbust || hips <= 0) {
