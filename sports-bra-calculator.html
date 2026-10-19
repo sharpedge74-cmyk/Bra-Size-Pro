@@ -1,15 +1,16 @@
 ---
 layout: tool
-title: "Sports Bra Calculator"
-description: "Estimate a sports-bra starting size from measurements and compare support considerations for different activity levels, styles, and fit preferences online."
+title: "Sports Bra Calculator: Find a Starting Size"
+description: "Estimate a sports-bra starting size from underbust and bust measurements, then compare support-style considerations for your chosen activity."
 permalink: /sports-bra-calculator
 breadcrumb_label: "Sports Bra Calculator"
 intent: "Find sports bra sizes and encapsulation vs compression styles"
-last_reviewed: "2026-03-05"
+last_reviewed: "2026-10-19"
 tool_js: "sports-bra-calculator.js"
 ads: "tool"
 sources:
-  - "Scurr et al. — breast support and exercise biomechanics (PubMed)"
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/32981459/" target="_blank" rel="noopener">Norris et al. (2021), How the characteristics of sports bras affect their performance — retrieved 2026-10-19</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/31198100/" target="_blank" rel="noopener">Exell et al. (2021), breast movement asymmetry and sports-bra support — retrieved 2026-10-19</a>'
 related_tool:
   title: "Universal Bra Size Calculator"
   desc: "Establish your everyday bra foundation."
@@ -19,10 +20,18 @@ related_guide:
   desc: "Learn how measurement and garment design affect sports-bra fit."
   url: "/how-to-measure-sports-bra"
 faq:
-  - q: "What is the difference between compression and encapsulation sports bras?"
-    a: "Compression and encapsulation are different construction approaches, and many sports bras combine elements of both. Do not assign one construction to a cup-size group universally; compare the garment's support design with your activity and personal fit."
+  - q: "How does the sports bra calculator estimate a size?"
+    a: "It uses the site's underbust rounding rule for the band and rounds the bust-minus-underbust difference to a cup index in its US sequence. Activity changes the style guidance, not the calculated label."
+  - q: "Does high-impact activity always require one type of sports bra?"
+    a: "No single construction is best for everyone. Research testing sports bras has found that performance varies by garment characteristics. Compare design, adjustability, comfort, and support during your activity."
+  - q: "What is the difference between compression and encapsulation?"
+    a: "Compression designs press breast tissue closer to the body; encapsulation designs use separate cups. Some garments combine both approaches."
+  - q: "Can I use my everyday bra size for a sports bra?"
+    a: "Use it as a starting point, then check the sports-bra brand's chart and assess the garment during movement. Some sports bras use alpha sizes such as S, M, or L."
+
 ---
 
+<section class="tool-intro" aria-labelledby="sports-intro-heading"><h2 id="sports-intro-heading">Estimate a sports-bra starting point</h2><p>Enter your underbust and full-bust measurements, then choose the activity you have in mind. The calculator estimates a bra-size label and offers general construction ideas to compare. Activity level does not change the calculated size, and the result cannot predict the performance of a specific sports bra.</p></section>
 <div class="calculator-card">
   <form id="sports-bra-form" class="calc-form" data-measurement-unit-form>
     <div class="calc-control-group measurement-unit-control">
@@ -90,3 +99,5 @@ faq:
     </div>
   </div>
 </div>
+
+<section class="calculator-reference"><h2>Worked example: 32-inch underbust and 37-inch bust</h2><p>This follows the current formula. It shows the size-label calculation only, not the support level or fit of a specific garment.</p><table class="guide-content"><thead><tr><th>Step</th><th>Calculation</th><th>Result</th></tr></thead><tbody><tr><td>Band</td><td>32 rounds to 32; already even</td><td>32</td></tr><tr><td>Cup difference</td><td>37 − 32 = 5 inches</td><td>Index 5</td></tr><tr><td>US cup sequence</td><td>Index 5 in stored sequence</td><td>DD</td></tr><tr><td>Activity</td><td>Changes style guidance only</td><td>32DD starting label</td></tr></tbody></table><p>When centimeters are selected, the shared unit handler temporarily converts the entered values to inches for calculation, then restores the displayed values.</p><h2>Choose support by fit and activity, not label alone</h2><ul><li>Research testing 98 sports bras found differences in breast-movement reduction and identified garment characteristics associated with performance. The sample does not represent every sports bra. <a href="https://pubmed.ncbi.nlm.nih.gov/32981459/" target="_blank" rel="noopener">Read Norris et al. (2021)</a>.</li><li>The activity selector gives general guidance; it does not test a garment or measure breast movement.</li><li>Check the product's size chart, adjustability, comfort, and support while moving. Alpha sizes do not map to one universal band-and-cup size.</li><li>If exercise-related pain persists or you have a medical concern, seek advice from a qualified clinician.</li></ul><p>For measuring steps, read <a href="/how-to-measure-sports-bra">How to Measure for a Sports Bra</a>. For an everyday starting label, use the <a href="/bra-size-calculator">Bra Size Calculator</a>.</p></section>
