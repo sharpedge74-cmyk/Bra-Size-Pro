@@ -1,15 +1,17 @@
 ---
 layout: tool
-title: "Maternity & Nursing Bra Calculator"
-description: "Estimate a current maternity or nursing bra starting point from your present measurements, with stage-specific fit considerations."
+title: "Maternity & Nursing Bra Size Calculator"
+description: "Estimate a maternity or nursing bra starting size from current measurements, with practical fit checks for pregnancy and postpartum changes."
 permalink: /maternity-nursing-bra-calculator
 breadcrumb_label: "Maternity & Nursing"
 intent: "Calculate bra sizes during pregnancy and postpartum breastfeeding"
-last_reviewed: "2026-03-02"
+last_reviewed: "2026-10-19"
 tool_js: "maternity-nursing-bra-calculator.js"
 ads: "tool"
 sources:
-  - "General maternity and nursing fit guidance; current measurements and manufacturer charts should be checked for the specific garment."
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/24100511/" target="_blank" rel="noopener">Prospective study of breast volume changes during pregnancy — retrieved 2026-10-19</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/30276455/" target="_blank" rel="noopener">Three-dimensional study of breast volume changes across the menstrual cycle — retrieved 2026-10-19</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" target="_blank" rel="noopener">White &amp; Scurr (2012), traditional sizing compared with professional fit criteria — retrieved 2026-10-19</a>'
 related_tool:
   title: "Universal Bra Size Calculator"
   desc: "Compare against your pre-pregnancy baseline."
@@ -19,10 +21,21 @@ related_guide:
   desc: "Understanding rib cage expansion and diaphragm movement."
   url: "/how-to-measure-band-size"
 faq:
-  - q: "When is the best time to buy nursing bras?"
-    a: "There is no single best week for everyone. Current measurements, comfort, planned use, and the specific manufacturer's sizing guidance are more useful than a fixed pregnancy week. Body measurements can change during pregnancy and after delivery, so recheck fit as needed."
+  - q: "When should I buy a nursing bra?"
+    a: "There is no single best week for everyone. Consider current comfort, how soon you need the garment, adjustability, and the brand's own chart. Measurements and fit can change during pregnancy and postpartum, so recheck as needed."
+  - q: "Will my bra size change during pregnancy?"
+    a: "Measurements can change during pregnancy, but the amount and timing vary by person. A research study reports group-level changes; it cannot predict your individual size. Re-measure when the current garment stops fitting comfortably."
+  - q: "Does the stage selector change my calculated size?"
+    a: "No. The stage selector changes the practical fit guidance, not the core size calculation. The calculator uses the current underbust and bust inputs."
+  - q: "Should I buy a larger cup for breastfeeding?"
+    a: "Do not add a fixed cup size based only on pregnancy or feeding stage. Check current measurements, adjustability, the brand's size chart, and the fit of the specific nursing bra."
+  - q: "When should I speak with a clinician?"
+    a: "For persistent pain, a new lump, skin changes that concern you, or questions related to surgery or pregnancy, consult a qualified clinician. This calculator does not provide medical advice."
+
 ---
 
+<h2>Direct answer</h2>
+<p>This calculator uses your current underbust and bust measurements to estimate a maternity or nursing bra starting label. Your selected stage changes the fit guidance, not the underlying calculation. Because measurements and comfort can change during pregnancy and postpartum, treat the result as a snapshot, check the exact brand's chart, and reassess the garment as needed.</p>
 <div class="calculator-card">
   <form id="maternity-calc-form" class="calc-form" data-measurement-unit-form>
     <div class="calc-control-group measurement-unit-control">
@@ -88,3 +101,11 @@ faq:
     </div>
   </div>
 </div>
+<section class="calculator-reference">
+<h2>Worked example: current measurements</h2>
+<p>Suppose your underbust is 34 inches and your bust is 39 inches. The difference is 39 − 34 = 5 inches. The calculator applies its underbust rounding rule to choose a band starting label, then maps the five-inch difference through its configured US cup sequence. This is a reproducible label estimate, not a prediction of how your body will change or a guarantee of fit.</p>
+<h2>Use the result with care</h2>
+<ul><li>Use measurements taken recently, not only a pre-pregnancy label.</li><li>Check the specific nursing bra's current chart and its adjustment range.</li><li>Assess comfort, cup coverage, band security, and ease of opening or closing the nursing clips.</li><li>Recheck fit when the garment no longer feels comfortable; there is no universal schedule that fits everyone.</li></ul>
+<p>A prospective study has measured breast-volume changes during pregnancy, but a group average cannot predict an individual's changes. <a href="https://pubmed.ncbi.nlm.nih.gov/24100511/" target="_blank" rel="noopener">Read the study</a>. For general measurement steps, use <a href="/how-to-measure-bra-size-at-home">How to Measure Bra Size at Home</a> and <a href="/bra-sizing-methodology">Bra Sizing Methodology</a>.</p>
+</section>
+
