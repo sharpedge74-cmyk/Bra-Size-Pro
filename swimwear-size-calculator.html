@@ -1,15 +1,17 @@
 ---
 layout: tool
-title: "Swimwear Size Calculator"
-description: "Estimate a starting size for bra-sized swimwear and assess one-piece fit considerations from body measurements."
+title: "Swimwear Size Calculator: Bikini and One-Piece"
+description: "Estimate a bra-sized swimwear starting label and review torso-length considerations for one-piece swimsuits."
 permalink: /swimwear-size-calculator
 breadcrumb_label: "Swimwear Calculator"
 intent: "Estimate bra-sized swimwear and review one-piece fit considerations"
-last_reviewed: "2026-02-15"
+last_reviewed: "2026-10-19"
 tool_js: "swimwear-size-calculator.js"
 ads: "tool"
 sources:
-  - "Textile Research Journal: Hydrodynamic performance and wet stretch of elastane-nylon swimwear blends"
+  - '<a href="https://www.ae.com/US/en/content/help/aerie-size-chart" target="_blank" rel="noopener">Aerie official size chart, including swimwear categories — checked 2026-10-19</a>'
+  - '<a href="https://www.iso.org/standard/61686.html" target="_blank" rel="noopener">ISO 8559-1:2017, clothing anthropometric measurement definitions — checked 2026-10-19</a>'
+  - '<a href="https://pubmed.ncbi.nlm.nih.gov/22397508/" target="_blank" rel="noopener">White &amp; Scurr (2012), traditional sizing compared with professional fit criteria — retrieved 2026-10-19</a>'
 related_tool:
   title: "Universal Bra Size Calculator"
   desc: "Establish your dry baseline bra size."
@@ -19,10 +21,20 @@ related_guide:
   desc: "Guide to taking accurate torso and bust measurements."
   url: "/how-to-measure-bra-size-at-home"
 faq:
-  - q: "Should swimwear fit tighter than an everyday bra?"
-    a: "A secure dry fit is important because swimwear fit can change with fabric construction, stretch, movement, and wet conditions. Check the garment's current size chart and fit guidance."
+  - q: "Does this calculator estimate bikini top size?"
+    a: "It provides a bra-sized starting label from underbust and bust measurements using this site's configured sequence. Check the exact swimwear brand's chart because swim tops may use different labels or product-specific sizing."
+  - q: "Can the calculator determine my one-piece swimsuit size?"
+    a: "No. It leaves one-piece sizing brand-dependent because bust and underbust alone do not capture every fit dimension. Compare bust, waist, hip, and torso measurements with the product chart."
+  - q: "How do I measure torso length for a one-piece?"
+    a: "This tool asks for a torso loop measured from the shoulder, down through the body and crotch, and back up as indicated by the field. Follow the swimsuit brand's instructions if they define the path differently."
+  - q: "Should swimwear feel tighter than everyday clothing?"
+    a: "A swimsuit should feel secure for its intended use without painful pressure or restricting comfortable movement. Fabric and construction differ, so use the maker's own fit advice rather than a universal tightness rule."
+  - q: "Are swimwear sizes the same as bra sizes?"
+    a: "Not always. Some bikini tops use band-and-cup labels, while other swimwear uses alpha or numeric sizing. One-piece fit also depends on body length and garment construction."
+
 ---
 
+<section class="calculator-reference"><h2>Direct answer</h2><p>This calculator estimates a starting label for bra-sized bikini or tankini tops from underbust and bust measurements. It does not assign a universal one-piece swimsuit size. For one-pieces, compare your bust, waist, hip, and torso measurements with the manufacturer's current chart because a bra label alone does not describe the whole garment fit.</p></section>
 <div class="calculator-card">
   <form id="swimwear-calc-form" class="calc-form" data-measurement-unit-form>
     <div class="calc-control-group measurement-unit-control">
@@ -88,3 +100,4 @@ faq:
     <p id="sw-res-tip" style="font-size: 0.92rem; color: var(--color-text-muted); margin-top: 0.75rem;"></p>
   </div>
 </div>
+<section class="calculator-reference"><h2>Worked example</h2><p>Suppose your underbust is 34 inches and your bust is 38 inches. The difference is 38 − 34 = 4 inches. The calculator applies its band rule to the 34-inch underbust and maps the four-inch difference through its configured US cup sequence, producing a starting label. The one-piece result remains “Brand-dependent”; use your waist, hips, and torso loop with the exact product chart.</p></section>
